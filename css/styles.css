@@ -1,0 +1,165 @@
+#title {
+  color: #fff;
+  background-color: #ff4c68;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+.container-fluid {
+  padding: 3% 20%;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+p {
+  color: #8f8f8f;
+  /* 회색 */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.navbar {
+  padding: 0 0 4.5rem;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+/* Download Button */
+
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+/* title image */
+.title-image {
+  padding-left: 10%;
+  padding-bottom: 10%;
+  width: 70%;
+  transform: rotate(20deg);
+}
+
+/* features section */
+
+#features {
+  padding: 7% 15%;
+  /* features를 중앙으로 배치하기 위함 */
+}
+
+.features-box {
+  text-align: center;
+  /* 텍스트 중앙배열 */
+  padding: 5%;
+  /* <p>태그의 텍스트가 너무 길게 한줄인 것을
+  두줄로 나타내기위해 패딩을 주었음 */
+}
+
+.icon {
+  color: #ef8172;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: #ff4c68;
+  /* icon위에 마우스를 갖다대면 
+색깔이 변하도록 함. */
+}
+
+/* Developers Section/ */
+
+#Developers {
+  padding: 7% 15% 2%;
+  text-align: center;
+  background-color: #ff4c68;
+  color: #fff;
+}
+.developer {
+  margin-top: 7%;
+}
+.develope {
+  text-align: center;
+}
+
+.develope2 {
+  text-align: center;
+  margin-top: 5%;
+}
+.happy {
+  width: 20%;
+}
+
+.happy2 {
+  width: 20%;
+}
+
+.carousel-item {
+  padding: 7% 15%;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-weight: 700;
+  font-size: 5rem;
+  line-height: 1.5;
+}
+
+.testimonial-image {
+  border-radius: 100%;
+  /* 사진 둥글게 */
+  margin: 20px;
+}
+
+#press {
+  padding-bottom: 3%;
+  text-align: center;
+  background-color: #ff4c68;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+/* pricing Section */
+
+#pricing {
+  padding: 100px;
+  text-align: center;
+}
+
+.pricing-column {
+  padding: 3% 2%;
+}
+
+.pricing_h2 {
+  font-size: 3rem;
+  text-align: left;
+}
+
+.card_head {
+  font-size: 3rem;
+}
