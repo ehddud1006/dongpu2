@@ -6,13 +6,13 @@
 }
 
 .container-fluid {
-  padding: 3% 20%;
+  padding: 3% 20% 5%;
 }
 
 h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
-  font-size: 3.5rem;
+  font-size: 3rem;
   line-height: 1.5;
 }
 
@@ -56,17 +56,29 @@ p {
 
 /* title image */
 .title-image {
-  padding-left: 10%;
-  padding-bottom: 10%;
+  padding-left: 5%;
+
   width: 70%;
-  transform: rotate(20deg);
+  transform: rotate(25deg);
+
+  position: absolute;
 }
+
+/* z-index를 사용하기 위해서는 
+아래에 있는 화면이 absolute
+위에 있는 화면은 relative여야한다.
+그리고 위에 있는 화면이 z-index>0 이상 가져야한다. */
 
 /* features section */
 
 #features {
   padding: 7% 15%;
+
   /* features를 중앙으로 배치하기 위함 */
+  background-color: #fff;
+  /* 기존의 흰 배경색은 디폴트 값이였다 */
+  position: relative;
+  z-index: 1;
 }
 
 .features-box {
@@ -162,4 +174,37 @@ h2 {
 
 .card_head {
   font-size: 3rem;
+}
+
+/* z-index */
+
+.z_index_frame {
+  width: 400px;
+  height: 400px;
+}
+
+.zindex {
+  height: 100px;
+  width: 100px;
+  border: 1px solid;
+  position: absolute;
+}
+
+.red {
+  background-color: red;
+  z-index: 1;
+}
+
+.yellow {
+  background-color: yellow;
+  left: 20px;
+  top: 20px;
+  z-index: 0;
+}
+
+.blue {
+  background-color: blue;
+  left: 40px;
+  top: 40px;
+  z-index: -1;
 }
