@@ -209,6 +209,33 @@ h2 {
   z-index: -1;
 }
 
+/* cta */
+#cta {
+  background-color: #ff4c68;
+  color: #fff;
+  text-align: center;
+}
+
+#cta_h3 {
+  font-size: 2rem;
+  margin-bottom: 7%;
+}
+
+#cta_container {
+  padding: 10% 20% 10%;
+}
+
+/* footer */
+#footer {
+  text-align: center;
+}
+#footer_container {
+  padding: 10% 20% 10%;
+}
+
+.footer-logo {
+  margin: 20px 7px 10px;
+}
 /* media query  */
 
 .media_query {
