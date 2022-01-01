@@ -1,6 +1,4 @@
 #title {
-  color: #fff;
-  background-color: #ff4c68;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
 }
@@ -16,6 +14,11 @@
 
 .container-fluid {
   padding: 3% 20% 5%;
+}
+
+.color_section {
+  background-color: #ff4c68;
+  color: #fff;
 }
 
 h1,
@@ -125,8 +128,6 @@ p {
 #Developers {
   padding: 7% 15% 2%;
   text-align: center;
-  background-color: #ff4c68;
-  color: #fff;
 }
 .developer {
   margin-top: 7%;
@@ -235,8 +236,6 @@ p {
 
 /* cta */
 #cta {
-  background-color: #ff4c68;
-  color: #fff;
   text-align: center;
 }
 
