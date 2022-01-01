@@ -5,19 +5,39 @@
   font-weight: 900;
 }
 
-.container-fluid {
-  padding: 3% 20% 5%;
-}
+/* Headings */
 
-h1 {
+.big-heading {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   font-size: 3rem;
   line-height: 1.5;
 }
 
+.container-fluid {
+  padding: 3% 20% 5%;
+}
+
+h1,
+h2,
 h3 {
   font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 5rem;
+  line-height: 1.5;
+}
+
+h3 {
   font-weight: 900;
 }
 
@@ -131,14 +151,6 @@ p {
   padding: 7% 15%;
 }
 
-h2 {
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-  font-weight: 700;
-  font-size: 5rem;
-  line-height: 1.5;
-}
-
 .testimonial-image {
   border-radius: 100%;
   /* 사진 둥글게 */
@@ -176,6 +188,17 @@ h2 {
   font-size: 3rem;
 }
 
+/* selector */
+
+.selector_frame {
+  width: 400px;
+  height: 400px;
+}
+
+.container #heading .title {
+  color: red;
+}
+
 /* z-index */
 
 .z_index_frame {
@@ -188,6 +211,7 @@ h2 {
   width: 100px;
   border: 1px solid;
   position: absolute;
+  /* z-index를 사용하기위해서는 position absolute 여야한다. */
 }
 
 .red {
