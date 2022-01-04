@@ -1,3 +1,3 @@
-$("h1").text("Bye");
-
-$("button").html("<em>hey</em>");
+$("h1").click(function () {
+  $("h1").css("color", "purple");
+});
