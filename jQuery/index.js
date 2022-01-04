@@ -1,2 +1,1 @@
-$("h1").css("color", "red");
-// document.querySelector("h1").style.color = "red";
+$("h1").addClass("big-title margin-50");
