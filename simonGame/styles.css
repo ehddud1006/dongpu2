@@ -1,20 +1,19 @@
 body {
   text-align: center;
-  background-color: #011F3F;
+  background-color: #011f3f;
 }
 
 #level-title {
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   font-size: 3rem;
-  margin:  5%;
-  color: #FEF2BF;
+  margin: 5%;
+  color: white;
 }
 
 .container {
   display: block;
   width: 50%;
   margin: auto;
-
 }
 
 .btn {
@@ -32,22 +31,243 @@ body {
 }
 
 .red {
-  background-color: red;
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.red:before {
+  content: "";
+  background: rgb(214, 38, 38);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  /* background-size: 100%; */
+  z-index: -1;
+  /* filter: blur(5px); */
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  /* animation: glowing 20s linear infinite;
+  opacity: 0; */
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 20%;
+}
+
+.red:active {
+}
+
+.red:active:after {
+  background: transparent;
+}
+
+.red:hover:before {
+  opacity: 1;
+}
+
+.red:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: red;
+  left: 0;
+  top: 0;
+  border-radius: 20%;
+}
+
+/* @keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+} */
+
+.green {
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
 }
 
 .green {
-  background-color: green;
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.green:before {
+  content: "";
+  background: rgb(25, 179, 25);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  /* background-size: 100%; */
+  z-index: -1;
+  /* filter: blur(5px); */
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  /* animation: glowing 20s linear infinite;
+  opacity: 0; */
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 20%;
+}
+
+.green:active {
+}
+
+.green:active:after {
+  background: transparent;
+}
+
+.green:hover:before {
+  opacity: 1;
+}
+
+.green:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(40, 211, 40);
+  left: 0;
+  top: 0;
+  border-radius: 20%;
 }
 
 .blue {
-  background-color: blue;
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.blue:before {
+  content: "";
+  background: rgb(33, 33, 184);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  /* background-size: 100%; */
+  z-index: -1;
+  /* filter: blur(5px); */
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  /* animation: glowing 20s linear infinite;
+  opacity: 0; */
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 20%;
+}
+
+.blue:active {
+}
+
+.blue:active:after {
+  background: transparent;
+}
+
+.blue:hover:before {
+  opacity: 1;
+}
+
+.blue:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(67, 67, 252);
+  left: 0;
+  top: 0;
+  border-radius: 20%;
 }
 
 .yellow {
-  background-color: yellow;
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.yellow:before {
+  content: "";
+  background: rgb(192, 192, 32);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  /* background-size: 100%; */
+  z-index: -1;
+  /* filter: blur(5px); */
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  /* animation: glowing 20s linear infinite;
+  opacity: 0; */
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 20%;
+}
+
+.yellow:active {
+}
+
+.yellow:active:after {
+  background: transparent;
+}
+
+.yellow:hover:before {
+  opacity: 1;
+}
+
+.yellow:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(241, 241, 12);
+  left: 0;
+  top: 0;
+  border-radius: 20%;
 }
 
 .pressed {
   box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+
+.pressed2 {
+  box-shadow: 0 0 20px rgb(207, 230, 9);
   background-color: grey;
 }
