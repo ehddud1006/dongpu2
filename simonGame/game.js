@@ -43,6 +43,23 @@ function makeSound(key) {
   }
 }
 
+function giveSound() {
+  sleep(2000).then(() => makeSound(randomChosenColor));
+  sleep(2000)
+    .then(() =>
+      document
+        .querySelector("." + randomChosenColor)
+        .classList.toggle("pressed2")
+    )
+    .then(() =>
+      setTimeout(function () {
+        document
+          .querySelector("." + randomChosenColor)
+          .classList.toggle("pressed2");
+      }, 100)
+    );
+}
+
 userChosenColor = [];
 var randomChosenColor = "";
 gamePattern = [];
@@ -53,6 +70,7 @@ press_A = false;
 for (var i = 0; i < 4; i++) {
   document.querySelectorAll(".btn")[i].addEventListener("click", function () {
     if (press_A) {
+      // A 버튼이 눌러지면 실행되게 하기 위해서 넣었습니다.
       var color = this.id;
       var target = this;
       userChosenColor.push(color);
@@ -65,9 +83,10 @@ for (var i = 0; i < 4; i++) {
 
       makeSound(color);
 
-      console.log(go_count + "go_count");
-      console.log(gamePattern[go_count] + " a");
-      console.log(userChosenColor[go_count] + " b");
+      // console.log(go_count + "go_count");
+      // console.log(gamePattern[go_count] + " a");
+      // console.log(userChosenColor[go_count] + " b");
+
       if (gamePattern[go_count] != userChosenColor[go_count]) {
         go_count = count - 1;
       }
@@ -75,20 +94,20 @@ for (var i = 0; i < 4; i++) {
 
       if (go_count == count) {
         go_count = 0;
-        console.log(gamePattern + "gamepattern");
-        console.log(userChosenColor + "randomChosen");
+        // console.log(gamePattern + "gamepattern");
+        // console.log(userChosenColor + "randomChosen");
         var go = true;
         for (var j = 0; j < count; j++) {
           if (gamePattern[j] != userChosenColor[j]) {
-            console.log(gamePattern[j] + "gamepattern22");
-            console.log(randomChosenColor[j] + "randomChosen22");
+            // console.log(gamePattern[j] + "gamepattern22");
+            // console.log(randomChosenColor[j] + "randomChosen22");
             go = false;
           }
         }
         userChosenColor = [];
         count++;
-        console.log(count + " count");
-        console.log(go + " go");
+        // console.log(count + " count");
+        // console.log(go + " go");
         if (go) {
           sleep(1000).then(
             () => (document.querySelector("h1").innerHTML = "Level " + count)
@@ -97,20 +116,7 @@ for (var i = 0; i < 4; i++) {
 
           gamePattern.push(randomChosenColor);
 
-          sleep(2000).then(() => makeSound(randomChosenColor));
-          sleep(2000)
-            .then(() =>
-              document
-                .querySelector("." + randomChosenColor)
-                .classList.toggle("pressed2")
-            )
-            .then(() =>
-              setTimeout(function () {
-                document
-                  .querySelector("." + randomChosenColor)
-                  .classList.toggle("pressed2");
-              }, 100)
-            );
+          giveSound();
         } else {
           var wrong = new Audio(
             "C:/Users/USER/Documents/GitHub/dongpu2/simonGame/sounds/wrong.mp3"
@@ -139,24 +145,11 @@ document.addEventListener("keydown", function (event) {
     );
     randomChosenColor = nextSequence();
 
-    console.log(randomChosenColor + " keydown");
+    // console.log(randomChosenColor + " keydown");
     gamePattern.push(randomChosenColor);
-    console.log(gamePattern + " keydown");
+    // console.log(gamePattern + " keydown");
 
-    sleep(2000).then(() => makeSound(randomChosenColor));
-    sleep(2000)
-      .then(() =>
-        document
-          .querySelector("." + randomChosenColor)
-          .classList.toggle("pressed2")
-      )
-      .then(() =>
-        setTimeout(function () {
-          document
-            .querySelector("." + randomChosenColor)
-            .classList.toggle("pressed2");
-        }, 100)
-      );
+    giveSound();
 
     // door = true;
     // var i = 1;
