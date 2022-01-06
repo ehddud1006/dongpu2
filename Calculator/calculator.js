@@ -17,6 +17,22 @@ app.get("/", function (req, res) {
   // 현재 디렉토리의 경로가 출력됨을 알 수 있다.
 });
 
+app.get("/bmiCalculator", function (req, res) {
+  //   res.send("<h1>BMI Calculator</h1>");
+  res.sendFile(__dirname + "/bmiCalculator.html");
+  //   console.log(__dirname);
+  //   C:\Users\USER\Documents\GitHub\dongpu2\Calculator
+  // 현재 디렉토리의 경로가 출력됨을 알 수 있다.
+});
+
+app.post("/bmiCalculator", function (req, res) {
+  var feet = parseFloat(req.body.feet) / 100;
+  var weight = parseFloat(req.body.weight);
+
+  var result = weight / Math.pow(feet, 2);
+  res.send("Your BMI is " + result);
+});
+
 app.post("/", function (req, res) {
   //   console.log(req.body);
   //{ num1: '2', num2: '3', submit: '' }

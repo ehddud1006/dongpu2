@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bmiCalculator</title>
+    
+  </head>
+  <body>
+    <h1>BMI Calculator</h1>
+    <form action="/bmiCalculator" method="post">
+        <!-- form 에서 action이 없는 경우에는 단순히 데이터가 현재있는 페이지로 
+          데이터를 보낸다. -->
+        <input type="text" name="feet" placeholder="feet" />
+        <input type="text" name="weight" placeholder="weight" />
+        <button type="submit" name="submit">Calculate BMI</button>
+  </body>
+</html>
