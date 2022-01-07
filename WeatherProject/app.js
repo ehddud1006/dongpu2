@@ -1,15 +1,35 @@
 const express = require("express");
 const https = require("https");
+const bodyParser = require("body-parser");
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(3000, function () {
   console.log("Server is running on port 3000");
 });
 
 app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/", function (req, res) {
+  console.log(req.body.cityName);
+  // body-parser를 사용해서 html input의 정보를 얻는다.
+  console.log("Post request received.");
+
+  const query = req.body.cityName;
+  // input에서 얻어온 도시명을 넣어준다. 그도시의 날씨를 검색하기 위해서.
+  const apiKey = "744ed5277a2014db73dd5dcdff3e6e3b";
+  const unit = "metric";
   const url =
-    "https://api.openweathermap.org/data/2.5/weather?q=London&appid=744ed5277a2014db73dd5dcdff3e6e3b";
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    query +
+    "&appid=" +
+    apiKey +
+    "&units=" +
+    unit;
 
   https.get(url, function (response) {
     console.log(response.statusCode);
@@ -89,7 +109,11 @@ app.get("/", function (req, res) {
       //   각 날씨별 사진을 제공한다.
       res.write("<p>The weather is currently " + description + "</p>");
       res.write(
-        "<h1>The temperature in London is " + temp + "degrees Celcius.</h1>"
+        "<h1>The temperature in " +
+          query +
+          " is " +
+          temp +
+          "degrees Celcius.</h1>"
       );
       res.write("<img src=" + imageURL + ">");
       res.send();
