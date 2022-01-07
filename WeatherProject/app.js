@@ -4,6 +4,10 @@ const https = require("https");
 const app = express();
 
 app.listen(3000, function () {
+  console.log("Server is running on port 3000");
+});
+
+app.get("/", function (req, res) {
   const url =
     "https://api.openweathermap.org/data/2.5/weather?q=London&appid=744ed5277a2014db73dd5dcdff3e6e3b";
 
@@ -76,12 +80,26 @@ app.listen(3000, function () {
       // chrome 확장 프로그램에서 JSON Viewer pro 를 사용하면
       //   JSON path를 아주 쉽게 얻을 수 있었다.
       console.log(description);
+
+      const icon = weatherData.weather[0].icon;
+      console.log(icon);
+
+      const imageURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
+      // imageURL 을 만드는 방법은 API 홈페이지를 참고하고 , 이 홈페이지에서
+      //   각 날씨별 사진을 제공한다.
+      res.write("<p>The weather is currently " + description + "</p>");
+      res.write(
+        "<h1>The temperature in London is " + temp + "degrees Celcius.</h1>"
+      );
+      res.write("<img src=" + imageURL + ">");
+      res.send();
+      //   res.send 는 두번할 수 없다. 그러므로 현재 84번째 줄과 89~
+      //   send 두개가 있기때문에 오류가 발생한다.
+
+      // 84, 85의 res.write() 를 통해 버퍼에 저장해놓는다는 개념?
+      //   저장 해놓고 한번에 send 왜? send는 한번밖에 할 수 없음.
     });
   });
 
-  console.log("Server is running on port 3000");
-});
-
-app.get("/", function (req, res) {
-  res.send("Server is up and running.");
+  //   res.send("Server is up and running.");
 });
