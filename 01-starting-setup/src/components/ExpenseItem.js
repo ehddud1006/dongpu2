@@ -6,13 +6,21 @@ import "./ExpenseItem.css";
 // ex) ExpenseItem 처럼 말이다.
 function ExpenseItem() {
   //   return <h2>Expens item!</h2>;
+  const expenseDate = new Date();
+  console.log(expenseDate);
+  const expenseTitle = "Car Insurance";
+  const expenseAmount = 294.67;
+  // retrun 전에 쓰는 코드는 자바스크립트 코드를 사용할 수 있다
 
   return (
     <div className="expense-item">
       {/* 리액트에는 class = className 이라고 생각하면된다. */}
-      <div>March 28th 2021</div>
+      <div>{expenseDate.toDateString()}</div>
+      {/* 오류가 났다. 이유는 Date 객체를 생성하고 사용하려고하였는데,
+      이를 String으로 변환하지 않아서 생긴 오류였다.
+      해결방법은 toDateString 을 사용하였다. */}
       <div className="expense-item__description">
-        <h2>Car Insurance</h2>
+        <h2>{expenseTitle}</h2>
         <div className="expense-item__price">$294.67</div>
       </div>
     </div>
