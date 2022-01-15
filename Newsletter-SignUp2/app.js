@@ -9,10 +9,24 @@ const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log("Server Started on port 3000");
 });
+// HeroKu에서 제공해주는 port
+// process.env.PORT || 3000
+// 위 코드를 사용하여서 HeroKu와 local 모두 작동하게 한다
 
+// HeroKu 시작방법
+// 웹사이트를 구현한 폴더에서 
+// $ touch Procfile
+// Procfile 철자와 전부 똑같아야한다.
+// 그후 Procfile을 열어 
+// web: node app.js 
+// 이때 app.js는 여기서 사용하는 js 파일 이름이므로 
+// 다른 프로젝트일시 변경될 수 있다.
+
+
+// sol 3)
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/signup.html");
 });
@@ -60,6 +74,7 @@ app.post("/", function (req, res) {
   request.write(jsonData);
   request.end();
 });
+
 // list Key
 // 06aef8d5f1
 // API KEY
@@ -83,3 +98,11 @@ app.post("/", function (req, res) {
 // name 또한 사용해주어야한다.
 // 그리고 body-parser를 사용할때, post 하기위해서는
 // <form action="/" method="POST"> form 태그에 꼭 넣어주어야한다.
+
+
+app.post("/failure" , function (req, res){
+  res.redirect("/")
+})
+
+// sol 3)
+// 17번줄 get 메소드에 다시 접근을 시도한다.
