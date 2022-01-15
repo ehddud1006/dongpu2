@@ -1,7 +1,7 @@
 const express = require("express");
 const request = require("request");
 const bodyParser = require("body-parser");
-const { emit } = require("process");
+
 
 const app = express();
 
@@ -34,9 +34,9 @@ app.post("/", function (req, res) {
       },
     ],
   };
-
+  
   var jsonData = JSON.stringify(data);
-
+  // data 객체를 문자열로 변환
   const url = "https://us20.api.mailchimp.com/3.0/lists/06aef8d5f1";
 
   const options = {
@@ -45,7 +45,8 @@ app.post("/", function (req, res) {
   };
 
   const request = https.request(url, options, function (response) {
-    response.on("data", function () {
+  
+    response.on("data", function (data) {
       console.log(JSON.parse(data));
     });
   });
