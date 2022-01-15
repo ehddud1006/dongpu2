@@ -45,7 +45,14 @@ app.post("/", function (req, res) {
   };
 
   const request = https.request(url, options, function (response) {
-  
+    
+    if (response.statusCode === 200){
+      // request가 성공적으로 요청되었다면, 객체에 200이 담겨져 있을 것이다.
+      res.sendFile(__dirname+"/success.html")
+    } else {
+      res.sendFile(__dirname+"/failure.html")
+    }
+
     response.on("data", function (data) {
       console.log(JSON.parse(data));
     });
