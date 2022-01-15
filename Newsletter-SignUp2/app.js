@@ -65,7 +65,7 @@ app.post("/", function (req, res) {
 
   const options = {
     method: "POST",
-    auth: "kdy1:336d3224587b01bfa6894eb4c1796bfe-us20",
+    auth: "kdy1:0c9389b174d36b33e2ad97c4f40d1e0b-us20",
   };
 
   const request = https.request(url, options, function (response) {
@@ -88,7 +88,7 @@ app.post("/", function (req, res) {
 // list Key
 // 06aef8d5f1
 // API KEY
-// 336d3224587b01bfa6894eb4c1796bfe-us20
+// 0c9389b174d36b33e2ad97c4f40d1e0b-us20
 
 // 만든 signup.html파일을 nodemon app.js를 통해서 실행하려고하니 오류가 났다.
 // signin.css 파일이 적용되지 않은 것이다.
