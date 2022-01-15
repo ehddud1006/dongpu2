@@ -21,8 +21,42 @@ app.post("/", function (req, res) {
   var firstName = req.body.firstname;
   var lastName = req.body.lastname;
   var email = req.body.email;
-  console.log(firstName, lastName, email);
+  const https = require("https");
+  var data = {
+    members: [
+      {
+        email_address: email,
+        status: "subscribed",
+        merge_fields: {
+          FNAME: firstName,
+          LNAME: lastName,
+        },
+      },
+    ],
+  };
+
+  var jsonData = JSON.stringify(data);
+
+  const url = "https://us20.api.mailchimp.com/3.0/lists/06aef8d5f1";
+
+  const options = {
+    method: "POST",
+    auth: "kdy1:336d3224587b01bfa6894eb4c1796bfe-us20",
+  };
+
+  const request = https.request(url, options, function (response) {
+    response.on("data", function () {
+      console.log(JSON.parse(data));
+    });
+  });
+  request.write(jsonData);
+  request.end();
 });
+// list Key
+// 06aef8d5f1
+// API KEY
+// 336d3224587b01bfa6894eb4c1796bfe-us20
+
 // 만든 signup.html파일을 nodemon app.js를 통해서 실행하려고하니 오류가 났다.
 // signin.css 파일이 적용되지 않은 것이다.
 
