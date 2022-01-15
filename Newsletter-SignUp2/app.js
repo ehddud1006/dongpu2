@@ -25,6 +25,16 @@ app.listen(process.env.PORT || 3000, function () {
 // 이때 app.js는 여기서 사용하는 js 파일 이름이므로 
 // 다른 프로젝트일시 변경될 수 있다.
 
+// ********************Second Part HeroKu:***********************
+// 하이퍼창에 heroku create 
+
+// »   Warning: heroku update available from 7.53.0 to 
+// »   7.59.2.
+// Creating app... done, ⬢ infinite-reef-39911
+// https://infinite-reef-39911.herokuapp.com/ | https://git.heroku.com/infinite-reef-39911.git
+
+// 위코드를 보면 https:// 주소가 주어진것을 알 수 있다.
+
 
 // sol 3)
 app.get("/", function (req, res) {
