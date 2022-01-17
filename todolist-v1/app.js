@@ -1,25 +1,25 @@
 const express = require("express");
 
 const bodyParser = require("body-parser");
+const { listen } = require("express/lib/application");
 
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
     // res.sendFile(__dirname + "/index.html");
     var today = new Date();
     var currentDay = today.getDay();
-
-    if(currentDay== 6 || currentDay=== 0){
+    var day = ""
+    if(currentDay== 6 ){
       // 6은 토요일 0은 일요일을 뜻한다.
       // res.send("weekend")
-
-      res.write("<h1>Weekend!</h1>");
-      res.send()
+      day = "Saturday";  
     }
-    else {
+    else if(currentDay == 0) {
       // res.send("working day")
       // res.write("<p>It is not the weekend.</p>");
       // res.write("<h1>YOu Work");
@@ -27,10 +27,24 @@ app.get("/", function (req, res) {
 
       // 다시한번 상기시키자 res.write()는 버퍼에 쓰고
     // send를 통해 전부 보낸다.
-
-
-      res.sendFile(__dirname + "/index.html");
+      day = "Sunday"
     }
+    else if(currentDay == 1){
+      day = "Monday"
+    }
+    else if(currentDay == 2){
+      day = "Tuesday"
+    }
+    else if(currentDay == 3){
+      day = "Wednesday"
+    }
+    else if(currentDay == 4){
+      day = "Thursday"
+    }
+    else if(currentDay == 5){
+      day = "Friday"
+    }
+    res.render("list", {kindOfDay:day})
 
     
     
@@ -40,3 +54,21 @@ app.get("/", function (req, res) {
   app.listen(3000, function () {
     console.log("Server Started on port 3000");
   });
+
+// ========================  EJS Start  ===========================
+// npm i ejs
+// ejs 모듈을 설치하자
+
+// app.set("view engine", "ejs");
+// 9번째 줄에 추가한다.
+
+// 새폴더를 만든다.
+// 이 프로젝트에서는 views 폴더안에 listen.ejs 파일을 생성해주었다.
+
+// 20번째, 32번째 day 변수를 선언해주었다.
+
+// listen.ejs 파일에  <h1>It's a <%= kindOfDay %>!</h1>
+// <%= %> ejs 태그를 사용해서 변수명을 입력해준다.
+
+// res.render("list", {kindOfDay:day})
+// list.ejs 와 연결시킨다.
