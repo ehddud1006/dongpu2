@@ -1,13 +1,15 @@
 const express = require("express");
 
 const bodyParser = require("body-parser");
-const { listen } = require("express/lib/application");
 
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
+
+var newItem = "";
+var items = [];
 
 app.get("/", function (req, res) {
   // res.sendFile(__dirname + "/index.html");
@@ -55,7 +57,7 @@ app.get("/", function (req, res) {
   // else if (currentDay == 5) {
   //   day = "Friday"
   // }
-  res.render("list", { kindOfDay: day })
+  res.render("list", { kindOfDay: day, newListItems: items })
 
 
 
@@ -89,6 +91,10 @@ app.listen(3000, function () {
 app.post("/", function (req, res) {
   var newItem = req.body.newItem;
 
-  res.render("list", { newListItem: newItem })
-  console.log(newItem);
+  items.push(newItem)
+
+  res.redirect("/")
+  // render을 한번만 할 수 있어서 redirect를 해주고,
+  // 거기에 newItem을 보낸다.
 });
+

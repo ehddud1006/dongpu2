@@ -20,9 +20,13 @@
         <li>Buy Food</li>
         <li>Cook Food</li>
         <li>Eat Food</li>
-        <li>
-            <%= newListItem %>
-        </li>
+
+        <!-- ejs 스니펫이라고 한다. <% %> -->
+        <% for (var i=0; i<newListItems.length; i++) { %>
+            <li>
+                <%= newListItems[i] %>
+            </li>
+            <% } %>
     </ul>
 
     <form action="/" method="post">
