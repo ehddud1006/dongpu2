@@ -10,20 +10,26 @@
 
 <body>
 
-    <% if (kindOfDay==="Saturday" || kindOfDay==="Sunday" ) { %>
-        <h1 style="color:purple">
-            <%= kindOfDay %> ToDo List
-        </h1>
-        <% } else { %>
+    <h1>
+        <%= kindOfDay %>
+    </h1>
 
-            <h1 style="color:blue">
-                <%= kindOfDay %> ToDo List
-            </h1>
+    <!-- 자바스크립트문을 사용하기위해서는 <% %>를 사용해야한다. -->
 
-            <% } %>
+    <ul>
+        <li>Buy Food</li>
+        <li>Cook Food</li>
+        <li>Eat Food</li>
+        <li>
+            <%= newListItem %>
+        </li>
+    </ul>
 
-                <!-- 자바스크립트문을 사용하기위해서는 <% %>를 사용해야한다. -->
+    <form action="/" method="post">
 
+        <input type="text" name="newItem">
+        <button type="submit" name="button">Add</button>
+    </form>
 
 </body>
 
