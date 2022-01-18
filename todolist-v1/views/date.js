@@ -1,10 +1,10 @@
-module.exports.getDate = getDate;
+
 // getDate()로 쓰지 않는 이유는 고차함수와 비슷한 원리
 
-module.exports = getDate;
+// module.exports = getDate;
 // 하나의 함수만 존재할때
 
-function getDate() {
+exports.getDate = function () {
     // res.sendFile(__dirname + "/index.html");
     let today = new Date();
     // var currentDay = today.getDay();
@@ -53,9 +53,7 @@ function getDate() {
     return day
 }
 
-module.exports.getDay = getDay;
-
-function getDay() {
+exports.getDay = function () {
     let today = new Date();
 
     let options = {
