@@ -11,6 +11,7 @@ app.set("view engine", "ejs");
 
 var newItem = "";
 var items = ["Buy Food", "Cook Food", "Eat Food"];
+let workItems = []
 
 app.get("/", function (req, res) {
   // res.sendFile(__dirname + "/index.html");
@@ -58,7 +59,7 @@ app.get("/", function (req, res) {
   // else if (currentDay == 5) {
   //   day = "Friday"
   // }
-  res.render("list", { kindOfDay: day, newListItems: items })
+  res.render("list", { listTitle: day, newListItems: items })
 
 
 
@@ -92,10 +93,46 @@ app.listen(3000, function () {
 app.post("/", function (req, res) {
   var newItem = req.body.newItem;
 
-  items.push(newItem)
 
-  res.redirect("/")
+
+  console.log(req.body)
+  // <button type="submit" name="button" value="a value">+</button>
+  // { newItem: 'happy', button: 'a value' }
+  // req.body에 value값을 입력하면 button 태그의 값이 정해지게 된다.
+
+  // <button type="submit" name="button" value=<%=listTitle %>>+</button>
+  // { newItem: 'gggg', button: 'Work' }
+  // button value에 <%= listTitle %> 값을 주었는데 계속 Work가 나와서 
+  // 어디서 나온건지 헤맸다 
+  // res.render("list", { listTitle: "Work List", newListItems: workItems })
+  // 그 이유는 /work 에서  listTitle로 "Work List"를 보내는데
+  // 이때 띄어쓰기는 적용이 안되는것 같았다. Work_List로 보내보니
+  // { newItem: 'dadavxv', button: 'Work_List' } 
+  // 이런 식으로 잘 오게 되었다.
+
+  if (req.body.list === "Work") {
+    workItems.push(newItem)
+    res.redirect("/work")
+  }
+  else {
+    items.push(newItem)
+    res.redirect("/")
+  }
+  // redirect을 하면 app.get 으로 가네..
+
+
+
+
   // render을 한번만 할 수 있어서 redirect를 해주고,
   // 거기에 newItem을 보낸다.
 });
 
+app.get("/work", function (req, res) {
+  res.render("list", { listTitle: "Work List", newListItems: workItems })
+})
+
+app.post("/work", function (req, res) {
+  let item = req.body.newItem;
+  workItems.push(item)
+  res.redirect("/work")
+})
