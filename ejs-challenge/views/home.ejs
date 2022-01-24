@@ -4,9 +4,20 @@
         <%= homeContent %>
     </p>
 
-    <%- include("./partials/footer") -%>
+    <% posts.forEach(element=> { %>
 
-        <!-- 이번에는 home.ejs 와 header.ejs , footer.ejs 가 모두 같은 경로에 있었는데.
+        <h1>
+            <%= element.title %>
+        </h1>
+        <p>
+            <%= element.content %>
+        </p>
+        <% }) %>
+
+
+            <%- include("./partials/footer") -%>
+
+                <!-- 이번에는 home.ejs 와 header.ejs , footer.ejs 가 모두 같은 경로에 있었는데.
 header.ejs , footer.ejs 를 patials폴더로 옮겼다.
 그러므로 ejs 모듈을 include 할때, 경로를 설정해주어야했는데
 include("./partials/header") 이런식으로 
