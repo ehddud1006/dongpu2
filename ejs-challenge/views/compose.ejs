@@ -1,0 +1,8 @@
+<%- include("./partials/header") -%>
+    <h1>Compose</h1>
+    <form class="item" action="/compose" method="post">
+        <input type="text" name="newText" placeholder="" autocomplete="off">
+        <!-- autocomplete 자동완성 제거 -->
+        <button type="submit" name="button">Publish</button>
+    </form>
+    <%- include("./partials/footer") -%>
