@@ -7,7 +7,7 @@
 // 하여서 nodemodules을 다운로드한다.
 
 // vsc에서 터미널을 사이드로 둘 수 있다.
-
+var _ = require('lodash');
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -59,8 +59,26 @@ app.post("/compose", function (req, res) {
 });
 
 
+app.get("/posts/:postName", function (req, res) {
+  // console.log(req.params.postName)
+  let target = req.params.postName
+  target = _.lowerCase(target);
+  console.log("target: " + target)
+  posts.forEach(element => {
+    let title = _.lowerCase(element.title)
+    console.log("title: " + title)
+    if (target == title) {
+      res.render("post", { postTitle: element.title, postContent: element.content })
+    }
+  })
+})
+
+// Lodash 사용법 
+// https://ehddud100677.tistory.com/293
 
 
+// http://localhost:3000/posts/Hi 을 url에 입력하면 
+// console에 Hi가 출력된다.
 
 
 
