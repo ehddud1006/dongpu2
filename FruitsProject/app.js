@@ -1,6 +1,7 @@
 //test.js
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { Db } = require('mongoose/node_modules/mongodb');
 
 // console.log("HH")
 //mongodb에 연결하고 fruitsDB를 생성하는 코드
@@ -25,19 +26,46 @@ const fruitSchema = new mongoose.Schema({
 
 const peopleSchema = new mongoose.Schema({
   name: String,
-  age: Number
+  age: Number,
+  favouriteFruit: fruitSchema
 })
 
 const People = mongoose.model("People", peopleSchema)
 const Fruit = mongoose.model("Fruit", fruitSchema)
 
-// const people = new People({
-//   name: "John",
-//   age: 37
+const pineapple = new Fruit({
+  name: "Pineapple",
+  score: 9,
+  review: "Great fruit."
+})
 
+// pineapple.save()
+
+// db.peoples.find()
+// { "_id" : ObjectId("61f1232961167bab0e20d34e"), "name" 
+// : "Amy", "age" : 12, "favouriteFruit" : { "name" : "Pineapple", "review" : "Great fruit.",
+//  "_id" : ObjectId("61f1232961167bab0e20d34d") }, "__v" : 0 }
+
+// db.fruits.find()
+// { "_id" : ObjectId("61f1232961167bab0e20d34d"), "name" 
+// : "Pineapple", "review" : "Great fruit.", "__v" : 0 } 
+// 추가된 pineapple의 아이디가 동일한 것을 알 수 있다.
+// const people = new People({
+//   name: "Amy",
+//   age: 12,
+//   favouriteFruit: pineapple
 // })
 
 // people.save()
+
+
+const people = new People({
+  name: "John",
+  age: 37
+
+})
+
+people.save()
 
 
 // 여러개의 data를 입력하는 방법
@@ -71,11 +99,11 @@ const Fruit = mongoose.model("Fruit", fruitSchema)
 
 // console.log("WW")
 
-const peach = new Fruit({
-  name: "peach",
-  rating: 9,
-  review: "The best fruits!"
-})
+// const peach = new Fruit({
+//   name: "peach",
+//   rating: 9,
+//   review: "The best fruits!"
+// })
 
 // peach.save()
 
@@ -102,7 +130,15 @@ Fruit.find(function (err, fruits) {
 // update
 // { "_id" : ObjectId("61f1182b975d6849db1e5c8c"), "name" 
 // : "peach", "rating" : 9, "review" : "The best fruits!", "__v" : 0 }
-Fruit.updateOne({ _id: "61f1182b975d6849db1e5c8c" }, { name: "Mango" }, function (err) {
+// Fruit.updateOne({ _id: "61f1182b975d6849db1e5c8c" }, { name: "Mango" }, function (err) {
+//   if (err) {
+//     console.log(err)
+//   }
+//   else {
+//     console.log("Successfully updated the document.")
+//   }
+// })
+People.updateOne({ _id: "61f125bfe08e371640a19e74" }, { favouriteFruit: pineapple }, function (err) {
   if (err) {
     console.log(err)
   }
@@ -111,26 +147,26 @@ Fruit.updateOne({ _id: "61f1182b975d6849db1e5c8c" }, { name: "Mango" }, function
   }
 })
 
-// { "_id" : ObjectId("61f1182b975d6849db1e5c8c"), "name" 
+// { "_id" : ObjectId("61f1182b975d6849db1e5c8c"), "name"
 // : "Mango", "rating" : 9, "review" : "The best fruits!", "__v" : 0 }
 // 이름이 망고로 바뀐것을 확인할 수 있다.
 
 
 // delete
 // mongoose 문서 https://mongoosejs.com/docs/models.html#deleting
-Fruit.deleteOne({ _id: "61f11a4b8f6b73ef4842e5f0" }, function (err) {
-  if (err) return handleError(err);
-  // deleted at most one tank document
-  else {
-    console.log("Successfully deleted the document.")
-  }
-});
+// Fruit.deleteOne({ _id: "61f11a4b8f6b73ef4842e5f0" }, function (err) {
+//   if (err) return handleError(err);
+//   // deleted at most one tank document
+//   else {
+//     console.log("Successfully deleted the document.")
+//   }
+// });
 
-People.deleteMany({ name: "John" }, function (err) {
-  if (err) {
-    console.log(err)
-  }
-  else {
-    console.log("Successfully deleted111 the document.")
-  }
-});
+// People.deleteMany({ name: "John" }, function (err) {
+//   if (err) {
+//     console.log(err)
+//   }
+//   else {
+//     console.log("Successfully deleted111 the document.")
+//   }
+// });
