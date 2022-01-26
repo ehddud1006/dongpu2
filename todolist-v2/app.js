@@ -35,21 +35,38 @@ const item3 = new Item({
 })
 
 const defaultItems = [item1, item2, item3]
-Item.insertMany(defaultItems, function (err) {
-  if (err) {
-    console.log(err)
-  }
-  else {
-    console.log("Insert Success!")
-  }
-})
-app.get("/", function (req, res) {
 
+
+
+
+
+app.get("/", function (req, res) {
   // let day = date()
   // let day = date.getDate()
-  res.render("list", { listTitle: "Today", newListItems: items })
 
+  Item.find(function (err, items) {
+    if (err) {
+      console.log(err)
+    }
+    else {
+      if (items.length == 0) {
+        Item.insertMany(defaultItems, function (err) {
+          if (err) {
+            console.log(err)
+          }
+          else {
+            console.log("Insert Success!")
+          }
+        })
+        // items가 빈 배열이라고 하면, db에 데이터를 추가하고 ,
+        // 다시 redirect 하여 데이터가 입력된 items 를 다시 find 하기위함이다.
+        res.redirect("/")
 
+      }
+      // console.log(items)
+      res.render("list", { listTitle: "Today", newListItems: items })
+    }
+  })
 
 
 });
@@ -79,11 +96,18 @@ app.listen(3000, function () {
 
 
 app.post("/", function (req, res) {
-  var newItem = req.body.newItem;
 
+  let itemName = req.body.newItem;
 
+  let item = new Item({
+    name: itemName
+  })
 
-  console.log(req.body)
+  item.save()
+  // db를 생성하고 반영된 db 정보를 다시 redirect한다.
+  res.redirect("/")
+
+  // console.log(req.body)
   // <button type="submit" name="button" value="a value">+</button>
   // { newItem: 'happy', button: 'a value' }
   // req.body에 value값을 입력하면 button 태그의 값이 정해지게 된다.
@@ -98,14 +122,14 @@ app.post("/", function (req, res) {
   // { newItem: 'dadavxv', button: 'Work_List' } 
   // 이런 식으로 잘 오게 되었다.
 
-  if (req.body.list === "Work") {
-    workItems.push(newItem)
-    res.redirect("/work")
-  }
-  else {
-    items.push(newItem)
-    res.redirect("/")
-  }
+  // if (req.body.list === "Work") {
+  //   workItems.push(newItem)
+  //   res.redirect("/work")
+  // }
+  // else {
+  //   items.push(newItem)
+  //   res.redirect("/")
+  // }
   // redirect을 하면 app.get 으로 가네..
 
 
