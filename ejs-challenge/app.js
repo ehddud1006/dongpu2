@@ -62,6 +62,10 @@ app.post("/compose", function (req, res) {
 app.get("/posts/:postName", function (req, res) {
   // console.log(req.params.postName)
   let target = req.params.postName
+  // 저장되어있는 title이 Day 2 이고
+  // 내가 url에 입력한 http://localhost:3000/posts/day2 
+  // day2 는 붙어있는데 이러한 붙여쓰기도 day 2로 변환되어
+  // title 과 매칭이 된다. 신기하다.
   target = _.lowerCase(target);
   console.log("target: " + target)
   posts.forEach(element => {
