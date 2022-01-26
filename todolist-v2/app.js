@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 // console.log(__dirname)
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const e = require("express");
 // const date = require(__dirname + "/views/date.js")
 
 const app = express();
@@ -36,8 +37,12 @@ const item3 = new Item({
 
 const defaultItems = [item1, item2, item3]
 
+const listSchema = new mongoose.Schema({
+  name: String,
+  items: [todolistSchema]
+})
 
-
+const List = mongoose.model("List", listSchema)
 
 
 app.get("/", function (req, res) {
@@ -140,18 +145,44 @@ app.post("/", function (req, res) {
 });
 
 
-app.get("/work", function (req, res) {
-  res.render("list", { listTitle: "Work List", newListItems: workItems })
-})
+// app.get("/work", function (req, res) {
+//   res.render("list", { listTitle: "Work List", newListItems: workItems })
+// })
 
-app.post("/work", function (req, res) {
-  let item = req.body.newItem;
-  workItems.push(item)
-  res.redirect("/work")
-})
+// app.post("/work", function (req, res) {
+//   let item = req.body.newItem;
+//   workItems.push(item)
+//   res.redirect("/work")
+// })
 
-app.get("/about", function (req, res) {
-  res.render("about")
+// app.get("/about", function (req, res) {
+//   res.render("about")
+// })
+
+app.get("/:postName", function (req, res) {
+  // console.log(req.params.postName)
+  let target = req.params.postName
+
+  List.findOne({ name: target }, function (err, foundList) {
+    if (!err) {
+      if (!foundList) {
+        //Create a new list
+        const list = new List({
+          name: target,
+          items: defaultItems
+        })
+
+        list.save()
+        res.redirect("/" + target)
+      }
+      else {
+        // Show an existing list
+        res.render("list", { listTitle: foundList.name, newListItems: foundList.items })
+      }
+    }
+  })
+
+
 })
 
 app.post("/delete", function (req, res) {
