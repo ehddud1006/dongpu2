@@ -139,6 +139,7 @@ app.post("/", function (req, res) {
   // 거기에 newItem을 보낸다.
 });
 
+
 app.get("/work", function (req, res) {
   res.render("list", { listTitle: "Work List", newListItems: workItems })
 })
@@ -153,7 +154,18 @@ app.get("/about", function (req, res) {
   res.render("about")
 })
 
-
+app.post("/delete", function (req, res) {
+  // console.log("HH")
+  let checkItemId = req.body.checkbox
+  Item.deleteOne({ _id: checkItemId }, function (err) {
+    if (err) return handleError(err);
+    // deleted at most one tank document
+    else {
+      console.log("Successfully deleted the document.")
+    }
+  });
+  res.redirect("/")
+})
 // npm i
 
 // npm i mongoose
