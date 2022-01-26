@@ -198,14 +198,25 @@ app.get("/:postName", function (req, res) {
 app.post("/delete", function (req, res) {
   // console.log("HH")
   let checkItemId = req.body.checkbox
-  Item.deleteOne({ _id: checkItemId }, function (err) {
-    if (err) return handleError(err);
-    // deleted at most one tank document
-    else {
-      console.log("Successfully deleted the document.")
-    }
-  });
-  res.redirect("/")
+  let listName = req.body.listName
+
+  if (listName === "Today") {
+    Item.deleteOne({ _id: checkItemId }, function (err) {
+      if (err) return handleError(err);
+      // deleted at most one tank document
+      else {
+        console.log("Successfully deleted the document.")
+      }
+    });
+    res.redirect("/")
+  }
+  else {
+    List.findOneAndUpdate({ name: listName }, { $pull: { itmes: { _id: checkItemId } } }, function (err, foundList) {
+      if (!err) {
+        res.redirect("/" + listName)
+      }
+    })
+  }
 })
 // npm i
 
