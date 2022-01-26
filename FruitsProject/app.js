@@ -8,8 +8,18 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewUrlParser: true }
 
 // insert
 const fruitSchema = new mongoose.Schema({
-  name: String,
-  rating: Number,
+  name: {
+    type: String,
+    // 필수 항목
+    // https://mongoosejs.com/docs/validation.html#built-in-validators
+    required: [true, "Please check your data entry, no name specified!"]
+  },
+  rating: {
+    type: Number,
+    // 유효성 검사
+    min: 1,
+    max: 10
+  },
   review: String
 })
 
@@ -21,36 +31,37 @@ const peopleSchema = new mongoose.Schema({
 const People = mongoose.model("People", peopleSchema)
 const Fruit = mongoose.model("Fruit", fruitSchema)
 
-const people = new People({
-  name: "John",
-  age: 37
+// const people = new People({
+//   name: "John",
+//   age: 37
 
-})
+// })
 
-people.save()
+// people.save()
 
 
 // 여러개의 data를 입력하는 방법
 const kiwi = new Fruit({
   name: "kiwi",
-  score: 10,
+  rating: 9,
   review: "The best fruits!"
 })
 
-const orange = new Fruit({
-  name: "Orange",
-  score: 4,
-  review: "Too sour for me"
-})
+kiwi.save()
+// const orange = new Fruit({
+//   name: "Orange",
+//   score: 4,
+//   review: "Too sour for me"
+// })
 
-const banana = new Fruit({
-  name: "Banana",
-  score: 3,
-  review: "Weird texture"
-})
+// const banana = new Fruit({
+//   name: "Banana",
+//   score: 3,
+//   review: "Weird texture"
+// })
 
-// Fruit.insertMany([kiwi, orange, banana], function (err) {
-//   if (err) {
+// // Fruit.insertMany([kiwi, orange, banana], function (err) {
+// //   if (err) {
 //     console.log(err)
 //   }
 //   else {
@@ -67,7 +78,7 @@ Fruit.find(function (err, fruits) {
     console.log(err)
   }
   else {
-    mongoose.connection.close()
+    // mongoose.connection.close()
 
     let fruitName = new Set();
     fruits.forEach(element => {
