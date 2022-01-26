@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 
-console.log("HH")
+// console.log("HH")
 //mongodb에 연결하고 fruitsDB를 생성하는 코드
 mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewUrlParser: true });
 
@@ -29,6 +29,8 @@ const people = new People({
 
 people.save()
 
+
+// 여러개의 data를 입력하는 방법
 const kiwi = new Fruit({
   name: "kiwi",
   score: 10,
@@ -47,27 +49,33 @@ const banana = new Fruit({
   review: "Weird texture"
 })
 
-Fruit.insertMany([kiwi, orange, banana], function (err) {
+// Fruit.insertMany([kiwi, orange, banana], function (err) {
+//   if (err) {
+//     console.log(err)
+//   }
+//   else {
+//     console.log("Succesfully saved all the fruits to fruitsDB")
+//   }
+// })
+
+// console.log("WW")
+
+
+// find
+Fruit.find(function (err, fruits) {
   if (err) {
     console.log(err)
   }
   else {
-    console.log("Succesfully saved all the fruits to fruitsDB")
+    mongoose.connection.close()
+
+    let fruitName = new Set();
+    fruits.forEach(element => {
+      fruitName.add(element.name)
+    })
+    fruitName.forEach(e => {
+      console.log(e)
+    })
+
   }
 })
-
-console.log("WW")
-
-
-//해당 컬렉션의 모든 Document 찾기
-const findDocuments = function (db, callback) {
-  // 컬렉션 선택
-  const collection = db.collection('fruits');
-  // 모든 Document를 Find 해보자
-  collection.find({}).toArray(function (err, fruits) {
-    assert.equal(err, null);
-    console.log("Found the following records");
-    console.log(fruits)
-    callback(fruits);
-  });
-}
