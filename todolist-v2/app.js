@@ -103,14 +103,24 @@ app.listen(3000, function () {
 app.post("/", function (req, res) {
 
   let itemName = req.body.newItem;
-
+  let listName = req.body.list
   let item = new Item({
     name: itemName
   })
 
-  item.save()
-  // db를 생성하고 반영된 db 정보를 다시 redirect한다.
-  res.redirect("/")
+  if (listName === "Today") {
+    item.save()
+    // db를 생성하고 반영된 db 정보를 다시 redirect한다.
+    res.redirect("/")
+  }
+  else {
+    List.findOne({ name: listName }, function (err, foundList) {
+      foundList.items.push(item)
+      foundList.save()
+      res.redirect("/" + listName)
+    })
+  }
+
 
   // console.log(req.body)
   // <button type="submit" name="button" value="a value">+</button>
