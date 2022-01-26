@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 // console.log(__dirname)
-const date = require(__dirname + "/views/date.js")
+const mongoose = require("mongoose")
+// const date = require(__dirname + "/views/date.js")
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -9,15 +10,44 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-var newItem = "";
-var items = ["Buy Food", "Cook Food", "Eat Food"];
-let workItems = []
+// var newItem = "";
+// var items = ["Buy Food", "Cook Food", "Eat Food"];
+// let workItems = []
 
+mongoose.connect("mongodb://localhost:27017/todolistDB")
+
+const todolistSchema = new mongoose.Schema({
+  name: String
+})
+
+const Item = mongoose.model("Item", todolistSchema)
+
+const item1 = new Item({
+  name: "Welcome to your todoList!"
+})
+
+const item2 = new Item({
+  name: "Hit the + button to add a item."
+})
+
+const item3 = new Item({
+  name: "<-- Hit this to delete an item."
+})
+
+const defaultItems = [item1, item2, item3]
+Item.insertMany(defaultItems, function (err) {
+  if (err) {
+    console.log(err)
+  }
+  else {
+    console.log("Insert Success!")
+  }
+})
 app.get("/", function (req, res) {
 
   // let day = date()
-  let day = date.getDate()
-  res.render("list", { listTitle: day, newListItems: items })
+  // let day = date.getDate()
+  res.render("list", { listTitle: "Today", newListItems: items })
 
 
 
@@ -98,3 +128,18 @@ app.post("/work", function (req, res) {
 app.get("/about", function (req, res) {
   res.render("about")
 })
+
+
+// npm i
+
+// npm i mongoose
+
+// const mongoose = require("mongoose")
+
+// mongoose.connect("mongodb://localhost:27017/todolistDB")
+
+// const todolistSchema = new mongoose.Schema({
+//   name: String
+// })
+
+// const Item = mongoose.model("Item", todolistSchema)
