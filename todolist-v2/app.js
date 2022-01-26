@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 // console.log(__dirname)
 const mongoose = require("mongoose");
 const e = require("express");
+const _ = require("lodash")
 // const date = require(__dirname + "/views/date.js")
 
 const app = express();
@@ -171,7 +172,7 @@ app.post("/", function (req, res) {
 
 app.get("/:postName", function (req, res) {
   // console.log(req.params.postName)
-  let target = req.params.postName
+  let target = _.capitalize(req.params.postName)
 
   List.findOne({ name: target }, function (err, foundList) {
     if (!err) {
@@ -211,7 +212,7 @@ app.post("/delete", function (req, res) {
     res.redirect("/")
   }
   else {
-    List.findOneAndUpdate({ name: listName }, { $pull: { itmes: { _id: checkItemId } } }, function (err, foundList) {
+    List.findOneAndUpdate({ name: listName }, { $pull: { items: { _id: checkItemId } } }, function (err, foundList) {
       if (!err) {
         res.redirect("/" + listName)
       }
@@ -231,3 +232,5 @@ app.post("/delete", function (req, res) {
 // })
 
 // const Item = mongoose.model("Item", todolistSchema)
+
+// npm i lodash
