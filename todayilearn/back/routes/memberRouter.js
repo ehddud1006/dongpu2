@@ -30,7 +30,8 @@ router.post("/login", async (req, res) => {
         // console.log("HEY" + user[0]);
         // console.log(user)
         if (user[0]) {
-            res.json({ message: "로그인 되었습니다!", email: req.body.email });
+            console.log(req.body._id);
+            res.json({ message: "로그인 되었습니다!", _id: user[0]._id });
         } else {
             res.json({ message: false });
         }
@@ -43,6 +44,7 @@ router.post("/login", async (req, res) => {
 router.get("/logout", (req, res) => {
     console.log("/logout" + req.sessionID);
     console.log(req.session)
+    // 세션을 삭제하기 위해서.
     req.session.destroy(() => {
         res.json({ message: true });
     });

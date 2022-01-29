@@ -9,6 +9,22 @@ const headers = { withCredentials: true };
 
 class Header extends Component {
 
+    state = {
+        buttonDisplay: "none"
+    };
+
+    componentDidMount() {
+        if ($.cookie('login_id')) {
+            this.setState({
+                buttonDisplay: "block"
+            });
+        } else {
+            this.setState({
+                buttonDisplay: "none"
+            });
+        }
+    }
+
     logout = () => {
         axios
             .get("http://localhost:8080/member/logout", {
@@ -16,7 +32,7 @@ class Header extends Component {
             })
             .then(returnData => {
                 if (returnData.data.message) {
-                    $.removeCookie("login_email");
+                    $.removeCookie("login_id");
                     alert("로그아웃 되었습니다!");
                     window.location.href = '/';
                 }
@@ -24,14 +40,16 @@ class Header extends Component {
     };
     render() {
         const buttonStyle = {
-            margin: "0px 5px 0px 10px"
+            margin: "0px 5px 0px 10px",
+            display: this.state.buttonDisplay
         }
+
         return (
             <div>
                 <Navbar>
-                    <Navbar.Brand href="#home">Today I Learned</Navbar.Brand>
+                    <Navbar.Brand href="/">Today I Learned</Navbar.Brand>
                     <Navbar.Toggle />
-                    <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Collapse className="justify-content-end" >
                         <NavLink to="/">
                             <Button style={buttonStyle} variant="primary">글목록</Button>
                         </NavLink>
