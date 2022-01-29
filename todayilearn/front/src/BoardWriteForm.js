@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import CKEditor from 'ckeditor4-react';
+import React, { Component } from "react";
+import CKEditor from "ckeditor4-react";
 import { Button, Form } from "react-bootstrap";
 import axios from "axios";
 import $ from "jquery";
@@ -12,19 +12,46 @@ class BoardWriteForm extends Component {
         data: ""
     };
 
+    componentDidMount() {
+        if (this.props.location.query !== undefined) {
+            this.boardTitle.value = this.props.location.query.title;
+            this.setState({
+                data: this.props.location.query.content
+            });
+        }
+    }
+
     writeBoard = () => {
-        const send_param = {
-            headers,
-            _id: $.cookie("login_id"),
-            title: this.boardTitle.value,
-            content: this.state.data,
-        };
+
+        let url;
+        let send_param;
+
+        if (this.props.location.query !== undefined) {
+            send_param = {
+                headers,
+                _id: this.props.location.query._id,
+                writer: $.cookie("login_id"),
+                title: this.boardTitle.value,
+                content: this.state.data
+            };
+            url = "http://localhost:8080/board/update";
+        } else {
+            send_param = {
+                headers,
+                _id: $.cookie("login_id"),
+                title: this.boardTitle.value,
+                content: this.state.data
+            };
+            url = "http://localhost:8080/board/write";
+        }
+
         axios
-            .post("http://localhost:8080/board/write", send_param)
+            .post(url, send_param)
             //정상 수행
             .then(returnData => {
                 if (returnData.data.message) {
                     alert(returnData.data.message);
+                    window.location.href = "/";
                 } else {
                     alert("글쓰기 실패");
                 }
@@ -33,9 +60,9 @@ class BoardWriteForm extends Component {
             .catch(err => {
                 console.log(err);
             });
-    }
+    };
 
-    onEditorChange = (evt) => {
+    onEditorChange = evt => {
         this.setState({
             data: evt.editor.getData()
         });
@@ -47,9 +74,16 @@ class BoardWriteForm extends Component {
         };
         return (
             <div style={divStyle} className="App">
-                <h2>글쓰기 {this.props._id}</h2>
-                <Form.Control type="text" placeholder="글 제목" ref={ref => (this.boardTitle = ref)} />
-                <CKEditor data={this.state.data} onChange={this.onEditorChange}></CKEditor>
+                <h2>글쓰기</h2>
+                <Form.Control
+                    type="text"
+                    placeholder="글 제목"
+                    ref={ref => (this.boardTitle = ref)}
+                />
+                <CKEditor
+                    data={this.state.data}
+                    onChange={this.onEditorChange}
+                ></CKEditor>
                 <Button onClick={this.writeBoard}>저장하기</Button>
             </div>
         );

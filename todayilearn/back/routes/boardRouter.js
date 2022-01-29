@@ -4,7 +4,7 @@ const Board = require("../schemas/board");
 
 router.post("/delete", async (req, res) => {
     try {
-        const result = await User.remove({
+        await Board.remove({
             _id: req.body._id
         });
         res.json({ message: true });
@@ -16,13 +16,16 @@ router.post("/delete", async (req, res) => {
 
 router.post("/update", async (req, res) => {
     try {
-        const result = await User.update({
-            _id: req.body._id,
-            name: req.body.name,
-            age: req.body.age,
-            married: req.body.married
-        });
-        res.json({ message: true });
+        await Board.update(
+            { _id: req.body._id },
+            {
+                $set: {
+                    writer: req.body.writer,
+                    title: req.body.title,
+                    content: req.body.content
+                }
+            });
+        res.json({ message: "게시글이 수정 되었습니다." });
     } catch (err) {
         console.log(err);
         res.json({ message: false });
@@ -49,7 +52,7 @@ router.post("/write", async (req, res) => {
 router.post("/getBoardList", async (req, res) => {
     try {
         const _id = req.body._id;
-        const board = await Board.find({ writer: _id });
+        const board = await Board.find({ writer: _id }, null, { sort: { createdAt: -1 } });
         res.json({ list: board });
     } catch (err) {
         console.log(err);
@@ -57,7 +60,7 @@ router.post("/getBoardList", async (req, res) => {
     }
 });
 
-router.post("/getOne", async (req, res) => {
+router.post("/detail", async (req, res) => {
     try {
         const _id = req.body._id;
         const board = await Board.find({ _id });

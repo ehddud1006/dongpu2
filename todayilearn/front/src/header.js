@@ -14,6 +14,7 @@ class Header extends Component {
     };
 
     componentDidMount() {
+
         if ($.cookie('login_id')) {
             this.setState({
                 buttonDisplay: "block"
