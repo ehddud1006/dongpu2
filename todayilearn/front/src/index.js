@@ -1,15 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./header";
-import Body from "./body";
-import Footer from "./footer";
+import Main from "./Main";
 
 ReactDOM.render(
-    <div>
-        <Header />
-        <Body />
-        <Footer />
-    </div>,
+    <Main />,
     document.querySelector("#container")
 );
