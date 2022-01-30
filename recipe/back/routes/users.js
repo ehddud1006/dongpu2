@@ -15,13 +15,14 @@ router.post('/signin', async (req, res) => {
             username: req.body.username,
             password: req.body.password
         };
-        console.log(obj)
+        // console.log(obj)
         let user = await User.find(obj);
         // console.log("HEY" + user[0]);
-        console.log(user[0])
+        console.log("user" + user[0])
+        console.log("username" + user[0].username)
         if (user[0]) {
-            // console.log(req.body._id);
-            res.json({ message: "로그인 되었습니다!", _id: user[0]._id });
+            // console.log(user[0]);
+            res.json({ message: "로그인 되었습니다!", username: user[0].username });
         } else {
             res.json({ message: false });
         }
