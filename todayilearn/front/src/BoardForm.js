@@ -8,42 +8,42 @@ axios.defaults.withCredentials = true;
 const headers = { withCredentials: true };
 
 class BoardRow extends Component {
-    state = {
-        board: []
-    };
+    // state = {
+    //     board: []
+    // };
 
-    getBoard = _id => {
-        const send_param = {
-            headers,
-            _id
-        };
-        axios
-            .post("http://localhost:8080/board/detail", send_param)
-            //정상 수행
-            .then(returnData => {
-                if (returnData.data.board[0]) {
-                    const board = (
-                        <Table striped bordered hover>
-                            <thead>
-                                <tr>
-                                    <th>returnData.data.board[0].title</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </Table>
-                    );
-                    this.setState({
-                        board: board
-                    });
-                } else {
-                    alert("글 상세 조회 실패");
-                }
-            })
-            //에러
-            .catch(err => {
-                console.log(err);
-            });
-    };
+    // getBoard = _id => {
+    //     const send_param = {
+    //         headers,
+    //         _id
+    //     };
+    //     axios
+    //         .post("http://localhost:8080/board/detail", send_param)
+    //         //정상 수행
+    //         .then(returnData => {
+    //             if (returnData.data.board[0]) {
+    //                 const board = (
+    //                     <Table striped bordered hover>
+    //                         <thead>
+    //                             <tr>
+    //                                 <th>returnData.data.board[0].title</th>
+    //                             </tr>
+    //                         </thead>
+    //                         <tbody></tbody>
+    //                     </Table>
+    //                 );
+    //                 this.setState({
+    //                     board: board
+    //                 });
+    //             } else {
+    //                 alert("글 상세 조회 실패");
+    //             }
+    //         })
+    //         //에러
+    //         .catch(err => {
+    //             console.log(err);
+    //         });
+    // };
     //onClick={this.getBoard.bind(null,this.props._id)}
     render() {
         return (
