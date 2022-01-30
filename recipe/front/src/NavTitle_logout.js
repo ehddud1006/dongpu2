@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import $ from "jquery";
 import { } from "jquery.cookie";
+import "./blog.css";
 axios.defaults.withCredentials = true;
 const headers = { withCredentials: true };
+
+
 const Nav = () => {
     // let { logout } = props;
 
@@ -35,6 +38,8 @@ const Nav = () => {
             </div> */}
                     <div className="col-4 text-center">
                         <Link to="/" className="blog-header-logo logo-text">
+                            <img className="logoimg" src="https://user-images.githubusercontent.com/62373865/151690746-400f593d-43ab-40eb-a6e2-888c0fc2253a.png" />
+
                             오늘의 민족
                         </Link>
                     </div>
@@ -58,6 +63,12 @@ const Nav = () => {
                 <path d="M21 21l-5.2-5.2" />
               </svg>
             </a> */}
+                        <button
+
+                            className="btn btn-lg btn-outline-success btn-text "
+                        >
+                            레시피작성
+                        </button>
                         <button
                             onClick={logout}
                             className="btn btn-lg btn-outline-success btn-text "

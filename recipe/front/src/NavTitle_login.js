@@ -43,12 +43,7 @@ const Nav = () => {
                 <path d="M21 21l-5.2-5.2" />
               </svg>
             </a> */}
-            <button
 
-              className="btn btn-lg btn-outline-success btn-text "
-            >
-              레시피작성
-            </button>
             <Link
               to="/signIn"
               className="btn btn-lg btn-outline-success btn-text "
