@@ -1,7 +1,28 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
+import React, { Component, useState } from "react";
+// import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import $ from "jquery";
+import { } from "jquery.cookie";
+axios.defaults.withCredentials = true;
+const headers = { withCredentials: true };
 const Nav = () => {
+    // let { logout } = props;
+
+    let logout = () => {
+        // console.log("dad");
+        axios
+            .get("http://localhost:5000/users/logout",
+                headers
+            )
+            .then(returnData => {
+                if (returnData.data.message) {
+                    $.removeCookie("login_cookie");
+                    alert("로그아웃 되었습니다!");
+                    window.location.href = '/';
+                }
+            });
+    };
 
     return (
         <div className="container">
@@ -37,12 +58,12 @@ const Nav = () => {
                 <path d="M21 21l-5.2-5.2" />
               </svg>
             </a> */}
-                        <Link
-                            to="/"
+                        <button
+                            onClick={logout}
                             className="btn btn-lg btn-outline-success btn-text "
                         >
                             Logout
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </header>

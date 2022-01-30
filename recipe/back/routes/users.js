@@ -7,6 +7,17 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.get("/logout", async (req, res) => {
+    // console.log("logout")
+    res.json({ message: true });
+    // console.log("/logout" + req.sessionID);
+    // console.log(req.session)
+    // // 세션을 삭제하기 위해서.
+    // req.session.destroy(() => {
+    //     
+    // });
+});
+
 router.post('/signin', async (req, res) => {
     try {
         console.log(req.body.username)
