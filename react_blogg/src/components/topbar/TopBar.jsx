@@ -1,7 +1,7 @@
 import React from 'react';
 import './topbar.css'
 
-import puppy from "../image/puppy.jpg";
+import puppy from "../../image/puppy.jpg";
 
 function TopBar() {
     return (
