@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 import './topbar.css'
 
 import puppy from "../../image/puppy.jpg";
-
 function TopBar() {
+    const user = false;
     return (
         <div className="top">
             <div className="topLeft">
@@ -13,18 +14,52 @@ function TopBar() {
                 <i className="topIcon fab fa-instagram-square"></i></div>
             <div className="topCenter">
                 <ul className="toplist">
-                    <li className='toplist topListItem'>HOME</li>
-                    <li className='toplist topListItem'>ABOUT</li>
-                    <li className='toplist topListItem'>CONTACT</li>
-                    <li className='toplist topListItem'>WRITE</li>
-                    <li className='toplist topListItem'>LOGOUT</li>
+                    <li className='toplist topListItem'>
+                        <Link to="/" className='link'>
+                            HOME
+                        </Link>
+                    </li>
+                    <li className='toplist topListItem'>
+                        <Link to="/" className='link'>
+                            ABOUT
+                        </Link>
+                    </li>
+                    <li className='toplist topListItem'>
+                        <Link to="/" className='link'>
+                            CONTACT
+                        </Link></li>
+                    <li className='toplist topListItem'>
+                        <Link to="/write" className='link'>
+                            WRITE
+                        </Link></li>
+                    <li className='toplist topListItem'>
+                        {/* false 가 들어가면 LOGOUT이 생기지 않음 새로운 기법 */}
+                        {user && "LOGOUT"}
+                    </li>
                 </ul>
             </div>
             <div className="topRight">
-                <img className="topImg" src={puppy} alt="puppy" />
+                {
+                    user ? (
+                        <img className="topImg" src={puppy} alt="puppy" />
+                    ) :
+                        (
+                            <ul className='toplist'>
+                                <li className='topListItem'>
+                                    <Link className="link" to="/login">LOGIN</Link>
+                                </li>
+                                <li className='topListItem'>
+                                    <Link className="link" to="/register">REGISTER</Link>
+                                </li>
+
+                            </ul>
+
+                        )
+                }
+
                 <i className="topSearchIcon fas fa-search"></i>
             </div>
-        </div>
+        </div >
     );
 }
 
