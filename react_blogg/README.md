@@ -7,5 +7,10 @@
 #### 22.01.31 계정생성 페이지
 ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/62373865/151816033-a0f9f1af-530c-468a-aa61-cc46aed786d8.gif)
 
-#### 22.02.01 계정생성 페이지
+#### 22.02.01 로그인 페이지
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/62373865/151822690-4f59d008-1af4-4763-ba83-33f8f127ceeb.gif)
+
+#### 22.02.01 Link 설정
+
+#### 배운점 정리
+https://ehddud100677.tistory.com/308
