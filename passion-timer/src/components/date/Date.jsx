@@ -82,7 +82,7 @@ function Date() {
                         <div>대학생</div>
                         <div class="nameTime">
                             <div>동영아, 정신체리자</div>
-                            <div>07:29:13</div>
+                            <div>07:33:05</div>
                         </div>
                         <div className="rel">
                             <div className="graph">.</div>
@@ -104,7 +104,7 @@ function Date() {
                         <div>대학생</div>
                         <div class="nameTime">
                             <div>저니닝</div>
-                            <div>07:33:05</div>
+                            <div>07:29:13</div>
                         </div>
                         <div className="rel">
                             <div className="graph" style={{ width: 1000 }}>.</div>
@@ -241,6 +241,32 @@ function Date() {
                 <div className="studyStatusRight">
 
                 </div>
+            </div>
+            <div className="bottom">
+                <div className="bottomLeft"></div>
+                <div className="bottomCenter">
+                    <div className="set">
+                        <i className="bottomIcon1 fas fa-pencil-alt"></i>
+                        <p className="bottomText">수능</p>
+                    </div>
+                    <div className="set">
+                        <i className="bottomIcon2 fas fa-user-tie"></i>
+                        <p className="bottomText" >공무원</p>
+                    </div>
+                    <div className="set">
+                        <i className="bottomIcon1 far fa-grin-alt"></i>
+                        <p className="bottomText" >전체</p>
+                    </div>
+                    <div className="set">
+                        <i className="bottomIcon2 far fa-credit-card"></i>
+                        <p className="bottomText" >자격증</p>
+                    </div>
+                    <div className="set">
+                        <i className="bottomIcon2 fas fa-university"></i>
+                        <p className="bottomText" >대학생</p>
+                    </div>
+                </div>
+                <div className="bottomRight"></div>
             </div>
         </>
     );
