@@ -4,6 +4,8 @@ const Post = require("../models/Post");
 const bcrypt = require("bcrypt");
 
 //UPDATE
+// 업데이트 할때는 put 메소드를 사용한다.
+// localhost:5000/api/users/사용자ID
 router.put("/:id", async (req, res) => {
     if (req.body.userId === req.params.id) {
         if (req.body.password) {
@@ -16,6 +18,7 @@ router.put("/:id", async (req, res) => {
                 {
                     $set: req.body,
                 },
+                // 업데이트된 정보를 바로 보게 해준다.
                 { new: true }
             );
             res.status(200).json(updatedUser);
@@ -28,6 +31,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //DELETE
+// 삭제는 delete 메소드를 사용한다.
 router.delete("/:id", async (req, res) => {
     if (req.body.userId === req.params.id) {
         try {
