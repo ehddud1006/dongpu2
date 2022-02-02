@@ -41,6 +41,14 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 //     console.log("hey this is main url")
 // })
 
+// const cors = require("cors");
+// const corsOptions = {
+//     origin: true,
+//     credentials: true
+// };
+// app.use(cors(corsOptions));
+// const session = require("express-session");
+
 
 
 app.listen("5000", () => {
