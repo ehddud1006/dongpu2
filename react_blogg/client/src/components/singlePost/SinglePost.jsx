@@ -13,6 +13,7 @@ function SinglePost() {
     // console.log("http://localhost:3000")
     const [post, setPost] = useState({})
     console.log(post)
+    const PF = "http://localhost:5000/images/"
     useEffect(() => {
         const getPost = async () => {
             const res = await axios.get("http://localhost:3000/api/posts/" + path)
@@ -26,7 +27,7 @@ function SinglePost() {
         <div className="singlePost">
             <div className="singlePostWrapper">
                 {post.photo && (
-                    <img src={post.photo} alt="" className="singlePostImg" />
+                    <img src={PF + post.photo} alt="" className="singlePostImg" />
                 )}
                 <h1 className="singlePostTitle">
                     {post.title}

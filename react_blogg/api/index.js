@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "images")
     }, filename: (req, file, cb) => {
-        cb(null, "hello.jpeg")
+        cb(null, req.body.name)
     },
 })
 
@@ -48,7 +48,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 // };
 // app.use(cors(corsOptions));
 // const session = require("express-session");
-
+const path = require("path")
+app.use("/images", express.static(path.join(__dirname, "/images")))
 
 
 app.listen("5000", () => {
