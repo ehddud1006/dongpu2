@@ -6,10 +6,13 @@ import Setting from "./pages/settings/Setting";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "./context/Context";
 
 
 function App() {
-  const currentUser = false;
+  // user의 이름을 currentUser로 바꾼다.
+  const { user: currentUser } = useContext(Context)
   return (
     <Router>
       <TopBar />
