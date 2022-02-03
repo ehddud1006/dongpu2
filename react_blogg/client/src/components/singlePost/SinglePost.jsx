@@ -1,29 +1,50 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import "./singlePost.css"
+
 function SinglePost() {
+    const location = useLocation()
+    console.log(location)
+    // {pathname: '/post/61fa50c080aad9b892727d85', search: '', hash: '', state: undefined, key: 'hoplyg'}
+    console.log(location.pathname.split("/")[2])
+    // 61fa50c080aad9b892727d85
+    const path = location.pathname.split("/")[2]
+    // console.log("http://localhost:3000")
+    const [post, setPost] = useState({})
+    console.log(post)
+    useEffect(() => {
+        const getPost = async () => {
+            const res = await axios.get("http://localhost:3000/api/posts/" + path)
+            console.log(res)
+            setPost(res.data)
+            // console.log(post)
+        }
+        getPost()
+    }, [path])
     return (
         <div className="singlePost">
             <div className="singlePostWrapper">
-                <img src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="singlePostImg" />
+                {post.photo && (
+                    <img src={post.photo} alt="" className="singlePostImg" />
+                )}
                 <h1 className="singlePostTitle">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    {post.title}
                     <div className="singlePostEdit">
                         <i className="singlePostIcon far fa-edit"></i>
                         <i className="singlePostIcon far fa-trash-alt"></i>
                     </div>
                 </h1>
                 <div className="singlePostInfo">
-                    <span className="singlePostAuthor">Author: <b>DongYoung</b></span>
-                    <span className="singlePostDate">1 hour ago</span>
+                    <span className="singlePostAuthor">Author:
+                        <Link to={`/?user=${post.username}`} className='link'>
+                            <b>{post.username}</b>
+                        </Link>
+                    </span>
+                    <span className="singlePostDate">{new Date(post.createdAt).toDateString()}</span>
                 </div>
                 <p className='singlePostDesc'>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure perspiciatis adipisci earum nam et explicabo quia! Vero eius temporibus praesentium voluptatum sint quia officia atque, voluptatibus esse, maxime, quam deleniti.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure perspiciatis adipisci earum nam et explicabo quia! Vero eius temporibus praesentium voluptatum sint quia officia atque, voluptatibus esse, maxime, quam deleniti.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure perspiciatis adipisci earum nam et explicabo quia! Vero eius temporibus praesentium voluptatum sint quia officia atque, voluptatibus esse, maxime, quam deleniti.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure perspiciatis adipisci earum nam et explicabo quia! Vero eius temporibus praesentium voluptatum sint quia officia atque, voluptatibus esse, maxime, quam deleniti.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure perspiciatis adipisci earum nam et explicabo quia! Vero eius temporibus praesentium voluptatum sint quia officia atque, voluptatibus esse, maxime, quam deleniti.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure perspiciatis adipisci earum nam et explicabo quia! Vero eius temporibus praesentium voluptatum sint quia officia atque, voluptatibus esse, maxime, quam deleniti.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure perspiciatis adipisci earum nam et explicabo quia! Vero eius temporibus praesentium voluptatum sint quia officia atque, voluptatibus esse, maxime, quam deleniti.
+                    {post.desc}
                 </p>
             </div>
         </div >

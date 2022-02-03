@@ -1,21 +1,31 @@
 import React from 'react';
 import './post.css'
+import { Link } from "react-router-dom"
 
-function Post() {
+function Post({ post }) {
+    // console.log(post)
+    // {_id: '61fa50c080aad9b892727d85', title: 'test', desc: 'test desc', username: 'kdyUpdated', categories: Array(0), …}categories: []createdAt: "2022-02-02T09:37:04.299Z"desc: "test desc"title: "test"updatedAt: "2022-02-02T09:37:04.299Z"username: "kdyUpdated"__v: 0_id: "61fa50c080aad9b892727d85"[[Prototype]]: Object
+    // {_id: '61fa50db80aad9b892727d89', title: 'test2', desc: 'test desc', username: 'kdyUpdated', categories: Array(0), …}
+    // {_id: '61fa542b80aad9b892727d8d', title: 'test3', desc: 'test desc', username: 'kdy', categories: Array(0), …}
     return (
         <div className='post'>
-            <img class='postImg' src="https://img.animalplanet.co.kr/news/2020/07/15/700/e05t9x1o0e3trklpwrr3.jpg" alt="" />
+            {post.photo && (
+                <img class='postImg' src={post.photo} alt="" />
+            )}
             <div className="postInfo">
                 <div className="postCats">
-                    <span className="postCat">Music</span>
-                    <span className="postCat">Life</span>
+                    {post.categories.map((c) => (
+                        <span className="postCat">{c.name}</span>
+                    ))}
                 </div>
-                <span className="postTitle">Lorem ipsum dolor sit amet cous atque co.</span>
-                <hr></hr>
-                <span className="postDate">1 hour ago</span>
+                <Link to={`/post/${post._id}`} className='link'>
+                    <span className="postTitle">{post.title}</span>
+                </Link>
+                {/* <hr></hr> */}
+                <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
             </div>
             <p className="postDesc">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, Consequun libero quisquam sit, omnis incidunt aut non illo ad optio ut debitis earum sapiente excepturi ullam itaque ratione dolor ducimus assumenda Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, libero quisquam sit, omnis incidunt aut non illo ad optio.
+                {post.desc}
             </p>
         </div>
     );
