@@ -68,4 +68,14 @@
     color: #9c9c9c;
   }
 
- 
+ .btn{
+    display: flex;
+     background-color: white;
+     text-decoration: none;
+     color: #3A83BB;
+     width: 70px;
+     height: 40px;
+     align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+ }

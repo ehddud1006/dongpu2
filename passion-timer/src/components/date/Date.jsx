@@ -4,7 +4,10 @@ import './date.css'
 import First from '../../image/first.jpg'
 import Second from '../../image/second.jpg'
 import Third from '../../image/third.jpg'
-function Date() {
+import { Link } from "react-router-dom";
+
+function Date({ category }) {
+    console.log(category)
     return (
         <>
             <div className="date">
@@ -245,26 +248,67 @@ function Date() {
             <div className="bottom">
                 <div className="bottomLeft"></div>
                 <div className="bottomCenter">
-                    <div className="set">
-                        <i className="bottomIcon1 fas fa-pencil-alt"></i>
-                        <p className="bottomText">수능</p>
-                    </div>
-                    <div className="set">
-                        <i className="bottomIcon2 fas fa-user-tie"></i>
-                        <p className="bottomText" >공무원</p>
-                    </div>
-                    <div className="set">
-                        <i className="bottomIcon1 far fa-grin-alt"></i>
-                        <p className="bottomText" >전체</p>
-                    </div>
-                    <div className="set">
-                        <i className="bottomIcon2 far fa-credit-card"></i>
-                        <p className="bottomText" >자격증</p>
-                    </div>
-                    <div className="set">
-                        <i className="bottomIcon2 fas fa-university"></i>
-                        <p className="bottomText" >대학생</p>
-                    </div>
+                    {category === "수능" ?
+                        <Link to="/su" className='link'>
+                            <i className="bottomIcon1 fas fa-pencil-alt  dada"></i>
+                            <p className="bottomText dada">수능</p>
+                        </Link>
+                        :
+                        <Link to="/su" className='link'>
+                            <i className="bottomIcon1 fas fa-pencil-alt  "></i>
+                            <p className="bottomText">수능</p>
+                        </Link>
+                    }
+
+                    {category === "공무원" ?
+                        <Link to="/gong" className='link'>
+                            <i className="bottomIcon2 fas fa-user-tie dada "></i>
+                            <p className="bottomText dada" >공무원</p>
+                        </Link>
+                        :
+                        <Link to="/gong" className='link'>
+                            <i className="bottomIcon2 fas fa-user-tie "></i>
+                            <p className="bottomText " >공무원</p>
+                        </Link>
+                    }
+
+                    {category === "전체" ?
+                        <Link to="/" className='link'>
+                            <i className="bottomIcon1 far fa-grin-alt dada "></i>
+                            <p className="bottomText dada" >전체</p>
+                        </Link>
+                        :
+                        < Link to="/" className='link'>
+                            <i className="bottomIcon1 far fa-grin-alt "></i>
+                            <p className="bottomText" >전체</p>
+                        </Link>
+                    }
+
+
+                    {category === "자격증" ?
+                        <Link to="/ja" className='link'>
+                            <i className="bottomIcon2 far fa-credit-card dada"></i>
+                            <p className="bottomText dada" >자격증</p>
+                        </Link>
+                        :
+                        <Link to="/ja" className='link'>
+                            <i className="bottomIcon2 far fa-credit-card "></i>
+                            <p className="bottomText" >자격증</p>
+                        </Link>
+                    }
+
+                    {category === "대학생" ?
+                        <Link to="/dae" className='link'>
+                            <i className="bottomIcon2 fas fa-university dada"></i>
+                            <p className="bottomText dada"  >대학생</p>
+                        </Link>
+                        :
+                        <Link to="/dae" className='link'>
+                            <i className="bottomIcon2 fas fa-university "></i>
+                            <p className="bottomText"  >대학생</p>
+                        </Link>
+                    }
+
                 </div>
                 <div className="bottomRight"></div>
             </div>

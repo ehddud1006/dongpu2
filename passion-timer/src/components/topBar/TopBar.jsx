@@ -1,17 +1,25 @@
 import React from 'react';
 import './topBar.css'
+import { Link } from "react-router-dom";
 
-function TopBar() {
+
+function TopBar({ category }) {
+    // console.log(category)
     return (
         <>
             <div className="top">
                 <div className="topLeft">
                 </div>
                 <div className="topCenter">
-                    동영타 전체 랭킹
+                    동영타 {category} 랭킹
                 </div>
                 <div className="topRight">
-                    전체
+                    <Link
+                        to="/signIn"
+                        className="btn"
+                    >
+                        Sign In
+                    </Link>
                 </div>
             </div>
             <div className="dateType">
@@ -31,7 +39,7 @@ function TopBar() {
                     </ul>
                 </div>
                 <div className="topRight">
-                    전체
+
                 </div>
             </div>
             <div className="grayBar" >
