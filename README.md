@@ -7,7 +7,8 @@
 ![ezgif com-gif-maker (16)](https://user-images.githubusercontent.com/62373865/152652051-7b473887-f569-4c6d-8672-0d510438f7e5.gif)
 
 #### 22.01.01 HTML , CSS & Bootstrap 
-![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/62373865/152646319-7757838a-8010-48c3-8afd-2330fc3f8e1d.gif)
+![ezgif com-gif-maker (17)](https://user-images.githubusercontent.com/62373865/152652233-b1d93026-280d-4095-9b5a-9efd69cf9406.gif)
+![ezgif com-gif-maker (18)](https://user-images.githubusercontent.com/62373865/152652267-98644e12-57ed-4718-b6ef-2a6be54c0287.gif)
 
 #### 22.01.04 DrumKit
 ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/62373865/152646515-1d1e3aeb-e597-434a-acc0-770e965c377a.gif)
