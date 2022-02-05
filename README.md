@@ -35,3 +35,16 @@ https://ehddud100677.tistory.com/308
 
 #### 22.02.01 동영타 (열품타)
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/62373865/151988829-2150a8f3-0a25-45d7-8d5c-8c07a08a2bfc.gif)
+
+
+#### 22.02.02 레시피 로그인, 로그아웃 
+![ezgif com-gif-maker (11)](https://user-images.githubusercontent.com/62373865/152651169-32d2e330-7ced-4a84-9027-5713b3ae16d4.gif)
+
+#### 22.02.03 게시글 업로드
+![ezgif com-gif-maker (13)](https://user-images.githubusercontent.com/62373865/152651716-f1c7a012-ff1f-4eb4-a954-2e6d779d86f0.gif)
+
+#### 22.02.03 게시글 삭제
+![ezgif com-gif-maker (12)](https://user-images.githubusercontent.com/62373865/152651569-bfaba91b-ccb3-46bb-a265-7598b74b1a41.gif)
+
+#### 22.02.04 게시글 편집
+![ezgif com-gif-maker (14)](https://user-images.githubusercontent.com/62373865/152651747-51f0e771-1be1-4cf1-85e7-0451dfb06ed0.gif)
