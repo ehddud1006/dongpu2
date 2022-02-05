@@ -1,0 +1,24 @@
+<%- include("./partials/header") -%>
+
+
+
+    <h1>
+        <%= postTitle %>
+    </h1>
+    <p>
+        <%= postContent %>
+    </p>
+
+
+
+    <%- include("./partials/footer") -%>
+
+        <!-- 이번에는 home.ejs 와 header.ejs , footer.ejs 가 모두 같은 경로에 있었는데.
+header.ejs , footer.ejs 를 patials폴더로 옮겼다.
+그러므로 ejs 모듈을 include 할때, 경로를 설정해주어야했는데
+include("./partials/header") 이런식으로 
+경로를 표시하면 된다. 맨 앞에 .이 없으면 오류가 나기때문에 유의해야한다. -->
+        <!-- 
+rs
+<!-- [nodemon] starting `node app.js` -->
+        <!-- nodemon 실행시 rs를 입력하면 nodemon이 재 실행된다.  -->

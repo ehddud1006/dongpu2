@@ -1,0 +1,279 @@
+.date{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    display: flex;
+}
+
+.dateLeft, .dateRight{
+    flex: 3;
+    /* background-color:  tomato; */
+    display: flex;
+    /* 세로 */
+    /* align-items: end; */
+    /* 가로 */
+    /* justify-content: end; */
+    /* font-family: 'Jua', sans-serif; */
+}
+
+.dateCenter{
+    flex:6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.dateCenter > span:first-child {
+    padding-right: 12px;
+}
+
+.dategrayBar{
+    padding: 0px;
+    height: 2px;
+    background-color: #eeeef7;
+    /* position: sticky; */
+    display: flex;
+}
+
+.price{
+    width: 100%;
+    height: 12vw;
+    background-color: white;
+    display: flex;
+    padding-bottom: 5px;
+}
+
+.top3{
+    padding-left: 10%;
+    padding-top: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+}
+
+.priceImg{
+    padding-bottom: 5px;
+    
+}
+
+
+.priceLeft, .priceRight{
+    flex: 2;
+    display: flex;
+    font-family: 'Jua', sans-serif;
+}
+
+.priceCenter{
+    flex:8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.priceText{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    display: flex;
+}
+
+.priceTextLeft, .priceTextRight{
+    flex: 2;
+    display: flex;
+    font-family: 'Jua', sans-serif;
+}
+
+.priceTextCenter{
+    flex:8;
+    display: flex;
+    align-items: flex-start;
+    justify-content:space-around;
+   
+}
+
+.winner{
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    padding-bottom: 3px;
+}
+
+.winnerTime{
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #e62a43;
+}
+
+.studyLeft{
+    padding-left: 10%;
+    padding-top: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+}
+
+.studyLeft > span:first-child{
+    padding-right: 5px;
+}
+
+.studyLeft > span:nth-child(2){
+    color: #e62a43;
+}
+
+.studyLeft > span:nth-child(3){
+    padding-right: 10px;
+}
+
+.studyLeft > span:nth-child(4){
+    padding-right: 5px;
+}
+
+.studyLeft > span:nth-child(5){
+    color: #e62a43;
+}
+
+.studyLeft2{
+    padding-top: 0;
+}
+
+.studyStatus{
+    padding: 30px;
+    padding-left: 10%;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    display: flex;
+}
+
+.studyStatusLeft{
+    flex: 0.75;
+    display: flex;
+}
+
+.studyStatusRight{
+    flex: 0.75;
+    display: flex;
+}
+
+
+.studyStatusCenter{
+    flex:10.5;
+    display: flex;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.writeIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    font-weight: 600;
+    border: 2px solid;
+    border-radius: 50%;
+    color: #3A83BB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; 
+  }
+.targetName{
+    width: 1110px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+}
+
+.targetName > div:first-child {
+    color: #e62a43;
+    display: flex;
+}
+.rel{
+    position: relative;
+}
+.graph2{
+    position : absolute;
+    width: 1110px;
+    margin-top: 5px;
+    display: block;
+    background: #cbcbf8;
+    line-height: 0.5rem;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+}
+.graph{
+    position : absolute;
+    width: 1110px;
+    margin-top: 5px;
+    display: block;
+    background: #3A83BB;
+    line-height: 0.5rem;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    z-index: 999;
+}
+
+.nameTime{
+    width: 1110px;
+    display: flex;
+    justify-content:space-between;
+}
+
+.nameTime > div:nth-child(2){
+    color: #e62a43;
+}
+
+.bottom{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    /* font-family: 'Josefin Sans', sans-serif; */
+    /* z-index의 디폴트 값은 0 이다. */
+    z-index: 999;
+}
+
+.bottomLeft, .bottomRight{
+    flex: 3;
+    display: flex;
+}
+
+.bottomCenter{
+    flex:6;
+    display: flex;
+    align-items: flex-start;
+    justify-content:space-between;
+}
+
+.bottomIcon1{
+    padding-left: 3px;
+    color: gray;
+    cursor: pointer; 
+}
+
+.bottomIcon2{
+    padding-left: 8px;
+    color: gray;
+    cursor: pointer; 
+}
+
+.bottomText{
+    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: gray;
+    cursor: pointer; 
+}
+
+.dada{
+    color: black;
+}
+
+.link {
+    text-decoration: none;
+  }

@@ -1,0 +1,42 @@
+<%- include("header") -%>
+    <div class="box" id="heading">
+
+        <h1>
+            <%= listTitle %>
+        </h1>
+    </div>
+
+    <div class="box">
+        <% newListItems.forEach(element=> { %>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" name="checkbox" value="<%= element._id %>" onchange="this.form.submit()">
+                    <p>
+                        <%= element.name %>
+                    </p>
+                </div>
+                <!-- 사용자는 모르게 서버에 정보를 전달하기위해서 -->
+                <input type="hidden" name="listName" value="<%= listTitle %>">
+            </form>
+
+            <% }) %>
+
+                <form class="item" action="/" method="post">
+                    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                    <!-- autocomplete 자동완성 제거 -->
+                    <button type="submit" name="list" value=<%=listTitle %>>+</button>
+                </form>
+
+    </div>
+
+    <!-- 자바스크립트문을 사용하기위해서는 <% %>를 사용해야한다. -->
+
+
+    <!-- <li>Buy Food</li>
+        <li>Cook Food</li>
+        <li>Eat Food</li> -->
+
+    <!-- ejs 스니펫이라고 한다. <% %> -->
+
+
+    <%- include("footer") -%>
