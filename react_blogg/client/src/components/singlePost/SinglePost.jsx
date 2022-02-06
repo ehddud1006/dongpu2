@@ -6,9 +6,9 @@ import "./singlePost.css"
 
 function SinglePost() {
     const location = useLocation()
-    console.log(location)
+    // console.log(location)
     // {pathname: '/post/61fa50c080aad9b892727d85', search: '', hash: '', state: undefined, key: 'hoplyg'}
-    console.log(location.pathname.split("/")[2])
+    // console.log(location.pathname.split("/")[2])
     // 61fa50c080aad9b892727d85
     const path = location.pathname.split("/")[2]
     // console.log("http://localhost:3000")
