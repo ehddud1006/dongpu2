@@ -9,11 +9,11 @@
     font-family: "Jua", Georgia, "Times New Roman", serif;
     font-size: 24px;
     padding-left: 20px;
-    border-bottom: 1px solid rgb(224, 222, 222);
+    border: 1px solid rgb(224, 222, 222);
   }
 
 .top2{
-    height: 430px;
+    height: 600px;
 }
 
 
@@ -42,6 +42,14 @@
     align-items: center;
 }
 
+.lalabel4{
+    margin: 0px 87px 0px 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
 
 .lalabelBtn{
     background-color: #F5F5F5;
@@ -82,9 +90,7 @@
     margin-top: 30px;
 }
 
-.ab{
-    
-}
+
 .writeImg {
     width: 250px;
     height: 250px;
@@ -103,4 +109,15 @@
     top: 300px;
     left: 1090px;
     z-index: 999;
+}
+
+.sub{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+}
+
+.sub > button:first-child{
+    margin-right: 10px;
 }

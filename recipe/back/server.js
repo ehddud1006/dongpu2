@@ -32,6 +32,26 @@ const { application } = require('express');
 
 app.use('/users', usersRouter);
 
+const postsRoute = require("./routes/posts")
+app.use("/back/posts", postsRoute)
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
+
+const multer = require("multer")
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "images")
+    }, filename: (req, file, cb) => {
+        cb(null, req.body.name)
+    },
+})
+
+const upload = multer({ storage: storage });
+app.post("/back/upload", upload.single("file"), (req, res) => {
+    res.status(200).json("File has been uploaded");
+});
+
+const path = require("path")
+app.use("/images", express.static(path.join(__dirname, "/images")))
