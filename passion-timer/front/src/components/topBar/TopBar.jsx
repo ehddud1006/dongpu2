@@ -9,6 +9,12 @@ function TopBar({ category }) {
         <>
             <div className="top">
                 <div className="topLeft">
+                    <Link
+                        to="/study"
+                        className="btn"
+                    >
+                        공부하기
+                    </Link>
                 </div>
                 <div className="topCenter">
                     동영타 {category} 랭킹

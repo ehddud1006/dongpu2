@@ -2,6 +2,7 @@ import Date from "./components/date/Date";
 import TopBar from "./components/topBar/TopBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignIn from "./components/singnIn/SignIn";
+import Study from "./components/study/Study";
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/signIn">
           <SignIn></SignIn>
+        </Route>
+        <Route path="/study">
+          <Study></Study>
         </Route>
       </Switch>
     </Router>
