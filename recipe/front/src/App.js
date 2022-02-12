@@ -80,10 +80,10 @@ function App() {
               <div className="container recipe_container">
                 <Recipe></Recipe>
               </div>
-              <div className="topF1"></div>
+              {/* <div className="topF1"></div>
               <div className="container bun">
                 <Footer></Footer>
-              </div>
+              </div> */}
             </div>
           </Route>
         </switch>

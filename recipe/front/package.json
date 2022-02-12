@@ -8,6 +8,7 @@
   ],
   "main": "src/index.js",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@react-bootstrap/pagination": "1.0.0",
     "axios": "^0.25.0",
     "bootstrap": "5.1.3",
