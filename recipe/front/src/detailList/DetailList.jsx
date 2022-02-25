@@ -9,7 +9,7 @@ import "./detailList.css"
 
 const DetailList = (props) => {
     const [file, setFile] = useState([]);
-
+    console.log(file)
     console.log(props)
     return (
         <>
