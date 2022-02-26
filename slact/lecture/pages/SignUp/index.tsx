@@ -3,6 +3,7 @@ import { Success, Form, Error, Label, Input, LinkContainer, Button, Header } fro
 import { Link, Redirect } from 'react-router-dom';
 import useInput from '@hooks/useinput';
 import axios from 'axios';
+
 const SignUp = () => {
     const [email, onChangeEmail] = useInput('')
     const [nickname, onChangeNickname] = useInput('')
@@ -12,6 +13,8 @@ const SignUp = () => {
     const [signUpError, setSignUpError] = useState('');
     const [signUpSuccess, setSignUpSuccess] = useState(false);
 
+   
+    
     // const onChangeEmail = useCallback((e) => {
     //     setEmail(e.target.value)
     // }, [])
