@@ -8,7 +8,7 @@ import useInput from '@hooks/useinput';
 
 const LogIn = () => {
   //   const { data, error, revalidate, mutate } = useSWR('/api/users', fetcher);
-  const { data, error, revalidate } = useSWR('http://localhost:3095/api/users', fetcher);
+  const { data, error, revalidate, mutate } = useSWR('http://localhost:3095/api/users', fetcher);
   const [logInError, setLogInError] = useState(false);
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
@@ -25,7 +25,9 @@ const LogIn = () => {
           },
         )
         .then((response) => {
-          revalidate();
+          //   response.data;
+          mutate(response.data, false);
+          //   revalidate();
         })
         .catch((error) => {
           setLogInError(error.response?.data?.statusCode === 401);
