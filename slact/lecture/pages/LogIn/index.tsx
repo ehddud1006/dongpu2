@@ -8,9 +8,7 @@ import useInput from '@hooks/useinput';
 
 const LogIn = () => {
   //   const { data, error, revalidate, mutate } = useSWR('/api/users', fetcher);
-  const { data, error, revalidate } = useSWR('http://localhost:3095/api/users', fetcher, {
-    dedupingInterval: 100000,
-  });
+  const { data, error, revalidate } = useSWR('http://localhost:3095/api/users', fetcher);
   const [logInError, setLogInError] = useState(false);
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
@@ -36,13 +34,13 @@ const LogIn = () => {
     [email, password],
   );
 
-  //   if (data === undefined) {
-  //     return <div>로딩중...</div>;
-  //   }
+  if (data === undefined) {
+    return <div>로딩중...</div>;
+  }
 
-  //   if (data) {
-  //     return <Redirect to="/workspace/sleact/channel/일반" />;
-  //   }
+  if (data) {
+    return <Redirect to="/workspace/channel" />;
+  }
 
   // console.log(error, userData);
   // if (!error && userData) {
