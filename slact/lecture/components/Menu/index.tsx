@@ -5,7 +5,7 @@ import { CloseModalButton, CreateMenu } from './styles';
 // Props 타입을 선언해주어야한다.
 interface Props {
     show: boolean;
-    onCloseModal: () => void;
+    onCloseModal: (e: any) => void;
     style: CSSProperties;
     // closeButton만 ? 선택적 문법을 사용한 이유는
     // 상위 컴포넌트에서 props를 내려줄때 closeButton은 안내려줄수도 있기때문에 ? 로

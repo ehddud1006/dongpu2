@@ -6,12 +6,11 @@ interface Props {
     show: boolean;
     onCloseModal: () => void
 }
-
+{/* https://ehddud100677.tistory.com/350 */ }
 const Modal: FC<Props> = ({ show, children, onCloseModal }) => {
     const stopPropagation = useCallback((e) => {
         e.stopPropagation();
     }, [])
-
     if (!show) {
         return null
     }

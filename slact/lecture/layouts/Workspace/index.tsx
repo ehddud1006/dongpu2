@@ -12,6 +12,7 @@ import { IUser } from '@typings/db';
 import { Button, Input, Label } from '@pages/SignUp/styles';
 import useInput from '@hooks/useinput';
 import Modal from '@components/Modal';
+import { toast } from 'react-toastify';
 const Channel = loadable(() => import('@pages/Channel'));
 const DirectMessage = loadable(() => import('@pages/DirectMessage'));
 
@@ -36,15 +37,50 @@ const Workspace: FC = ({ children }) => {
             });
     }, []);
 
-    const onCreateWorkspace = useCallback(() => {
+    const onCloseUserProfile = useCallback((e) => {
+        e.stopPropagation();
+        setShowUserMenu(false);
+    }, []);
 
-    }, [])
+    const onCreateWorkspace = useCallback((e) => {
+        e.preventDefault();
+        {/* https://ehddud100677.tistory.com/350 */ }
+        if (!newWorkspace || !newWorkspace.trim()) return;
+        if (!newUrl || !newUrl.trim()) return;
+        // console.log(newWorkspace)
+        // console.log(newUrl)
+        axios
+            .post(
+                'http://localhost:3095/api/workspaces',
+
+                {
+                    workspace: newWorkspace,
+                    url: newUrl,
+                },
+                {
+                    // 로그인된 상태인 것을 쿠키로 백에 전달
+                    withCredentials: true,
+                },
+            )
+            .then(() => {
+                revalidate();
+                setShowCreateWorkspaceModal(false);
+                // state 값 초기화
+                setNewWorkspace('');
+                setNewUrl('');
+            })
+            .catch((error) => {
+                console.dir(error);
+                toast.error(error.response?.data, { position: 'bottom-center' });
+            });
+    }, [newWorkspace, newUrl])
 
     const onCloseModal = useCallback(() => {
         setShowCreateWorkspaceModal(false)
     }, [])
 
     const onClickUserProfile = useCallback(() => {
+        // console.log('hi')
         setShowUserMenu((prev) => !prev)
     }, [])
 
@@ -63,7 +99,7 @@ const Workspace: FC = ({ children }) => {
                     {/* 유저 프로필을 누를경우 */}
                     <span onClick={onClickUserProfile}>
                         <ProfileImg src={gravatar.url(userData.nickname, { s: '28px', d: 'retro' })} alt={userData.email}></ProfileImg>
-                        {showUserMenu && (<Menu style={{ right: 0, top: 38 }} show={showUserMenu} onCloseModal={onClickUserProfile}>프로필메뉴
+                        {showUserMenu && (<Menu style={{ right: 0, top: 38 }} show={showUserMenu} onCloseModal={onCloseUserProfile}>프로필메뉴
                             <ProfileModal>
                                 <img src={gravatar.url(userData.nickname, { s: '36px', d: 'retro' })} alt={userData.nickname}></img>
                                 <div>
@@ -80,6 +116,7 @@ const Workspace: FC = ({ children }) => {
 
             {/* <button onClick={onLogout}>로그아웃</button> */}
             <WorkspaceWrapper>
+                {/* https://ehddud100677.tistory.com/350 */}
                 <Workspaces>{userData?.Workspaces.map((ws) => {
                     return (
                         <Link key={ws.id} to={`/workspace/${123}/channel/일반`}>
