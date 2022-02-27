@@ -16,6 +16,7 @@ import { toast } from 'react-toastify';
 import CreateChannelModal from '@components/CreateChannelModal/CreateChannelModal';
 import InviteWorkspaceModal from '@components/InviteWorkspaceModal/InviteWorkspaceModal';
 import InviteChannelModal from '@components/InviteChannelModal/InviteChannelModal';
+import DMList from '@components/DMList/DMList';
 const Channel = loadable(() => import('@pages/Channel'));
 const DirectMessage = loadable(() => import('@pages/DirectMessage'));
 
@@ -32,13 +33,15 @@ const Workspace: VFC = () => {
     // data의 이름을 userData로 바꾼다.
     // useSWR<IUser | false>
     // 로그인 되어 있을 경우 | 안되어있는 경우
-    const { data: userData, error, revalidate, mutate } = useSWR<IUser | false>('http://localhost:3095/api/users', fetcher);
+    const { data: userData, error, revalidate, mutate } = useSWR<IUser | false>('/api/users', fetcher);
     const { workspace } = useParams<{ workspace: string }>()
     // 삼항연산자를 사용해서 로그인이 된 상태라면 요청을 보내고 아니라면 null
-    const { data: channelData } = useSWR<IChannel[]>(userData ? `http://localhost:3095/api/workspaces/${workspace}/channels` : null, fetcher);
+    const { data: channelData } = useSWR<IChannel[]>(userData ? `/api/workspaces/${workspace}/channels` : null, fetcher);
+    const { data: memberData } = useSWR<IUser[]>(userData ? `/api/workspaces/${workspace}/members` : null, fetcher);
+
     const onLogout = useCallback(() => {
         axios
-            .post('http://localhost:3095/api/users/logout', null, {
+            .post('/api/users/logout', null, {
                 withCredentials: true,
             })
             .then(() => {
@@ -62,7 +65,7 @@ const Workspace: VFC = () => {
         // console.log(newUrl)
         axios
             .post(
-                'http://localhost:3095/api/workspaces',
+                '/api/workspaces',
 
                 {
                     workspace: newWorkspace,
@@ -167,6 +170,8 @@ const Workspace: VFC = () => {
                                 <button onClick={onLogout}>로그아웃</button>
                             </WorkspaceModal>
                         </Menu>
+                        {/* <ChannelList}></ChannelList> */}
+                        <DMList ></DMList>
                         {channelData?.map((v) => (<div>{v.name}</div>))}
                     </MenuScroll>
                 </Channels>
