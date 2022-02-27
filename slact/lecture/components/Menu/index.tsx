@@ -20,7 +20,8 @@ const Menu: FC<Props> = ({ children, style, show, onCloseModal, closeButton }) =
     if (!show) return null;
     return (
         <CreateMenu onClick={onCloseModal}>
-            <div style={style} onClick={stopPropagation}>
+            <div style={style}>
+                {/* <div style={style} onClick={stopPropagation}> */}
                 {/* &times는 x 표시를 뜻한다. */}
                 {closeButton && <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton>}
                 {children}
