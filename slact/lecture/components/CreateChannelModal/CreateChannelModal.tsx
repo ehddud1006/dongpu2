@@ -4,7 +4,6 @@ import { Button, Input, Label } from '@pages/SignUp/styles';
 import { IChannel, IUser } from '@typings/db';
 import fetcher from '@utils/fetcher';
 import axios from 'axios';
-import { stringify } from 'querystring';
 import React, { useCallback, VFC } from 'react';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
@@ -38,6 +37,7 @@ const CreateChannelModal: VFC<Props> = ({ show, onCloseModal, setShowCreateChann
         )
             .then(() => {
                 setShowCreateChannelModal(false);
+                // 채널 추가시 바로 화면에 반영되도록 revalidate를 실행
                 revalidateChannel();
                 setNewChannel('');
             })
