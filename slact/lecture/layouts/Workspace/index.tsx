@@ -17,6 +17,7 @@ import CreateChannelModal from '@components/CreateChannelModal/CreateChannelModa
 import InviteWorkspaceModal from '@components/InviteWorkspaceModal/InviteWorkspaceModal';
 import InviteChannelModal from '@components/InviteChannelModal/InviteChannelModal';
 import DMList from '@components/DMList/DMList';
+import ChannelList from '@components/ChannelList/ChannelList';
 const Channel = loadable(() => import('@pages/Channel'));
 const DirectMessage = loadable(() => import('@pages/DirectMessage'));
 
@@ -170,7 +171,7 @@ const Workspace: VFC = () => {
                                 <button onClick={onLogout}>로그아웃</button>
                             </WorkspaceModal>
                         </Menu>
-                        {/* <ChannelList}></ChannelList> */}
+                        <ChannelList></ChannelList>
                         <DMList ></DMList>
                         {channelData?.map((v) => (<div>{v.name}</div>))}
                     </MenuScroll>
@@ -211,7 +212,7 @@ const Workspace: VFC = () => {
                 setShowInviteChannelModal={setShowInviteChannelModal}
             />
             {/* {children} */}
-        </div>
+        </div >
     );
 };
 
