@@ -1,6 +1,5 @@
-import Workspace from '@layouts/Workspace/index';
 import React from 'react';
-
+import Workspace from '@layouts/Workspace/index';
 const Channel = () => {
   return (
     <Workspace>
