@@ -19,7 +19,7 @@ import InviteChannelModal from '@components/InviteChannelModal/InviteChannelModa
 import DMList from '@components/DMList/DMList';
 import ChannelList from '@components/ChannelList/ChannelList';
 const Channel = loadable(() => import('@pages/Channel'));
-const DirectMessage = loadable(() => import('@pages/DirectMessage'));
+const DirectMessage = loadable(() => import('@pages/DirectMessage/DirectMessage'));
 
 // children 이 필요없다면 VFC 필요하면 FC
 const Workspace: VFC = () => {
@@ -149,7 +149,7 @@ const Workspace: VFC = () => {
             {/* <button onClick={onLogout}>로그아웃</button> */}
             <WorkspaceWrapper>
                 {/* https://ehddud100677.tistory.com/350 */}
-                <Workspaces>{userData?.Workspaces.map((ws) => {
+                <Workspaces>{userData?.Workspaces?.map((ws) => {
                     return (
                         <Link key={ws.id} to={`/workspace/${123}/channel/일반`}>
                             <WorkspaceButton>{ws.name.slice(0, 1).toUpperCase()}</WorkspaceButton>
