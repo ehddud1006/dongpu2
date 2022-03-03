@@ -39,7 +39,8 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 
 
 
-keyword = pyautogui.prompt("검색어를 입력하세요")
+# keyword = pyautogui.prompt("검색어를 입력하세요")
+keyword= '치킨'
 # 웹페이지 해당 주소 이동
 driver.get("https://www.yogiyo.co.kr/mobile/#/")
 # 로딩이 끝날때 까지 10초 기다림, 10초전에 로딩이 끝나면 빨리 끝난다.
@@ -77,14 +78,48 @@ while True :
 time.sleep(2)
 # 상품 정보 div 
 items = driver.find_elements_by_css_selector(".item.clearfix")
+# restaurant_names = []
+# for item in items :
+#         name = item.find_element_by_css_selector(".restaurant-name ").text
+#         restaurant_names.append(name)
 
+# print(len(restaurant_names))
+# # print(items)
+# # time.sleep(10000)
+# index = 0
+# while True :
+#     if index == len(restaurant_names):
+#         break
+#     items = driver.find_elements_by_css_selector(".item.clearfix")
+#     for item in items :
+#         if item.find_element_by_css_selector(".restaurant-name").text == restaurant_names[index]:
+#             print(f"{restaurant_names[index]},True")
+    
+#     index +=1
+
+# time.sleep(10000)
 for item in items :
-        name = item.find_element_by_css_selector(".restaurant-name ").text
-        try :
-            price = item.find_element_by_css_selector(".min-price").text
-        except :
-            price = "판매중단"
-        print(name,price)
+        # print(item)
+        # print(item.find_element_by_css_selector(".restaurant-name").text)
+        item.find_element_by_css_selector(".restaurant-name").click()
+        toggles = driver.find_elements_by_css_selector(".icon-arr-down")
+        for toggle in toggles :
+            toggle.click()
+        foods = driver.find_elements_by_css_selector(".photo-menu") 
+        for food in foods:
+            name = food.find_element_by_css_selector(".menu-name").text  
+            price = food.find_element_by_css_selector(".menu-price").text 
+            if name == "" and price == "":
+                continue
+            print(f'{name} {price}') 
+        # driver.back()
+        # continue
+        # time.sleep(10000)
+        # try :
+        #     price = item.find_element_by_css_selector(".min-price").text
+        # except :
+        #     price = "판매중단"
+        # print(name,price)
     
 
 # # 검색창 클릭

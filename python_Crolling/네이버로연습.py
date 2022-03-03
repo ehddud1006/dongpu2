@@ -9,3 +9,7 @@ words = soup.find_all("a","nav")
 # word = soup.select_one("#NM_set_home_btn")
 for word in words:
     print(word.text)
+
+import os
+if not os.path.isdir('./{}'.format('자장면')):
+    os.mkdir('/{}'.format('자장면'))
