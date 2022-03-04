@@ -7,6 +7,7 @@ import pyautogui
 import urllib
 import urllib.parse
 import os 
+import re
 
 from urllib.request import urlopen, urlretrieve
 
@@ -47,6 +48,10 @@ chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 service = Service(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
+#특수문자 제거
+def clean_text(inputString):
+  text_rmv = re.sub('[-=+,#/\?:^.@*\"※~ㆍ!』><‘|\(\)\[\]`\'…》\”\“\’·]', ' ', inputString)
+  return text_rmv
 
 def Scroll() :
     # 스크롤 전 높이
@@ -59,7 +64,7 @@ def Scroll() :
         driver.find_element_by_css_selector("body").send_keys(Keys.END)
 
         # 스크롤 사이 페이지 로딩 기간
-        time.sleep(2)
+        time.sleep(1)
 
         # 스크롤 후 높이
         after_h = driver.execute_script("return window.scrollY")
@@ -69,7 +74,7 @@ def Scroll() :
 
         before_h = after_h
 
-    time.sleep(2)
+    time.sleep(1)
 
 
 
@@ -80,6 +85,8 @@ keyword= '중국집'
 driver.get("https://www.yogiyo.co.kr/mobile/#/")
 # 로딩이 끝날때 까지 10초 기다림, 10초전에 로딩이 끝나면 빨리 끝난다.
 driver.implicitly_wait(10) 
+
+duplicate = ['롯데리아-부산전포점']
 
 # 메뉴 탐색 
 for keyword in keywords :
@@ -96,7 +103,7 @@ for keyword in keywords :
         if menu.text == keyword :
             menu.click()
             break
-    time.sleep(2)
+    time.sleep(1)
     
     #무한 스크롤
     Scroll()
@@ -113,19 +120,25 @@ for keyword in keywords :
 
 
     while True :
+        print(f'index: {index}')
         Scroll()
 
         if index == len(restaurant_names):
             break
         items = driver.find_elements_by_css_selector(".item.clearfix")
         for item in items :
+            # if item.find_element_by_css_selector(".restaurant-name").text in duplicate :
+            #     print(item.find_element_by_css_selector(".restaurant-name").text)
+            #     continue
             if item.find_element_by_css_selector(".restaurant-name").text == restaurant_names[index] and visit[index]:
                 print(f'+++++++++++++++++++++++++{restaurant_names[index]}+++++++++++++++++++++++')
                 if os.path.exists(f'요기요/{keyword}/{restaurant_names[index]}') :
-                    pass
+                    # 기존 pass에서 폴더가 존재한다면 이미 크롤링을 하였으므로 coninue를 한다.
+                    index+=1
+                    continue
                 else:
                     os.mkdir(f'요기요/{keyword}/{restaurant_names[index]}')
-                time.sleep(2)
+                time.sleep(1)
                 visit[index]=False
                 imgUrl =  item.find_element_by_css_selector(".logo").get_attribute("style")
                 parsingImgUrl = imgUrl[22:]
@@ -140,18 +153,23 @@ for keyword in keywords :
                 # 지옥 같던 오류를 극복하기위해서
                 plz = plz.replace("%3A",":")
                 urllib.request.urlretrieve(plz,f'요기요/{keyword}/{restaurant_names[index]}/{restaurant_names[index]}로고.png')
-                time.sleep(2)
+                time.sleep(1)
                 item.find_element_by_css_selector(".restaurant-name").click()
-                time.sleep(2)
+                time.sleep(1)
                 opener = urllib.request.build_opener()
                 opener.addheaders = [('User-Agent','Mozila/5.0')]
                 urllib.request.install_opener(opener)
                 toggles = driver.find_elements_by_css_selector(".icon-arr-down")
                 for toggle in toggles :
-                    toggle.click()
+                    try :
+                        toggle.click()
+                    except:
+                        continue
+                    time.sleep(1)
                 foods = driver.find_elements_by_css_selector(".photo-menu") 
                 for food in foods:
-                    name = food.find_element_by_css_selector(".menu-name").text  
+                    name = food.find_element_by_css_selector(".menu-name").text
+                    name = clean_text(name)  
                     price = food.find_element_by_css_selector(".menu-price").text 
                     if name == "" and price == "":
                         continue
@@ -171,10 +189,10 @@ for keyword in keywords :
                         plz = plz.replace("%3A",":")
                         plz = plz.replace("25","")
                         urllib.request.urlretrieve(plz,f'요기요/{keyword}/{restaurant_names[index]}/{name}.png')
-                        time.sleep(2)
+                        time.sleep(1)
                     except :
                         urllib.request.urlretrieve("https://3.bp.blogspot.com/-ZKBbW7TmQD4/U6P_DTbE2MI/AAAAAAAADjg/wdhBRyLv5e8/s1600/noimg.gif",f'요기요/{keyword}/{restaurant_names[index]}/{name}.png')
-                        time.sleep(2)
+                        time.sleep(1)
                     print(f'{name} {price}') 
                 break
         index +=1    
