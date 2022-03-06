@@ -2,6 +2,10 @@
 import React, { useCallback, useEffect, useRef, VFC } from 'react';
 import { ChatArea, Form, MentionsTextarea, SendButton, Toolbox } from './styles';
 import autosize from 'autosize'
+import { useParams } from 'react-router';
+import useSWR from 'swr';
+import { IUser } from '@typings/db';
+import fetcher from '@utils/fetcher';
 
 interface Props {
     chat: string;
@@ -10,12 +14,18 @@ interface Props {
     placeholder?: string;
 }
 const ChatBox: VFC<Props> = ({ chat, onSubmitForm, onChangeChat, placeholder }) => {
+    const { workspace } = useParams<{ workspace: string }>();
+    const { data: userData, error, revalidate, mutate } = useSWR<IUser | false>('/api/users', fetcher, {
+        dedupingInterval: 2000, // 2초
+    });
+    const { data: memberData } = useSWR<IUser[]>(userData ? `/api/workspaces/${workspace}/members` : null, fetcher);
+
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     useEffect(() => {
         if (textareaRef.current) {
             autosize(textareaRef.current)
         }
-    })
+    }, [])
     const onKeydownChat = useCallback((e) => {
         console.log(e)
         if (e.key === 'Enter') {

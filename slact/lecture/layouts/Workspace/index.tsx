@@ -1,4 +1,4 @@
-import React, { VFC, useCallback, useState } from 'react';
+import React, { VFC, useCallback, useState, useEffect } from 'react';
 import fetcher from '@utils/fetcher';
 import useSWR from 'swr';
 import axios from 'axios';
@@ -18,6 +18,7 @@ import InviteWorkspaceModal from '@components/InviteWorkspaceModal/InviteWorkspa
 import InviteChannelModal from '@components/InviteChannelModal/InviteChannelModal';
 import DMList from '@components/DMList/DMList';
 import ChannelList from '@components/ChannelList/ChannelList';
+import useSocket from '@hooks/useSocket';
 const Channel = loadable(() => import('@pages/Channel'));
 const DirectMessage = loadable(() => import('@pages/DirectMessage/DirectMessage'));
 
@@ -39,7 +40,19 @@ const Workspace: VFC = () => {
     // 삼항연산자를 사용해서 로그인이 된 상태라면 요청을 보내고 아니라면 null
     const { data: channelData } = useSWR<IChannel[]>(userData ? `/api/workspaces/${workspace}/channels` : null, fetcher);
     const { data: memberData } = useSWR<IUser[]>(userData ? `/api/workspaces/${workspace}/members` : null, fetcher);
+    const [socket, disconnect] = useSocket(workspace);
 
+    useEffect(() => {
+        if (channelData && userData && socket) {
+            console.log(socket)
+            socket.emit('login', { id: userData.id, channels: channelData.map((v) => v.id) })
+        }
+    }, [socket, channelData, userData])
+    useEffect(() => {
+        return () => {
+            disconnect();
+        }
+    }, [workspace, disconnect])
     const onLogout = useCallback(() => {
         axios
             .post('/api/users/logout', null, {

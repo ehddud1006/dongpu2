@@ -19,7 +19,7 @@ const DirectMessage = () => {
         `/api/workspaces/${workspace}/dms/${id}/chats?perPage=20&page=1`,
         fetcher,
     );
-
+    const [socket] = useSocket(workspace);
     const onSubmitForm = useCallback((e) => {
         e.preventDefault();
         if (chat?.trim()) {
@@ -34,9 +34,9 @@ const DirectMessage = () => {
                 .catch(console.error);
         }
         console.log('submit')
-    }, [])
+    }, [chat]);
     if (!userData || !myData) {
-        return null
+        return null;
     }
     return (
         <Container>
@@ -44,7 +44,7 @@ const DirectMessage = () => {
                 <img src={gravatar.url(userData.email, { s: '24px', d: 'retro' })}></img>
                 <span>{userData.nickname}</span>
             </Header>
-            <ChatList></ChatList>
+            <ChatList chatData={chatData}></ChatList>
             <ChatBox chat={chat} onChangeChat={onChangeChat} onSubmitForm={onSubmitForm} />
         </Container>
     );
