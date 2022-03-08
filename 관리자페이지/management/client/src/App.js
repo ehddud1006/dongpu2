@@ -33,9 +33,9 @@ class App extends Component {
   componentDidMount() {
     // 0.02초 마다 수행된다.
     this.timer = setInterval(this.progress, 100);
-    // this.callApi()
-    //   .then(res => this.setState({customers: res}))
-    //   .catch(err => console.log(err));
+    this.callApi()
+      .then(res => this.setState({customers: res}))
+      .catch(err => console.log(err));
   }
 
   // componentWillUnmount() {
@@ -54,6 +54,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.customers)
     const { classes } = this.props;
     return (
       <Paper className={classes.root}>
@@ -62,16 +63,15 @@ class App extends Component {
             <TableRow>
               <TableCell>번호</TableCell>
               <TableCell>이미지</TableCell>
-              <TableCell>이름</TableCell>
-              <TableCell>생년월일</TableCell>
-              <TableCell>성별</TableCell>
-              <TableCell>직업</TableCell>
+              <TableCell>가게명</TableCell>
+              <TableCell>최소주문</TableCell>
+              <TableCell>배달요금</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {this.state.customers ?
               this.state.customers.map(c => {
-                return <Customer key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} />
+                return <Customer key={c.id} id={c.ID} image={c.STARS} name={c.RESTAURANT_NAME} birthday={c.MINIMUM_COST} gender={c.DELIVERY_FEE}  />
               }) :
               <TableRow>
                 <TableCell colSpan="6" align="center">
