@@ -140,7 +140,7 @@ duplicate = ['롯데리아-부산전포점']
 
 # 메뉴 탐색 
 for keyword in keywords :
-    keyword = '중국집'
+    keyword = '치킨'
     if os.path.exists(f'요기요/{keyword}') :
         pass
     else:
