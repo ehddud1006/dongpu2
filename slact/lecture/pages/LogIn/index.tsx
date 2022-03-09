@@ -21,13 +21,16 @@ const LogIn = () => {
           '/api/users/login',
           { email, password },
           {
+            // 쿠키를 백엔드에 전송
             withCredentials: true,
           },
         )
         .then((response) => {
           //   response.data;
-          mutate(response.data, false);
-          //   revalidate();
+          // revalidate 와 mutate의 차이는 revalidate는 서버에 요청을 하지만 , mutate는 
+          // 정보를 front단에서 넣는다.
+          // mutate(response.data, false);
+          revalidate();
         })
         .catch((error) => {
           setLogInError(error.response?.data?.statusCode === 401);
@@ -36,6 +39,7 @@ const LogIn = () => {
     [email, password],
   );
 
+  // swr이 undefined면 로딩중
   if (data === undefined) {
     return <div>로딩중...</div>;
   }

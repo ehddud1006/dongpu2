@@ -6,9 +6,13 @@ import axios from 'axios';
 import useSWR from 'swr';
 import fetcher from '@utils/fetcher';
 const SignUp = () => {
+  // revalidate는 사용자가 의도적으로 swr를 사용할 수 있게 해준다.
   const { data, error, revalidate } = useSWR('/api/users', fetcher);
   const [email, onChangeEmail] = useInput('');
   const [nickname, onChangeNickname] = useInput('');
+  // 왜 password와 passwordCheck는 useInput의 두번째 파라미터는 사용하지 
+  // 않았나? 그 이유는 비밀번호 체크에서 mismatchError를 더 사용해야했기
+  // 때문이다.
   const [password, , setPassword] = useInput('');
   const [passwordCheck, , setPasswordCheck] = useInput('');
   const [missmatchError, setMismatchError] = useState(false);
@@ -41,6 +45,7 @@ const SignUp = () => {
 
   const onSubmit = useCallback(
     (e) => {
+      // submit하고 새로고침 되는 것을 막기위해서
       e.preventDefault();
       console.log(email, nickname, password, passwordCheck);
       if (!missmatchError) {
@@ -53,17 +58,24 @@ const SignUp = () => {
             nickname,
             password,
           })
+          // 성공시 then
           .then((response) => {
+            // response에 요청에 대한 응답이 담겨있다.
             console.log(response);
             setSignUpSuccess(true);
           })
+          // 실패시 catch
           .catch((error) => {
             console.log(error.response);
             setSignUpError(error.response.data);
           })
+          // 성공하든가 말든가 무조건
           .finally(() => { });
       }
     },
+    // deps 에 내부에서 쓰인 state를 모두 포함 시켜야한다.
+    // useCallback은 deps의 state가 바뀌면 내부 함수를 새로만들고 바뀌지 않는다면
+    // 이전 함수를 계속 사용한다.
     [email, nickname, password, passwordCheck, missmatchError],
   );
 

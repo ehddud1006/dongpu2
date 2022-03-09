@@ -14,19 +14,20 @@ interface Props {
 }
 const Menu: FC<Props> = ({ children, style, show, onCloseModal, closeButton }) => {
     const stopPropagation = useCallback((e) => {
-        e.stopPropagation
+        e.stopPropagation();
     }, [])
 
     if (!show) return null;
     return (
         <CreateMenu onClick={onCloseModal}>
-            <div style={style}>
-                {/* <div style={style} onClick={stopPropagation}> */}
+            {/* <CreateMenu > */}
+            {/* <div style={style}> */}
+            <div style={style} onClick={stopPropagation}>
                 {/* &times는 x 표시를 뜻한다. */}
                 {closeButton && <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton>}
                 {children}
             </div>
-        </CreateMenu>
+        </CreateMenu >
     );
 };
 Menu.defaultProps = {

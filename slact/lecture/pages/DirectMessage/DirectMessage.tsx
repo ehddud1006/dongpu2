@@ -10,6 +10,7 @@ import ChatList from '@components/ChatList/ChatList';
 import useInput from '@hooks/useinput';
 import axios from 'axios';
 import { IDM } from '@typings/db';
+import useSocket from '@hooks/useSocket';
 const DirectMessage = () => {
     const { workspace, id } = useParams<{ workspace: string; id: string }>();
     const { data: userData } = useSWR(`/api/workspaces/${workspace}/users/${id}`, fetcher);

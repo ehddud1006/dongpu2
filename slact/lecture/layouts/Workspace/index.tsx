@@ -42,6 +42,8 @@ const Workspace: VFC = () => {
     const { data: memberData } = useSWR<IUser[]>(userData ? `/api/workspaces/${workspace}/members` : null, fetcher);
     const [socket, disconnect] = useSocket(workspace);
 
+
+    // 무슨기능인지 모르겠다.
     useEffect(() => {
         if (channelData && userData && socket) {
             console.log(socket)
@@ -53,6 +55,8 @@ const Workspace: VFC = () => {
             disconnect();
         }
     }, [workspace, disconnect])
+
+
     const onLogout = useCallback(() => {
         axios
             .post('/api/users/logout', null, {
@@ -106,6 +110,8 @@ const Workspace: VFC = () => {
     const onCloseModal = useCallback(() => {
         setShowCreateWorkspaceModal(false)
         setShowCreateChannelModal(false)
+        setShowInviteWorkspaceModal(false);
+        setShowInviteChannelModal(false);
     }, [])
 
     const onClickUserProfile = useCallback(() => {
@@ -128,6 +134,7 @@ const Workspace: VFC = () => {
 
     const onClickInviteWorkspace = useCallback(() => {
         setShowInviteWorkspaceModal(true);
+
     }, []);
 
 
@@ -186,7 +193,7 @@ const Workspace: VFC = () => {
                         </Menu>
                         <ChannelList></ChannelList>
                         <DMList ></DMList>
-                        {channelData?.map((v) => (<div>{v.name}</div>))}
+                        {/* {channelData?.map((v) => (<div>{v.name}</div>))} */}
                     </MenuScroll>
                 </Channels>
                 <Chats>
