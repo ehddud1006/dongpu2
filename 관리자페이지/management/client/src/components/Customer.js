@@ -2,17 +2,24 @@ import CustomerInfo from './CustomerInfo'
 import CustomerProfile from './CustomerProfile'
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-
+import { Switch, Route, Redirect,Link } from 'react-router-dom';
+import restaurantName from './RestaurantName';
+import { BrowserRouter } from 'react-router-dom';
 const Customer = ({id,image,name,birthday,gender,job}) => { // 함수형 컴포넌트 시작~!
     return (
+        
+    <BrowserRouter>
         <TableRow>
             <TableCell>{id}</TableCell>
             <TableCell><img src={image} alt="profile"/></TableCell>
-            <TableCell>{name}</TableCell>
+            {/* <Link to ={`/main/${id}`}><TableCell>{name}</TableCell></Link> */}
+            <TableCell><a href={`/main/${id}`}>{name}</a></TableCell>
+            <TableCell>{job}</TableCell>
             <TableCell>{birthday}</TableCell>
             <TableCell>{gender}</TableCell>
-            <TableCell>{job}</TableCell>
         </TableRow>
+    </BrowserRouter>
+        
     );
   };
 

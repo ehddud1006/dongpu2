@@ -9,81 +9,36 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { withStyles } from '@material-ui/core/styles';
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import Typography from '@material-ui/core/Typography';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Go from './components/Go'
+import { BrowserRouter } from 'react-router-dom';
+import RestaurantName from './components/RestaurantName';
+const App = () => {
+  return (
+    <BrowserRouter>
+      {/* <Redirect exact path="/" to="/main" /> */}
+      <Route exact path="/" component={Go} />
+      <Route path="/main/:id" component={RestaurantName} />
+    </BrowserRouter>
+    // <Go></Go>
+    // <Switch>
+    //   <Redirect exact path="/" to="/main" />
+    //   <Route path="/main" component={Go} />
+    // </Switch>
+    // <Switch>
+    //   <Redirect exact path="/" to="/main" />
+    //   <Route path="/main" component={go} />
+    //   {/* <Route path="/main/:restaurantName" component={Workspace} /> */}
+    // </Switch>
+  );
+};
 
-const styles = theme => ({
-  root: {
-    width: "100%",
-    marginTop: theme.spacing.unit * 3,
-    overflowX: "auto"
-  },
-  table: {
-    minWidth: 1080
-  },
-  progress: {
-    margin: theme.spacing.unit * 2
-  }
-});
-
-class App extends Component {
-  state = {
-    customers: '',
-    completed: 0
-  }
-
-  componentDidMount() {
-    // 0.02초 마다 수행된다.
-    this.timer = setInterval(this.progress, 100);
-    this.callApi()
-      .then(res => this.setState({customers: res}))
-      .catch(err => console.log(err));
-  }
-
-  // componentWillUnmount() {
-  //   clearInterval(this.timer);
-  // }
-
-  callApi = async () => {
-    const response = await fetch('/api/customers');
-    const body = await response.json();
-    return body;
-  }
-
-  progress = () => {
-    const { completed } = this.state;
-    this.setState({ completed: completed >= 100 ? 0 : completed + 1 });
-  };
-
-  render() {
-    console.log(this.state.customers)
-    const { classes } = this.props;
-    return (
-      <Paper className={classes.root}>
-        <Table className={classes.table}>
-          <TableHead>
-            <TableRow>
-              <TableCell>번호</TableCell>
-              <TableCell>이미지</TableCell>
-              <TableCell>가게명</TableCell>
-              <TableCell>최소주문</TableCell>
-              <TableCell>배달요금</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {this.state.customers ?
-              this.state.customers.map(c => {
-                return <Customer key={c.id} id={c.ID} image={c.STARS} name={c.RESTAURANT_NAME} birthday={c.MINIMUM_COST} gender={c.DELIVERY_FEE}  />
-              }) :
-              <TableRow>
-                <TableCell colSpan="6" align="center">
-                  <CircularProgress className={classes.progress} variant="determinate" value={this.state.completed} />
-                </TableCell>
-              </TableRow>
-            }
-          </TableBody>
-        </Table>
-      </Paper>
-    );
-  }
-}
-
-export default withStyles(styles)(App);
+export default App;
