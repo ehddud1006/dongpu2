@@ -149,7 +149,7 @@ class go extends Component {
           || String(c.MINIMUM_COST).indexOf(this.state.searchKeyword) > -1 || String(c.DELIVERY_FEE).indexOf(this.state.searchKeyword) > -1;
       });
       return data.map((c) => {
-        return  <Customer key={c.id} id={c.ID} image={c.STARS} name={c.RESTAURANT_NAME} job={c.STARS} birthday={c.MINIMUM_COST} gender={c.DELIVERY_FEE}  />
+        return  <Customer key={c.id} id={c.ID} image={c.IMAGE} name={c.RESTAURANT_NAME} job={c.STARS} birthday={c.MINIMUM_COST} gender={c.DELIVERY_FEE}  />
       });
     }
     return (

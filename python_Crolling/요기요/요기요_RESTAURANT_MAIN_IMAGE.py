@@ -49,6 +49,7 @@ service = Service(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
 location = os.path.dirname(os.path.realpath(__file__))
+print(location)
 
 #특수문자 제거
 def clean_text(inputString):
@@ -139,12 +140,13 @@ driver.implicitly_wait(10)
 duplicate = ['롯데리아-부산전포점']
 
 # 메뉴 탐색 
+id = 0
 for keyword in keywords :
     keyword = '치킨'
-    if os.path.exists(f'요기요/{keyword}') :
+    if os.path.exists(f'{location}/{keyword}') :
         pass
     else:
-        os.mkdir(f'요기요/{keyword}')
+        os.mkdir(f'{location}/{keyword}')
     time.sleep(2)    
     menuss = driver.find_elements_by_css_selector(".category-title")
     for menu in menuss :
@@ -152,8 +154,9 @@ for keyword in keywords :
         # 탐색한 메뉴와 일치할 경우 클릭
         if menu.text == keyword :
             menu.click()
+            time.sleep(1)
             break
-    time.sleep(1)
+    # time.sleep(1)
     
     #무한 스크롤
     Scroll()
@@ -177,6 +180,8 @@ for keyword in keywords :
 
     while True :
         print(f'index: {index}')
+        print(len(restaurant_names))
+        time.sleep(1)
         Scroll()
 
         if index == len(restaurant_names):
@@ -188,12 +193,12 @@ for keyword in keywords :
             #     continue
             if item.find_element_by_css_selector(".restaurant-name").text == restaurant_names[index] and visit[index]:
                 print(f'+++++++++++++++++++++++++{restaurant_names[index]}+++++++++++++++++++++++')
-                if os.path.exists(f'요기요/{keyword}/{restaurant_names[index]}') :
+                if os.path.exists(f'{location}/{keyword}/{restaurant_names[index]}') :
                     # 기존 pass에서 폴더가 존재한다면 이미 크롤링을 하였으므로 coninue를 한다.
                     index+=1
                     continue
                 else:
-                    os.mkdir(f'요기요/{keyword}/{restaurant_names[index]}')
+                    os.mkdir(f'{location}/{keyword}/{restaurant_names[index]}')
                 time.sleep(1)
                 visit[index]=False
                 imgUrl =  item.find_element_by_css_selector(".logo").get_attribute("style")
@@ -202,13 +207,13 @@ for keyword in keywords :
                 for w in parsingImgUrl :
                     if w == ')' :
                         break
-                    else :
+                    else : 
                         realImgUrl += w
-             
+
                 plz = urllib.parse.quote(realImgUrl[1:-1])
                 # 지옥 같던 오류를 극복하기위해서
                 plz = plz.replace("%3A",":")
-                urllib.request.urlretrieve(plz,f'요기요/{keyword}/{restaurant_names[index]}/{restaurant_names[index]}로고.png')
+                urllib.request.urlretrieve(plz,f'{location}/{keyword}/{restaurant_names[index]}/{restaurant_names[index]}로고.png')
                 time.sleep(1)
                 print(f'{location}\\{keyword}\\{restaurant_names[index]}\\{restaurant_names[index]}로고.png')
                 r_name = restaurant_names[index]
@@ -220,8 +225,10 @@ for keyword in keywords :
                     stars = float(stars[1:])
                 except:
                     stars = 0 
+                print("before click")
                 item.find_element_by_css_selector(".restaurant-name").click()
                 time.sleep(1)
+                print("after click")
                 delivery_fee = driver.find_element_by_css_selector(".list-group-item.clearfix.text-right.ng-binding").text
                 print(delivery_fee)
                 delivery_fee = fee(delivery_fee)
@@ -229,7 +236,9 @@ for keyword in keywords :
                 sql = "insert into RESTAURANT_MAIN (RESTAURANT_NAME, STARS, IMAGE, MINIMUM_COST, DELIVERY_FEE) values(%s, %s, %s, %s, %s)"
                 
                 print(f'HAPPY: {restaurant_names[index]}')
-                img = InsertBlob(location+ '\\' + keyword + '\\' + restaurant_names[index] + '\\' + restaurant_names[index]+'로고.png' )
+                # img = InsertBlob(location+ '\\' + keyword + '\\' + restaurant_names[index] + '\\' + restaurant_names[index]+'로고.png' )
+                img ='/요기요/'+  keyword + '/' + restaurant_names[index] + '/' + restaurant_names[index]+'로고.png' 
+                print(img)
                 # 5. SQL 구문 실행하기
                 cursor.execute(sql,(r_name,stars,img,minimum_cost,delivery_fee))
                 
@@ -271,10 +280,10 @@ for keyword in keywords :
                         # 지옥 같던 오류를 극복하기위해서
                         plz = plz.replace("%3A",":")
                         plz = plz.replace("25","")
-                        urllib.request.urlretrieve(plz,f'요기요/{keyword}/{restaurant_names[index]}/{name}.png')
+                        urllib.request.urlretrieve(plz,f'{location}/{keyword}/{restaurant_names[index]}/{name}.png')
                         time.sleep(1)
                     except :
-                        urllib.request.urlretrieve("https://3.bp.blogspot.com/-ZKBbW7TmQD4/U6P_DTbE2MI/AAAAAAAADjg/wdhBRyLv5e8/s1600/noimg.gif",f'요기요/{keyword}/{restaurant_names[index]}/{name}.png')
+                        urllib.request.urlretrieve("https://3.bp.blogspot.com/-ZKBbW7TmQD4/U6P_DTbE2MI/AAAAAAAADjg/wdhBRyLv5e8/s1600/noimg.gif",f'{location}/{keyword}/{restaurant_names[index]}/{name}.png')
                         time.sleep(1)
                     
                     sql = "SELECT ID FROM RESTAURANT_MAIN WHERE RESTAURANT_NAME LIKE %s"
@@ -285,18 +294,23 @@ for keyword in keywords :
                     print(f'{name} {price} {id}') 
                     sql2 = "insert into RESTAURANT_DETAIL (MENU_NAME, PRICE, IMAGE, ID) values(%s, %s, %s, %s)"
                     
-                    img = InsertBlob(location+ '\\' + keyword + '\\' + restaurant_names[index] + '\\' +name+'.png' )
+                    # img = InsertBlob(location+ '\\' + keyword + '\\' + restaurant_names[index] + '\\' +name+'.png' )
+                    
+                    img = '/요기요/'+ keyword + '/' + restaurant_names[index] + '/' +name+'.png'
                
                     # 5. SQL 구문 실행하기
                     cursor.execute(sql2,(name,price,img,id))
                     
                     # 6. DB에 Complete 하기
                     db.commit()
+                
+                
                 break
+                
         index +=1    
         driver.back()
         time.sleep(2)
 
 
     break    
-time.sleep(10000) 
+# time.sleep(10000) 

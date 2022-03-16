@@ -1,0 +1,84 @@
+{
+    "tip":[
+    {
+    "idx":0,
+    "category":"생활",
+    "title":"먹다 남은 피자를 촉촉하게!",
+    "image":"https://storage.googleapis.com/sparta-image.appspot.com/lecture/pizza.png",
+    "desc":"먹다 남은 피자는 수분이 날라가기 때문에 처음처럼 맛있게 먹을 수 없는데요. 이럴 경우 그릇에 물을 받아 전자레인지 안에서 1분 30초에서",
+    "date":"2020.09.09"
+    },
+    {
+    "idx":1,
+    "category":"생활",
+    "title":"바나나를 싱싱하게 보관하기",
+    "image": "https://storage.googleapis.com/sparta-image.appspot.com/lecture/banana.png",
+    "desc":"바나나에 날파리가 꼬이거나 금방 익어버리는 것을 예방하기 위한 방법인데요. 바나나 양쪽 끝을 자른 후, 보관용 케이스나 비닐봉지에 묶어 밀",
+    "date":"2020.09.09"
+    },
+    {
+    "idx":2,
+    "category":"생활",
+    "title":"셔츠에 묻은 볼펜 자국 없애기",
+    "image": "https://storage.googleapis.com/sparta-image.appspot.com/lecture/shirt.png",
+    "desc":"셔츠를 자주 입는 사람의 경우, 종종 볼펜 자국이 묻기 마련인데요. 이럴 경우에는 집에 있는 물파스로 가볍게 지울 수 있습니다. 옷 뒷부분을",
+    "date":"2020.09.09"
+    },
+    {
+        "idx":3,
+        "category":"재테크",
+        "title":"잠자는 내 돈을 찾아라",
+        "image": "https://storage.googleapis.com/sparta-image.appspot.com/lecture/money1.png",
+        "desc":"‘새는 돈’에는 미처 몰랐던 카드 포인트, 휴면예금이나 환급금도 포함됩니다. 확실히 파악하지 못한 잠자는 돈을 찾아보고 자투리 돈들을 모으",
+        "date":"2020.09.09"
+        },
+        {
+        "idx":4,
+        "category":"재테크",
+        "title":"할인행사, 한정할인판매 문구의 함정 탈출!",
+        "image": "https://storage.googleapis.com/sparta-image.appspot.com/lecture/money2.png",
+        "desc":"‘안 사면 100% 할인’이라는 말 들어보셨나요? 견물생심, 좋은 물건을 보면 사고 싶기 마련입니다. 특히 대대적인 ‘할인 행사’ 중인 대형 마",
+        "date":"2020.09.09"
+        },
+        {
+        "idx":5,
+        "category":"생활",
+        "title":"방전된 건전지 살리기",
+        "image": "https://storage.googleapis.com/sparta-image.appspot.com/lecture/battery.png",
+        "desc":"건전지를 다 사용하지 않아도 방전되면, 버리는 경우가 종종 있는데요. 건전지의 무게감이 느껴진다면, 드라이기를 활용해 방전된 건전지를 깨울",
+        "date":"2020.09.09"
+        },
+        {
+        "idx":6,
+        "category":"반려견",
+        "title":"반려견에게 배변 교육 시킬 때",
+        "image": "https://storage.googleapis.com/sparta-image.appspot.com/lecture/puppy.png",
+        "desc":"우선, 배변패드를 순서대로 돌며 간식을 조금씩 떨어뜨려 놓는다. 2단계는 배변패드 앞에서 기다렸다 반려견이 스스로 올라오면 간식을 주어서",
+        "date":"2020.09.09"
+        },
+        {
+        "idx":7,
+        "category":"반려견",
+        "title":"반려견이 주인과 떨어지는 것을 무서워 할 때",
+        "image": "https://storage.googleapis.com/sparta-image.appspot.com/lecture/puppy2.png",
+        "desc":"분리불안교육은 반려견에게 혼자 남는 법을 알려주기 위한 것이 아니라, 보호자가 ‘언제나 너에게 돌아올 거야’라고 알려주는 교육이다. 반려견",
+        "date":"2020.09.09"
+        },
+        {
+        "idx":8,
+        "category":"반려견",
+        "title":"반려견을 아이와 함께 키울 때",
+        "image": "https://storage.googleapis.com/sparta-image.appspot.com/lecture/puppy3.png",
+        "desc":"‘인간의 행복’을 위해 반려동물을 키우는 것에 대해 꾸준히 비판과 우려를 제기해온 그는 특히 ‘아이들의 정서’를 위해 반려견을 키우려 한다는",
+        "date":"2020.09.09"
+        },
+        {
+        "idx":9,
+        "category":"재테크",
+        "title":"렌탈 서비스 금액 비교해보기",
+        "image": "https://storage.googleapis.com/sparta-image.appspot.com/lecture/money2.png",
+        "desc":"요즘은 정수기, 공기 청정기, 자동차나 장난감 등 다양한 대여서비스가 활발합니다. 사는 것보다 경제적이라고 생각해 렌탈 서비스를 이용하는",
+        "date":"2020.09.09"
+        }
+        ]
+        }
