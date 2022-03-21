@@ -1,43 +1,57 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-export default function Card({ content }) {
+import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+//MainPage로 부터 navigation 속성을 전달받아 Card 컴포넌트 안에서 사용
+export default function Card({ content, navigation }) {
   return (
-    <View style={styles.card}>
-      <Image style={styles.card1} source={{ uri: content.image }}></Image>
-      <View style={styles.card2}>
-        <Text style={styles.header} numberOfLines={1}>
+    //카드 자체가 버튼역할로써 누르게되면 상세페이지로 넘어가게끔 TouchableOpacity를 사용
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => {
+        navigation.navigate('DetailPage', { idx: content.idx });
+      }}
+    >
+      <Image style={styles.cardImage} source={{ uri: content.image }} />
+      <View style={styles.cardText}>
+        <Text style={styles.cardTitle} numberOfLines={1}>
           {content.title}
         </Text>
-        <Text style={styles.pp} numberOfLines={3}>
+        <Text style={styles.cardDesc} numberOfLines={3}>
           {content.desc}
         </Text>
-        <Text style={styles.date}>{content.date}</Text>
+        <Text style={styles.cardDate}>{content.date}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({
   card: {
-    display: 'flex',
+    flex: 1,
     flexDirection: 'row',
+    margin: 10,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#eee',
+    paddingBottom: 10,
   },
-  card1: {
-    flex: 2,
+  cardImage: {
+    flex: 1,
+    width: 100,
     height: 100,
     borderRadius: 10,
-    marginTop: 15,
-    marginRight: 10,
   },
-  card2: {
-    flex: 4,
-    marginTop: 15,
+  cardText: {
+    flex: 2,
+    flexDirection: 'column',
+    marginLeft: 10,
   },
-  header: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: '700',
   },
-  date: {
-    fontSize: 12,
-    color: '#666666',
+  cardDesc: {
+    fontSize: 15,
+  },
+  cardDate: {
+    fontSize: 10,
+    color: '#A6A6A6',
   },
 });

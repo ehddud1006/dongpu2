@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -7,7 +7,17 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-export default function AboutPage() {
+export default function AboutPage({ navigation, route }) {
+  useEffect(() => {
+    navigation.setOptions({
+      title: '소개 페이지',
+      headerStyle: {
+        backgroundColor: '#1F266A',
+        shadowColor: '#1F266A',
+      },
+      headerTintColor: '#fff',
+    });
+  }, []);
   const aboutImage =
     'https://storage.googleapis.com/sparta-image.appspot.com/lecture/about.png';
   return (
@@ -47,7 +57,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#fff',
     paddingLeft: 30,
-    paddingTop: 100,
+    paddingTop: 30,
     paddingRight: 30,
   },
   textContainer: {
