@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
 import LikeCard from '../components/LikeCard';
 import Card from '../components/Card';
@@ -68,7 +68,7 @@ export default function LikePage({ navigation, route }) {
         if (snapshot.exists()) {
           let tip = snapshot.val();
           let tip_list = Object.values(tip);
-          setTip(tip_list);
+          // setTip(tip_list);
         } else {
           setReady(true);
           setTip([]);

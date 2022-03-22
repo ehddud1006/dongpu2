@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@react-navigation/native": "github:react-navigation/native",
+    "react-native-webview": "^11.17.2"
+  }
+}
