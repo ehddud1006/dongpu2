@@ -1,0 +1,93 @@
+.main {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.main .g1 {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+.hi {
+    display: block;
+}
+
+.cf:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+li {
+    list-style: none;
+}
+
+.main .g1 ul li {
+    box-sizing: border-box;
+    height: 200px;
+    float: left;
+    position: relative;
+}
+
+.main .g1 ul li:nth-child(1) {
+    width: 400px;
+    height: 200px;
+    border: 3px solid;
+    overflow: hidden;
+}
+
+.main .g1 ul li:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    border: 3px solid;
+    overflow: hidden;
+}
+
+.main .g1 ul li:nth-child(3) {
+    width: 200px;
+    height: 400px;
+    border: 3px solid;
+    overflow: hidden;
+    position: relative;
+
+}
+.main .g1 ul li:nth-child(4) {
+    width: 400px;
+    height: 200px;
+    border: 3px solid;
+    overflow: hidden;
+}
+.main .g1 ul li:nth-child(5) {
+    width: 200px;
+    height: 200px;
+    border: 3px solid;
+    overflow: hidden;
+}
+.main .g1 ul li:nth-child(6) {
+    width: 200px;
+    height: 200px;
+    border: 3px solid;
+    overflow: hidden;
+}
+.main .g1 ul li:nth-child(7) {
+    width: 200px;
+    height: 200px;
+    border: 3px solid;
+    overflow: hidden;
+}
+.main .g1 ul li:nth-child(8) {
+    width: 200px;
+    height: 200px;
+    border: 3px solid;
+    overflow: hidden;
+}
+.main .g1 ul li:nth-child(9) {
+    width: 400px;
+    height: 200px;
+    border: 3px solid;
+    overflow: hidden;
+}
