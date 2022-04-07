@@ -39,7 +39,9 @@ const ChatRoom = () => {
     }
 
     const onMessageReceived = (payload) => {
+        // parse 가 무슨함수인지 생각해보기
         var payloadData = JSON.parse(payload.body);
+        console.log(payloadData)
         switch (payloadData.status) {
             case "JOIN":
                 if (!privateChats.get(payloadData.senderName)) {
