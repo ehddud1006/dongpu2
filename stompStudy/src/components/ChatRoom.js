@@ -45,14 +45,23 @@ const ChatRoom = () => {
         console.log(payloadData)
         switch (payloadData.status) {
             case "JOIN":
+                // 처음 메세지가 온 사람이면
                 if (!privateChats.get(payloadData.senderName)) {
+                    console.log("privateChats")
+                    console.log(privateChats)
                     privateChats.set(payloadData.senderName, []);
+                    console.log("privateChats2")
+                    console.log(privateChats)
                     setPrivateChats(new Map(privateChats));
+                    console.log("privateChats3")
+                    console.log(privateChats)
                 }
                 break;
             case "MESSAGE":
                 publicChats.push(payloadData);
                 setPublicChats([...publicChats]);
+                console.log("publicChats")
+                console.log(publicChats)
                 break;
         }
     }
