@@ -162,6 +162,7 @@ const ChatRoom = () => {
                     </div>}
                 </div>
                 :
+                // 1
                 <div className="register">
                     <input
                         id="user-name"
