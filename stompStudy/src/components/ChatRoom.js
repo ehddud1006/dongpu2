@@ -4,6 +4,7 @@ import SockJS from 'sockjs-client';
 
 var stompClient = null;
 const ChatRoom = () => {
+    // Map 객체를 state 값으로 사용할 수 있구나.
     const [privateChats, setPrivateChats] = useState(new Map());
     const [publicChats, setPublicChats] = useState([]);
     const [tab, setTab] = useState("CHATROOM");
