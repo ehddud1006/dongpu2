@@ -47,7 +47,7 @@ const DMList: FC = () => {
             socket?.off('onlineList');
         };
     }, [socket]);
-
+    console.log(userData)
     return (
         <>
             <h2>
