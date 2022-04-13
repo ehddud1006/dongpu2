@@ -70,8 +70,14 @@ const ChatRoom = () => {
         console.log(payload);
         var payloadData = JSON.parse(payload.body);
         if (privateChats.get(payloadData.senderName)) {
+            console.log("privateChats4")
+            console.log(privateChats)
             privateChats.get(payloadData.senderName).push(payloadData);
+            console.log("privateChats5")
+            console.log(privateChats)
             setPrivateChats(new Map(privateChats));
+            console.log("privateChats6")
+            console.log(privateChats)
         } else {
             let list = [];
             list.push(payloadData);
@@ -112,6 +118,7 @@ const ChatRoom = () => {
             };
 
             if (userData.username !== tab) {
+                // 자신의 채팅을 저장하고 state에도 갱신한다.
                 privateChats.get(tab).push(chatMessage);
                 setPrivateChats(new Map(privateChats));
             }
@@ -143,6 +150,7 @@ const ChatRoom = () => {
                     {tab === "CHATROOM" && <div className="chat-content">
                         <ul className="chat-messages">
                             {publicChats.map((chat, index) => (
+
                                 <li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>
                                     {chat.senderName !== userData.username && <div className="avatar">{chat.senderName}</div>}
                                     <div className="message-data">{chat.message}</div>
@@ -188,7 +196,7 @@ const ChatRoom = () => {
                         connect
                     </button>
                 </div>}
-        </div>
+        </div >
     )
 }
 
