@@ -50,6 +50,7 @@ const SignUp = () => {
       console.log(email, nickname, password, passwordCheck);
       if (!missmatchError) {
         console.log('서버로 회원가입하기');
+        // 항상 비동기 통신전에 state를 초기화하는 습관 들이기
         setSignUpError('');
         setSignUpSuccess(false);
         axios
