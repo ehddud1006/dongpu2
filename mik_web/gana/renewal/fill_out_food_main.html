@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="write_resume">
+      <form>
+        <div>
+          <div class="title">상품 등록</div>
+          <div class="sub_title">제목</div>
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="write_resume_title"
+              name="write_resume_title"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">희망금액</div>
+          <div class="fill_out_job_search">
+            <input
+              type="text"
+              class="fill_out_job_search_input"
+              id="write_resume_phone"
+              name="write_resume_phone"
+              value=""
+              style="margin-left: 0%"
+            />
+            <div class="fill_out_job_search_won">원</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="sub_title">상세 설명</div>
+          <div class="section_wrap" id="about_me"></div>
+        </div>
+
+        <div>
+          <div class="sub_title">상품 사진 등록 1</div>
+          <hr />
+          <input class="file" id="my-input" type="file" />
+        </div>
+        <div>
+          <div class="sub_title">상품 사진 등록 2</div>
+          <hr />
+          <input class="file" id="my-input" type="file" />
+        </div>
+        <div>
+          <div class="sub_title">상품 사진 등록 3</div>
+          <hr />
+          <input class="file" id="my-input" type="file" />
+        </div>
+        <div>
+          <div class="sub_title">상품 사진 등록 4</div>
+          <hr />
+          <input class="file" id="my-input" type="file" />
+        </div>
+        <div>
+          <div class="sub_title">상품 사진 등록 5</div>
+          <hr />
+          <input class="file" id="my-input" type="file" />
+        </div>
+
+        <div class="button_wrap">
+          <button type="submit">저장하기</button>
+        </div>
+      </form>
+    </div>
+    <script>
+      $("#work_power").append(
+        `<textarea
+              class="write_area"
+              placeholder="본인의 근로경력을 간략하게 적어주세요. &#13;&#10;ex) 더파티 주방보조 3년"
+            ></textarea>`
+      );
+      $("#about_me").append(
+        `<textarea
+              class="write_area"
+              placeholder="판매할 상품의 내용을 간략하게 적어 주세요. &#13;&#10;ex) 깨끗하게 쓴 옷걸이예요."
+            ></textarea>`
+      );
+    </script>
+  </body>
+</html>

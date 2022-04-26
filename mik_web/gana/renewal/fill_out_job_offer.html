@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Remember to include jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fill_out_job_offer">
+      <div>
+        <div class="title">구인 신청 작성</div>
+        <div class="sub_title">기업명</div>
+        <hr />
+        <div class="section_wrap">
+          <input
+            type="text"
+            class="input_form border_none"
+            id="write_resume_title"
+            name="write_resume_title"
+            value=""
+          />
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">주소</div>
+        <hr />
+        <div class="section_wrap">
+          <input
+            type="text"
+            class="input_form border_none"
+            id="write_resume_title"
+            name="write_resume_title"
+            value=""
+          />
+        </div>
+      </div>
+      <div class="button_wrap">
+        <button type="submit" class="gray">
+          주소 찾기(근무지가 주소와 다를경우 입력)
+        </button>
+      </div>
+
+      <div>
+        <div class="sub_title">구인제목</div>
+        <div class="section_wrap">
+          <input
+            type="text"
+            class="input_form"
+            id="write_resume_title"
+            name="write_resume_title"
+            value=""
+          />
+        </div>
+        <div class="info_detail">
+          <div>
+            ★공고제목은 지역과 구체적인 업무 내용을 요약해서 작성해주시면 지원
+            확률이 더 좋을 수 있습니다!
+          </div>
+          <div>예시)</div>
+          <div>- 서울 ooo편의점 야간 아르바이트 1명 모집</div>
+          <div>- 김해 생림 ooo공장 생산 인력 10명 모집</div>
+          <div>- 밀양 ooo농원 하우스 농사 인력 5명 모집</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">모집인원</div>
+        <div class="section_wrap">
+          <input
+            type="text"
+            class="input_form"
+            id="write_resume_title"
+            name="write_resume_title"
+            value=""
+          />
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">모집성별</div>
+        <div class="section_wrap" id="work_power">
+          <select class="select_type" name="gender">
+            <option value="anysex">성별무관</option>
+            <option value="man">남성</option>
+            <option value="woman">여성</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">희망국적</div>
+        <div class="section_wrap" id="work_power">
+          <select class="select_type" name="want_country">
+            <option value="anysex">국적무관</option>
+            <option value="china">중국</option>
+            <option value="vietnam">베트남</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">근로유형</div>
+        <div class="section_wrap" id="work_power">
+          <select class="select_type" name="work_category">
+            <option value="industry">공업(제조업)</option>
+            <option value="agriculture">농업</option>
+            <option value="fishing">어업</option>
+            <option value="restaurant">식당</option>
+            <option value="construction_site">건설현장</option>
+            <option value="office_worker">사무직</option>
+            <option value="etc">기타</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">급여</div>
+        <div class="section_wrap">
+          <input
+            type="text"
+            class="input_form"
+            id="write_resume_title"
+            name="write_resume_title"
+            value=""
+            placeholder="※ ex) 2,000,000 ~ 2,500,000원"
+          />
+        </div>
+        <div class="info_detail">
+          <div style="margin-top: 1%">※ 2022년도 최저시금 9,160원</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">근무요일</div>
+        <hr />
+        <div class="check_day">
+          <div class="one_day">
+            <span class="auto"
+              ><input type="checkbox" name="chk_info" value="월" /><span
+                class="left_space"
+                >월</span
+              ></span
+            >
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="화" /><span
+                class="left_space"
+                >화</span
+              ></span
+            >
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="수" /><span
+                class="left_space"
+                >수</span
+              >
+            </span>
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="목" /><span
+                class="left_space"
+                >목</span
+              >
+            </span>
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="금" /><span
+                class="left_space"
+                >금</span
+              >
+            </span>
+          </div>
+          <div class="one_day2">
+            <span class="auto"
+              ><input type="checkbox" name="chk_info" value="토" /><span
+                class="left_space"
+                style="color: #00aced"
+                >토</span
+              ></span
+            >
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="일" /><span
+                class="left_space"
+                style="color: #eb1c23"
+                >일</span
+              ></span
+            >
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="협의가능" /><span
+                class="left_space"
+                >협의가능</span
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">근무시간</div>
+        <div class="section_wrap">
+          <input
+            type="text"
+            class="input_form"
+            id="write_resume_title"
+            name="write_resume_title"
+            value=""
+          />
+        </div>
+      </div>
+      <div class="baby">
+        <input type="checkbox" name="chk_info" value="협의가능" /><span
+          class="left_space"
+          >협의가능</span
+        >
+      </div>
+      <div>
+        <div class="sub_title">근무시간</div>
+        <hr />
+        <div class="baby">
+          <input type="radio" id="no1" name="fav_language" value="HTML" />
+          <label for="no1">해당없음</label><br />
+        </div>
+        <div class="baby">
+          <input type="radio" id="no2" name="fav_language" value="HTML" />
+          <label for="no2">근무기간 지정하기</label><br />
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">구인공고 게시기간</div>
+        <hr />
+        <div class="baby">
+          <input type="radio" id="nono1" name="fav_language" value="HTML" />
+          <label for="nono1">충원시까지 계속</label><br />
+        </div>
+        <div class="baby">
+          <input type="radio" id="nono2" name="fav_language" value="HTML" />
+          <label for="nono2">공고기간 지정하기</label><br />
+        </div>
+      </div>
+
+      <div>
+        <div class="sub_title">제공하는 비자종류</div>
+        <hr />
+        <div class="check_day">
+          <div class="one_day">
+            <span class="auto"
+              ><input type="checkbox" name="chk_info" value="D-2" /><span
+                class="left_space"
+                >D-2</span
+              ></span
+            >
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="D-4" /><span
+                class="left_space"
+                >D-4</span
+              ></span
+            >
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="D-10" /><span
+                class="left_space"
+                >D-10</span
+              >
+            </span>
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="E-7" /><span
+                class="left_space"
+                >E-7</span
+              >
+            </span>
+            <span class="auto">
+              <input type="checkbox" name="chk_info" value="E-9" /><span
+                class="left_space"
+                >E-9</span
+              >
+            </span>
+          </div>
+          <div class="one_day2">
+            <span class="auto"
+              ><input type="checkbox" name="chk_info" value="토" /><span
+                class="left_space"
+                >F 계열비자</span
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+      <div id="ex1" class="modal" style="display: none; padding: 0px">
+        <div class="rred">구인상세 설명 작성 팁</div>
+      </div>
+      <div>
+        <div class="sub_title">상세설명</div>
+        <hr />
+        <div class="gray_layout_wrapper">
+          <textarea
+            class="write_area"
+            placeholder="상세설명을 적어주세요."
+          ></textarea>
+        </div>
+        <div class="info_detail">
+          <div>
+            - 필요사상, 우대사항, 주요업무, 필요한 능력, 근무휴게시간,
+            복지사항등을 적어주시면 됩니다.
+          </div>
+        </div>
+        <div class="button_wrap">
+          <a class="gray_button" href="#ex1" rel="modal:open">작성예시 보기</a>
+        </div>
+      </div>
+      <div>
+        <div class="sub_title">기타조건</div>
+        <hr />
+        <div class="baby">
+          <input type="radio" id="na1" name="fav_language" value="HTML" />
+          <label for="na1">높은급여</label><br />
+        </div>
+        <div class="baby">
+          <input type="radio" id="na2" name="fav_language" value="HTML" />
+          <label for="na2">숙소제공함</label><br />
+        </div>
+        <div class="baby">
+          <input type="radio" id="na3" name="fav_language" value="HTML" />
+          <label for="na3">식사제공함</label><br />
+        </div>
+        <div class="baby">
+          <input type="radio" id="na4" name="fav_language" value="HTML" />
+          <label for="na4">비자종류 상관없음</label><br />
+        </div>
+        <div class="baby">
+          <input type="radio" id="na5" name="fav_language" value="HTML" />
+          <label for="na5">한국어 사용 거의 불필요함</label><br />
+        </div>
+      </div>
+      <div>
+        <div class="sub_title">키워드</div>
+        <div class="section_wrap">
+          <input
+            type="text"
+            class="input_form"
+            id="write_resume_title"
+            name="write_resume_title"
+            value=""
+            placeholder="#고추농사 #밀양 #농사"
+          />
+        </div>
+      </div>
+      <div class="button_wrap">
+        <button type="submit">저장하기</button>
+      </div>
+    </div>
+  </body>
+</html>

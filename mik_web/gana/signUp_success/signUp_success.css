@@ -1,0 +1,14 @@
+.signUp_success_wrapper .signUp_success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 640px;
+}
+.signUp_success_wrapper .signUp_success .center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 20px;
+}

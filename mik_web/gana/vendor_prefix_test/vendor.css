@@ -1,0 +1,8 @@
+.test {
+  width: 500px;
+  height: 500px;
+  background-color: blue;
+
+  -webkit-border-radius: 100px;
+  -ms-border-radius: 10px;
+}

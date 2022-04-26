@@ -1,0 +1,131 @@
+@media (max-width: 500px) {
+  html {
+    font-family: "notokr", sans-serif;
+    font-size: 14px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  .login {
+    margin-top: 30%;
+  }
+
+  .login .logologo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+  .login .logo {
+    width: 150px;
+    height: 120px;
+  }
+
+  .login .submenu1 {
+    margin-left: 15px;
+    display: table;
+    width: 90%;
+    table-layout: fixed;
+    border-bottom: 1px solid;
+    color: #dfdfdf;
+  }
+
+  .login ol,
+  ul,
+  li {
+    list-style: none;
+  }
+
+  .login .submenu1 li {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px;
+  }
+
+  .login .submenu1 li a {
+    font-size: 16px;
+    font-weight: 400;
+    color: #ababab;
+    line-height: 30px;
+    text-decoration: none;
+  }
+  .login .submenu1 li a.on {
+    color: #eb1c23;
+    border-bottom: 2px solid #eb1c23;
+    padding: 0 5px 4px;
+  }
+
+  .login .submenu1 li a:hover {
+    color: #eb1c23;
+    border-bottom: 2px solid #eb1c23;
+    padding: 0 5px 4px;
+  }
+
+  .login .section_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login .login_input {
+    width: 91%;
+    padding-top: 12px;
+    padding-left: 3%;
+    padding-bottom: 12px;
+    margin-top: 1%;
+    border: 1px solid #8a8a8a;
+    border-radius: 5px;
+  }
+
+  .login .password_input {
+    width: 91%;
+    padding-top: 12px;
+    padding-left: 3%;
+    padding-bottom: 12px;
+    margin-top: 3%;
+    border: 1px solid #8a8a8a;
+    border-radius: 5px;
+  }
+
+  .login .design {
+    display: flex;
+    font-size: 18px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    width: 94%;
+    height: 46px;
+    background-color: #eb1c23;
+    border: none;
+    margin-left: 10px;
+    border-radius: 7px;
+  }
+  .login .check_box {
+    margin-left: 3%;
+    margin-top: 3%;
+    color: #8a8a8a;
+  }
+  .login .check_box > label:nth-child(2) {
+    margin-left: 10%;
+  }
+
+  .login .find {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #8a8a8a;
+  }
+
+  .login .find > div:nth-child(2) {
+  }
+}

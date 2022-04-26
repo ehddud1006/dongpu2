@@ -1,0 +1,78 @@
+@media (max-width: 500px) {
+  html {
+    font-family: "notokr", sans-serif;
+    font-size: 14px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  .client_signUp .title {
+    display: flex;
+    justify-content: center;
+    color: #ca080f;
+    font-size: 20px;
+    padding-top: 5%;
+    font-weight: 500;
+  }
+  .client_signUp .section_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .client_signUp .sub_title {
+    padding-top: 5%;
+    padding-left: 3%;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  /* input 안에 패딩이 있으면 그만큼 크기가 늘어난다.
+  padding-left 를 1% 주면 width를 1%줄여야한다. */
+  .client_signUp .input_form {
+    width: 93%;
+    padding-top: 12px;
+    padding-left: 1%;
+    padding-bottom: 12px;
+    margin-top: 1%;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+  }
+  .client_signUp .warning {
+    padding-left: 3%;
+    margin-top: 1%;
+    font-size: 14px;
+    color: #eb1c23;
+  }
+  .client_signUp .select_type {
+    width: 94%;
+    padding: 11px;
+    margin-top: 1%;
+    border: 1px solid #dfdfdf;
+    font-family: inherit;
+    border-radius: 5px;
+  }
+
+  .client_signUp .button_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .client_signUp button {
+    border: none;
+    width: 94%;
+    margin-top: 10%;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    background: #eb1c23;
+    border-radius: 4px;
+    height: 40px;
+  }
+}

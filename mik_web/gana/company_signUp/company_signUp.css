@@ -1,0 +1,121 @@
+@media (max-width: 500px) {
+  html {
+    font-family: "notokr", sans-serif;
+    font-size: 14px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  .company_singUp .title {
+    display: flex;
+    justify-content: center;
+    color: #ca080f;
+    font-size: 20px;
+    padding-top: 5%;
+    font-weight: 500;
+  }
+  .company_singUp .section_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .company_singUp .sub_title {
+    padding-top: 5%;
+    padding-left: 3%;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  /* input 안에 패딩이 있으면 그만큼 크기가 늘어난다.
+  padding-left 를 1% 주면 width를 1%줄여야한다. */
+  .company_singUp .input_form {
+    width: 91%;
+    padding-top: 12px;
+    padding-left: 3%;
+    padding-bottom: 12px;
+    margin-top: 1%;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+  }
+  .company_singUp .warning {
+    padding-left: 3%;
+    margin-top: 1%;
+    font-size: 14px;
+    color: #eb1c23;
+  }
+  .company_singUp .select_type {
+    width: 94%;
+    padding: 11px;
+    margin-top: 1%;
+    border: 1px solid #dfdfdf;
+    font-family: inherit;
+    border-radius: 5px;
+  }
+
+  .company_singUp .button_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .company_singUp button {
+    border: none;
+    width: 94%;
+    margin-top: 10%;
+    margin-bottom: 6%;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    background: #eb1c23;
+    border-radius: 4px;
+    height: 40px;
+  }
+
+  /* 주소 카테고리의 input 과 버튼을 나누기 위함. */
+  .company_singUp .half {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .company_singUp .half .input_form_half {
+    width: 47%;
+    padding-top: 12px;
+    padding-left: 1%;
+    padding-bottom: 12px;
+    margin-top: 1%;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+  }
+  .company_singUp .half .input_form_half_address {
+    display: flex;
+    margin-left: 2%;
+    justify-content: center;
+    align-items: center;
+    width: 44%;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    color: white;
+    margin-top: 1%;
+    border: none;
+    background: #eb1c23;
+    border-radius: 5px;
+  }
+
+  /* 파일 선택 SECTION */
+  .company_singUp .file {
+    margin-top: 8px;
+    margin-left: 3%;
+  }
+
+  .company_singUp .file_desc {
+    margin-top: 4px;
+    margin-left: 3%;
+    color: #8a8a8a;
+  }
+}

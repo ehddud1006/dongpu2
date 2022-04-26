@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="lalala.css" />
+  </head>
+  <body>
+    <div class="ultra">
+      <header>
+        <ol class="submenu1">
+          <li><a class="on">구인리스트</a></li>
+          <li><a>구직리스트</a></li>
+        </ol>
+      </header>
+      <form>
+        <select name="Area">
+          <option value="Gyeongsangnam-do" selected>경상남도</option>
+          <option value="Seoul">서울</option>
+          <option value="Pusan">부산</option>
+        </select>
+      </form>
+      <form>
+        <select name="Area">
+          <option value="Gimhae" selected>김해시</option>
+          <option value="Seoul1">울산시</option>
+          <option value="Pusan1">부산시</option>
+        </select>
+      </form>
+      <div class="inputdiv">
+        <input class="Search" type="text" placeholder="Search" />
+      </div>
+      <div class="button_wrap">
+        <button>구인 등록 +</button>
+      </div>
+      <hr class="hr1" />
+      <div>
+        <div class="div1">
+          <img class="img" />
+          <div class="div2">
+            <div>
+              <span class="now">접수중</span><span> (주) 대상산업</span>
+            </div>
+            <div>제조공정 인부 채용합니다.</div>
+            <div>월 2,000,000~3,000,000</div>
+            <div>경상남도 김해시 생림면</div>
+            <div>2021.03.02</div>
+          </div>
+        </div>
+        <div class="Apply_layout">
+          <div class="Apply">★ 임시보관</div>
+          <div class="Apply bblue">지원하기</div>
+        </div>
+
+        <hr class="hr2" />
+      </div>
+      <div>
+        <div class="div1">
+          <img class="img" />
+          <div class="div2">
+            <div>
+              <span class="end">접수마감</span><span> (주) 대상산업</span>
+            </div>
+            <div>제조공정 인부 채용합니다.</div>
+            <div>월 2,000,000~3,000,000</div>
+            <div>경상남도 김해시 생림면</div>
+            <div>2021.03.02</div>
+          </div>
+        </div>
+        <div class="Apply_layout">
+          <div class="Apply">★ 임시보관</div>
+          <div class="Apply bblue">지원하기</div>
+        </div>
+        <hr class="hr2" />
+      </div>
+      <div>
+        <div class="div1">
+          <img class="img" />
+          <div class="div2">
+            <div>
+              <span class="now">접수중</span><span> (주) 대상산업</span>
+            </div>
+            <div>제조공정 인부 채용합니다.</div>
+            <div>월 2,000,000~3,000,000</div>
+            <div>경상남도 김해시 생림면</div>
+            <div>2021.03.02</div>
+          </div>
+        </div>
+        <div class="Apply_layout">
+          <div class="Apply">★ 임시보관</div>
+          <div class="Apply bblue">지원하기</div>
+        </div>
+        <hr class="hr2" />
+      </div>
+      <div class="button_wrap">
+        <button class="black_button">▼ 더보기</button>
+      </div>
+      <script
+        type="text/javascript"
+        src="https://code.jquery.com/jquery-3.2.0.min.js"
+      ></script>
+      <script type="text/javascript">
+        $(".submenu1 li a").on("click", function () {
+          console.log("dada");
+          $(".submenu1 li a.on").removeClass("on");
+          $(this).addClass("on");
+        });
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+@media (max-width: 500px) {
+  html {
+    font-family: "notokr", sans-serif;
+    font-size: 14px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  .write_resume .title {
+    display: flex;
+    justify-content: center;
+    color: #ca080f;
+    font-size: 20px;
+    padding-top: 5%;
+    font-weight: 500;
+  }
+  .write_resume .section_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .write_resume .sub_title {
+    padding-top: 5%;
+    padding-left: 3%;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  /* input 안에 패딩이 있으면 그만큼 크기가 늘어난다.
+    padding-left 를 1% 주면 width를 1%줄여야한다. */
+  .write_resume .input_form {
+    width: 93%;
+    padding-top: 12px;
+    padding-left: 1%;
+    padding-bottom: 12px;
+    margin-top: 1%;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+  }
+  .write_resume .warning {
+    padding-left: 3%;
+    margin-top: 1%;
+    font-size: 14px;
+    color: #eb1c23;
+  }
+  .write_resume .select_type {
+    width: 94%;
+    padding: 11px;
+    margin-top: 1%;
+    border: 1px solid #dfdfdf;
+    font-family: inherit;
+    border-radius: 5px;
+  }
+
+  .write_resume .write_area {
+    font-family: "Noto Sans KR", sans-serif;
+    width: 91%;
+    height: 130px;
+    background-color: #eaeaea;
+    border: 1px solid #e0dede;
+    resize: none;
+    margin-top: 3%;
+    padding: 2% 0% 0% 2%;
+  }
+
+  .write_resume .write_area::placeholder {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 13px;
+  }
+
+  .write_resume .button_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .write_resume button {
+    border: none;
+    width: 94%;
+    margin-top: 10%;
+    margin-bottom: 6%;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    background: #eb1c23;
+    border-radius: 4px;
+    height: 40px;
+  }
+
+  hr {
+    border: solid 1px #eb1c23;
+    width: 93%;
+    margin: 0px auto;
+  }
+  .write_resume .file {
+    margin-top: 8px;
+    margin-left: 3%;
+  }
+
+  .write_resume .file_desc {
+    margin-top: 4px;
+    margin-left: 3%;
+    color: #8a8a8a;
+  }
+}

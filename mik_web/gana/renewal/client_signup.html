@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="client_signUp">
+      <form>
+        <div>
+          <div class="title">일반회원가입</div>
+          <div class="sub_title">이름</div>
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="signin_name"
+              name="signin_name"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">아이디</div>
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="signin_id"
+              name="signin_id"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">비밀번호</div>
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="signin_pwd"
+              name="signin_pwd"
+              value=""
+              placeholder="숫자,영문,특수문자 조합 6개 이상"
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">비밀번호 확인</div>
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="signin_pwd_check"
+              name="signin_pwd_check"
+              value=""
+            />
+          </div>
+          <div class="warning">패스워드가 동일하지 않습니다.</div>
+        </div>
+        <div>
+          <div class="sub_title">휴대폰 번호</div>
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="signin_phone"
+              name="signin_phone"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">성별</div>
+          <div class="section_wrap">
+            <select class="select_type" name="gender">
+              <option value="man">남성</option>
+              <option value="woman">여성</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">국가선택</div>
+          <div class="section_wrap">
+            <select class="select_type" name="country">
+              <option value="china">중국</option>
+              <option value="vietNam">베트남</option>
+              <option value="Thailand">태국</option>
+              <option value="Uzbekistan">우즈벡</option>
+              <option value="Philippines">필리핀</option>
+              <option value="Indonesia">인도네시아</option>
+              <option value="Morocco">모로코</option>
+              <option value="Columbia">콜롬비아</option>
+              <option value="Nepal">네팔</option>
+              <option value="Taiwan">대만</option>
+              <option value="Kazakhstan">카자흐스탄</option>
+            </select>
+          </div>
+        </div>
+        <div class="button_wrap">
+          <button type="submit">회원가입</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

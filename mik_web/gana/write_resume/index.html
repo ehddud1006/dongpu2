@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="write_resume.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  </head>
+  <body>
+    <div class="write_resume">
+      <form>
+        <div>
+          <div class="title">이력서 작성하기</div>
+          <div class="sub_title">제목</div>
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="write_resume_title"
+              name="write_resume_title"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">이름</div>
+          <hr />
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="write_resume_name"
+              name="write_resume_name"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">성별</div>
+          <hr />
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="write_resume_gender"
+              name="write_resume_gender"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">국적</div>
+          <hr />
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="write_resume_country"
+              name="write_resume_country"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">생년월일</div>
+          <div class="section_wrap">
+            <input
+              type="text"
+              class="input_form"
+              id="write_resume_phone"
+              name="write_resume_phone"
+              value=""
+            />
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">한국어 능력</div>
+          <div class="section_wrap">
+            <select class="select_type" name="gender">
+              <option value="verybad">Very Bad</option>
+              <option value="bad">Bad</option>
+              <option value="normal">Normal</option>
+              <option value="good">Good</option>
+              <option value="verygood">Very Good</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">근로 경력</div>
+          <div class="section_wrap" id="work_power">
+            <select class="select_type" name="country">
+              <option value="industry">공업(제조업)</option>
+              <option value="agriculture">농업</option>
+              <option value="fishing">어업</option>
+              <option value="restaurant">식당</option>
+              <option value="construction_site">건설현장</option>
+              <option value="office_worker">사무직</option>
+              <option value="etc">기타</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="sub_title">자기 소개</div>
+          <div class="section_wrap" id="about_me"></div>
+        </div>
+        <div>
+          <div class="sub_title">이력서 사진</div>
+          <hr />
+          <input class="file" id="my-input" type="file" />
+          <div class="file_desc">jpg,png,hwp,doc,docx,pdf만 업로드 가능</div>
+        </div>
+        <div class="button_wrap">
+          <button type="submit">저장하기</button>
+        </div>
+      </form>
+    </div>
+    <script>
+      $('#work_power').append(
+        `<textarea
+              class="write_area"
+              placeholder="본인의 근로경력을 간략하게 적어주세요. &#13;&#10;ex) 더파티 주방보조 3년"
+            ></textarea>`
+      );
+      $('#about_me').append(
+        `<textarea
+              class="write_area"
+              placeholder="본인을 어필할 수 있는 내용을 간략하게 적어 주세요. &#13;&#10;ex) 성실하고 근면하게 일하는 ooo입니다."
+            ></textarea>`
+      );
+    </script>
+  </body>
+</html>

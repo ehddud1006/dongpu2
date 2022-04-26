@@ -1,0 +1,994 @@
+
+<!doctype html>
+<html lang="ko-KR">
+<head>
+<meta charset="UTF-8" />
+<meta name="Author" content="부산웹" />
+<title>어데고</title>
+
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#FFFFFF" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="어데고" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="" />
+<meta property="og:url" content="https://sgn.busanweb.kr" />
+<meta name="twitter:card" content="" />
+<meta name="twitter:title" content="어데고" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="" />
+<meta name="twitter:domain" content="https://sgn.busanweb.kr" />
+<link rel="canonical" href="https://sgn.busanweb.kr" />
+<!--[if gte IE 9]><!-->
+<script src="https://sgn.busanweb.kr/.js/jquery.js"  charset="UTF-8"> </script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script type="text/javascript" charset="UTF-8">
+	document.execCommand("BackgroundImageCache", false, true);
+	document.createElement("menuitem");
+</script>
+<script src="https://sgn.busanweb.kr/.js/jquery-old.js"  charset="UTF-8"> </script>
+<script src="https://sgn.busanweb.kr/.js/html5shiv.js" charset="UTF-8" async="async"> </script>
+<script src="https://sgn.busanweb.kr/.js/respond.min.js" charset="UTF-8" async="async"> </script>
+<![endif]-->
+<link rel="stylesheet" href="https://sgn.busanweb.kr/.js/jquery-ui.min.css"  />
+<link rel="stylesheet" href="https://sgn.busanweb.kr/.js/jquery-multiform.css"  />
+<script src="https://sgn.busanweb.kr/.js/jquery-ui.js"  charset="UTF-8"> </script>
+<script src="https://sgn.busanweb.kr/.js/jquery-form.js"  charset="UTF-8"> </script>
+<script src="https://sgn.busanweb.kr/.js/jquery-multiform.js"  charset="UTF-8"> </script>
+<script src="https://sgn.busanweb.kr/.js/jquery-custom.js"  charset="UTF-8"> </script>
+<style media="screen">
+	input[data-bw-colorpicker] {width:72px !important; text-align:center;}
+	#bw_colorpicker_palette{border-collapse:separate;}
+	#bw_colorpicker_palette td{width:16px; height:16px; cursor:pointer; border:1px solid white;}
+	#bw_colorpicker_palette td:hover{border:1px solid #CCC;}
+	#bw_colorpicker_palette td.on, #bw_colorpicker_palette td.on:hover{border:1px solid red;}
+	.bw_colorpicker_btn{font-size:11px; padding:2px 4px; border-radius:4px; vertical-align:middle;}
+</style>
+<script src="https://sgn.busanweb.kr/.js/bw_palette.js"  charset="utf-8" async="async"> </script>
+<script type="text/javascript" charset="UTF-8">
+			//<![CDATA[
+			$(function(){
+				$(".bw_rule_clause").unbind("click").click(function(event){		// 이용약관
+					if($("#bw_rule_clause_div").length == 0){ $("body").append("<div id='bw_rule_clause_div'></div>"); }
+
+					$("#bw_rule_clause_div").show().css({"position":"absolute", "left":event.pageX-128, "top":event.pageY-160, "padding":16, "background":"white", "borderRadius":16, "boxShadow":"0 0 8px rgba(0,0,0,0.5)", "zIndex":9999}).load("https://sgn.busanweb.kr/member/rule_clause.php", {"dmy":$.now()});
+					return false;
+				});
+				$(".bw_rule_privacy").unbind("click").click(function(event){	// 개인정보취급방침
+					if($("#bw_rule_clause_div").length == 0){ $("body").append("<div id='bw_rule_clause_div'></div>"); }
+					$("#bw_rule_clause_div").show().css({"position":"absolute", "left":event.pageX-128, "top":event.pageY-160, "padding":16, "background":"white", "borderRadius":16, "boxShadow":"0 0 8px rgba(0,0,0,0.5)", "zIndex":9999}).load("https://sgn.busanweb.kr/member/rule_privacy.php", {"dmy":$.now()});
+					return false;
+				});
+				$(".bw_rule_email").unbind("click").click(function(event){		// 이메일무단수집거부
+					if($("#bw_rule_clause_div").length == 0){ $("body").append("<div id='bw_rule_clause_div'></div>"); }
+					$("#bw_rule_clause_div").show().css({"position":"absolute", "left":event.pageX-128, "top":event.pageY-160, "padding":16, "background":"white", "borderRadius":16, "boxShadow":"0 0 8px rgba(0,0,0,0.5)", "zIndex":9999}).load("https://sgn.busanweb.kr/member/rule_email.php", {"dmy":$.now()});
+					return false;
+				});
+				$("body").on("click", "#bw_rule_clause_div button", function(){
+					$("#bw_rule_clause_div").empty().hide();
+				});
+			});
+			//]]>
+			</script><style type="text/css" charset="UTF-8">
+				#bw_rule_clause_div > div{width:320px;}
+				#bw_rule_clause_div > div > div{height:160px; overflow-y:scroll; padding:8px; border:1px solid #e0e0e0; font-size:0.85em; line-height:1.5em;}
+				#bw_rule_clause_div > div > div h1{font-size:1.2em; margin:8px 0; font-weight:600;}
+				#bw_rule_clause_div > div > div h2{font-size:1.1em; margin:8px 0; font-weight:600;}
+			</style><link rel="stylesheet" type="text/css" href="https://sgn.busanweb.kr/.css/init.css" media="all"  />
+<!--[if gte IE 9]><!-->
+<link rel="stylesheet" type="text/css" href="https://sgn.busanweb.kr/.css/font.css" media="all"  />
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="https://sgn.busanweb.kr/.css/font.ie8.css" media="all"  />
+<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<link rel="stylesheet" type="text/css" href="https://sgn.busanweb.kr/.css/busanweb.css"  />
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="https://sgn.busanweb.kr/.css/busanweb.ie8.css" />
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="https://sgn.busanweb.kr/data/css/mobile/20200404102356.css?dmy=20201008091449"  />
+<link rel="stylesheet" type="text/css" href="https://sgn.busanweb.kr/data/css/mobile/20200918195054.css?dmy=20200918201420"  />
+<link rel="stylesheet" type="text/css" href="https://sgn.busanweb.kr/data/css/mobile/loading_css.css?dmy=20200607115701"  />
+
+
+<script type="text/javascript" charset="UTF-8">
+//<![CDATA[
+$(function(){
+				// 앱이 아닌 경우
+		if (navigator.geolocation) { // GPS를 지원하면
+			navigator.geolocation.getCurrentPosition(function(position) {
+				localStorage.setItem('bw_GPS_mapX', position.coords.longitude);
+				localStorage.setItem('bw_GPS_mapY', position.coords.latitude);
+				localStorage.setItem('bw_GPS_mapZ', position.coords.altitude);
+
+				$("header > div h1 a").attr({"href":"https://sgn.busanweb.kr/?main=0&mapx="+localStorage.getItem('bw_GPS_mapX')+"&mapy="+localStorage.getItem('bw_GPS_mapY')});
+				$("header > .submenu1 li:eq(0) a").attr({"href":"https://sgn.busanweb.kr/?main=0&mapx="+localStorage.getItem('bw_GPS_mapX')+"&mapy="+localStorage.getItem('bw_GPS_mapY')});
+				$("header > .submenu1 li:eq(2) a").attr({"href":"https://sgn.busanweb.kr/?main=2&mapx="+localStorage.getItem('bw_GPS_mapX')+"&mapy="+localStorage.getItem('bw_GPS_mapY')});
+				$("nav.leftmenu dl + div ol li").each(function () {
+					if ($(this).children("a").html() == '주변업소') {
+						$(this).children("a").attr({"href":"https://sgn.busanweb.kr/?main=0&mapx="+localStorage.getItem('bw_GPS_mapX')+"&mapy="+localStorage.getItem('bw_GPS_mapY')});
+					}
+				});
+
+				
+			}, function (err) { console.error(err); }, {enableHighAccuracy: false, maximumAge: 0, timeout: Infinity});
+		}
+				$("nav.leftmenu dl dt .point").remove();
+	
+	
+	$("body").on("click", ".fav", function(){
+					alert('브라우저 상단의 ☆을 클릭해서 즐겨찾기 추가가 가능합니다.');
+		
+		return false;
+	});
+
+	$("body").on("click", "a[href$='logout.php'], area[href$='logout.php']", function(){
+		if (confirm('로그아웃하시겠습니까?')) {
+			$.post($(this).attr("href"), null, function(d){
+				if(d != "ok"){
+					alert(d);
+					return false;
+				}
+				else{
+											//location.reload();
+						location.href = 'https://sgn.busanweb.kr/?main=0';
+									}
+			});
+		}
+		return false;
+	});
+
+	// ID 찾기
+	$("body").on("click", ".bw_login_form_forgotid", function(event){
+		if ($("#bw_login_form_forgotid_div").length == 0) {
+			$("body").append('<div id="bw_login_form_forgotid"></div>');
+		}
+
+		$("#bw_login_form_forgotid").show().css({"position":"absolute","left":event.pageX-128,"top":event.pageY-32,"width":256,"padding":16,"background":"white","border":"4px solid #454b5c","borderRadius":16}).html(
+			'<form id="bw_login_form_forgotid_form" name="bw_login_form_forgotid_form" action="https://sgn.busanweb.kr/member/forgot.php" method="post">'+
+				'<div style="text-align:center; margin:0 0 8px 0; font-size:1.2em !important;">아이디 찾기</div>'+
+				'<div>'+
+					'<label><input type="radio" name="bw_login_form_forgotid_form_mode" class="bw_login_form_forgotid_form_mode" value="M" checked="checked" /> 휴대폰으로 찾기</label> '+
+					'<label><input type="radio" name="bw_login_form_forgotid_form_mode" class="bw_login_form_forgotid_form_mode" value="E" /> E-mail로 찾기</label>'+
+				'</div>'+
+				'<p><label for="bw_login_form_forgotid_form_name">이름</label> <input type="text" name="bw_login_form_forgotid_form_name" id="bw_login_form_forgotid_form_name" /></p>'+
+				'<p data-p-hidden="mobile"><label for="bw_login_form_forgotid_form_mobile">휴대폰</label> <input type="tel" name="bw_login_form_forgotid_form_mobile" id="bw_login_form_forgotid_form_mobile" /><span>※ - 없이 입력해 주세요.</span></p>'+
+				'<p data-p-hidden="email"><label for="bw_login_form_forgotid_form_email">E-mail</label> <input type="email" name="bw_login_form_forgotid_form_email" id="bw_login_form_forgotid_form_email" /></p>'+
+				'<p><button type="submit">아이디 찾기</button> <button type="button" id="bw_login_form_forgotid_form_close">닫기</button></p>'+
+
+				'<input type="hidden" id="bw_login_form_forgotid_form_type" name="bw_login_form_forgotid_form_type" value="id" />'+
+			'</form>'
+		);
+
+		$("#bw_login_form_forgotid_form p:nth-of-type(1) input").focus();
+	});
+
+	// 비밀번호 찾기
+	$("body").on("click", ".bw_login_form_forgotpw", function(){
+		if ($("#bw_login_form_forgotid_div").length == 0) {
+			$("body").append('<div id="bw_login_form_forgotid"></div>');
+		}
+
+		$("#bw_login_form_forgotid").show().css({"position":"absolute","left":event.pageX-128,"top":event.pageY-32,"width":256,"padding":16,"background":"white","border":"4px solid #454b5c","borderRadius":16}).html(
+			'<form id="bw_login_form_forgotid_form" name="bw_login_form_forgotid_form" action="https://sgn.busanweb.kr/member/forgot.php" method="post">'+
+				'<div style="text-align:center; margin:0 0 8px 0; font-size:1.2em !important;">비밀번호 찾기</div>'+
+				'<div>'+
+					'<label><input type="radio" name="bw_login_form_forgotid_form_mode" class="bw_login_form_forgotid_form_mode" value="M" checked="checked" /> 휴대폰으로 찾기</label> '+
+					'<label><input type="radio" name="bw_login_form_forgotid_form_mode" class="bw_login_form_forgotid_form_mode" value="E" /> E-mail로 찾기</label>'+
+					''+
+				'</div>'+
+				'<p><label for="bw_login_form_forgotid_form_id">아이디</label> <input type="text" name="bw_login_form_forgotid_form_id" id="bw_login_form_forgotid_form_id" /></p>'+
+				'<p data-p-hidden="mobile"><label for="bw_login_form_forgotid_form_mobile">휴대폰</label> <input type="tel" name="bw_login_form_forgotid_form_mobile" id="bw_login_form_forgotid_form_mobile" /><span>※ - 없이 입력해 주세요.</span></p>'+
+				'<p data-p-hidden="email"><label for="bw_login_form_forgotid_form_email">E-mail</label> <input type="email" name="bw_login_form_forgotid_form_email" id="bw_login_form_forgotid_form_email" /></p>'+
+				'<p><button type="submit">비밀번호 찾기</button> <button type="button" id="bw_login_form_forgotid_form_close">닫기</button></p>'+
+
+				'<input type="hidden" id="bw_login_form_forgotid_form_type" name="bw_login_form_forgotid_form_type" value="pw" />'+
+			'</form>'
+		);
+
+		$("#bw_login_form_forgotid_form p:nth-of-type(1) input").focus();
+	});
+
+});
+//]]>
+</script>
+<script src="https://sgn.busanweb.kr/data/js/mobile/20200404110742.js"  charset="UTF-8"> </script>
+<script src="https://sgn.busanweb.kr/data/js/mobile/loading_js.js"  charset="UTF-8"> </script>
+	<script type="text/javascript" charset="UTF-8">
+	//<![CDATA[
+	$(function(){
+		$("nav .toggle_menu li a .count").html('0');
+		$("nav .toggle_menu li a .count1").html('0');
+		$("nav .toggle_menu li a .count2").html('99+');
+	});
+	//]]>
+	</script>
+	</head>
+<body>
+<header>
+<div>
+<h1><a href="https://sgn.busanweb.kr/?main=0"><img src="https://sgn.busanweb.kr/data/arch/skin//logo_new.png" alt="어데고" style="height:32px;" /></a></h1>
+<a href="#" class="menu"><img src="https://sgn.busanweb.kr/data/arch/skin//btn_total_menu.gif"></a>
+
+<span class="right">
+<!-- 
+
+<a href="https://sgn.busanweb.kr/member/logout.php" class="logout"><img src="https://sgn.busanweb.kr/data/arch/skin//logout.png"></a>
+<a href="https://sgn.busanweb.kr/retouche.php" class="retouche"><img src="https://sgn.busanweb.kr/data/arch/skin//btn_input.gif"></a>
+
+
+-->
+</span>
+</div>
+
+<ol class="submenu1">
+	<li><a href="https://sgn.busanweb.kr/?main=0" class="on">주변업소</a></li>
+	<li><a href="https://sgn.busanweb.kr/?main=1">역경매</a></li>
+	<li><a href="https://sgn.busanweb.kr/?main=2">반짝세일</a></li>
+
+
+	<li><a href="https://sgn.busanweb.kr/?main=3">B2B</a></li>
+
+</ol>
+<ol class="submenu2">
+	<li><a href="#" data-num="84">먹고</a></li>
+	<li><a href="#" data-num="86">꾸미고</a></li>
+	<li><a href="#" data-num="85">놀고</a></li>
+	<!-- <li><a href="#" data-num="219">자고</a></li> -->
+	<li><a href="#" data-num="218">기타</a></li>
+</ol>
+</header>
+
+
+<nav class="leftmenu">
+<dl>
+
+<dt>
+
+관리자
+님
+
+<a href="https://sgn.busanweb.kr/member/logout.php"><img src="https://sgn.busanweb.kr/data/arch/skin//icon_logout.gif" alt="로그아웃" style="margin:0 4px;" /></a>
+
+
+<a href="https://sgn.busanweb.kr/arch/"><img src="https://sgn.busanweb.kr/data/arch/skin//icon_adm.gif" alt="관리자" /></a>
+
+
+<a href="https://sgn.busanweb.kr/mypage.php?type=7" class="point">0 P</a>
+
+<span class="close"><img src="https://sgn.busanweb.kr/data/arch/skin//icon_close.gif"></span>
+</dt>
+<dd>
+
+<!-- <ul class="toggle_menu">
+<li><a href="https://sgn.busanweb.kr/mypage.php?type=1"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img1_blue.png"><p>반짝세일쿠폰</p><span class="count1">0</span></a></li>
+<li><a href="https://sgn.busanweb.kr/mypage.php?type=2"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img5.gif"><p>내역경매</p></a></li>
+<li><a href="https://sgn.busanweb.kr/mypage.php?type=0"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img2.gif"><p>알림</p><span class="count2">0</span></a></li>
+<li><a href="https://sgn.busanweb.kr/board/?id=m2m"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img4.gif"><p>1:1문의</p></a></li>
+</ul> -->
+<ul class="toggle_menu">
+<li><a href="https://sgn.busanweb.kr/mypage.php?type=6"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img1.gif"><p>받은쿠폰</p><span class="count">0</span></a></li>
+<!-- <li><a href="https://sgn.busanweb.kr/mypage.php?type=3"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img6.gif"><p>단골가게</p></a></li> -->
+<li><a href="https://sgn.busanweb.kr/board/?id=m2m"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img4.gif"><p>1:1문의</p></a></li>
+<li><a href="https://sgn.busanweb.kr/retouche.php"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img3.gif"><p>정보수정</p></a></li>
+<li><a href="https://sgn.busanweb.kr/mypage.php?type=4"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img19.gif"><p>환경설정</p></a></li>
+<!-- <li><a href="https://sgn.busanweb.kr/mypage.php?type=5"><img src="https://sgn.busanweb.kr/data/arch/skin//toggle_img8.gif"><p>관심가게</p></a></li> -->
+</ul>
+
+
+</dd>
+
+
+
+</dl>
+<div class="logged">
+
+<div class="toggle_smenu_wrap">
+   <ol class="toggle_smenu">
+	<li><a href="https://sgn.busanweb.kr/?main=0">주변업소</a></li>
+	<li><a href="https://sgn.busanweb.kr/?main=1">역경매</a></li>
+	<li><a href="https://sgn.busanweb.kr/?main=2">반짝세일</a></li>
+   </ol>
+
+
+   <ol class="toggle_smenu">
+	<li><a href="https://sgn.busanweb.kr/mypage.php?type=7">내포인트내역</a></li>
+	<li><a href="https://sgn.busanweb.kr/board/?id=sgnnews">상가소식</a></li>
+	<!-- <li><a href="https://sgn.busanweb.kr/board/?id=m2m">1:1문의</a></li> -->
+	<!-- <li><a href="https://sgn.busanweb.kr/board/?id=review">이용후기</a></li> -->
+	<!-- <li><a href="https://sgn.busanweb.kr/mypage.php?type=4">환경설정</a></li> -->
+   </ol>
+
+
+
+
+
+<div class="mg16 txc">
+
+</div>
+
+</div>
+</div>
+</nav>
+
+<main id="main_area2">
+
+ 
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCfa36UClP-kOl0WQFnxxdcTzphkR5iFnc"> </script>
+<script src="https://ddakzone.com/.js/markerwithlabel.js" type="text/javascript"></script>
+<script>
+//<![CDATA[
+var map;
+var infowindow;
+var marker;
+
+function googlemap(mapx, mapy, labelname) {
+	var GreenIcon = {
+		url: "http://labs.google.com/ridefinder/images/mm_20_green.png",
+		size: new google.maps.Size(12, 20),
+		origin: new google.maps.Point(0, 0),
+		anchor: new google.maps.Point(6, 20)
+	};
+
+	var mapOptions = {
+		zoom: 16,
+		center: new google.maps.LatLng(mapy, mapx),
+		icon:GreenIcon,
+		mapTypeId:google.maps.MapTypeId.ROADMAP
+	};
+
+	map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+
+	var marker1 = new MarkerWithLabel({
+		position: new google.maps.LatLng(mapy, mapx),
+		draggable: false,
+		raiseOnDrag: false,
+		map: map,
+		labelContent: labelname,
+		labelAnchor: new google.maps.Point(0, 0),
+		labelClass: "labels", // the CSS class for the label
+		labelStyle: {opacity: 1}
+	});
+}
+//]]>
+</script>
+<style type="text/css">
+	#sgn_search_form_keywords{border:1px solid #CCC; background:white; z-index:99999; border-radius:4px; overflow:hidden;}
+	#sgn_search_form_keywords li{padding:8px; border-top:1px dashed #e0e0e0; display:list-item; list-style:none; cursor:pointer;}
+	#sgn_search_form_keywords li:first-child{border:none;}
+	#sgn_search_form_keywords li:hover{font-weight:600; color:white; background:#36ad5b;}
+</style>
+<script>
+//<![CDATA[
+$(function(){
+	$("#sgn_search_form #key").focus(function (){
+		if($("#sgn_search_form_keywords").length == 0){
+			$("body").append('<ul id="sgn_search_form_keywords"></ul>');
+		}
+
+		var XY = $(this).offset();
+		var W = $(this).width();
+		var H = $(this).height();
+
+		console.log($("ol.submenu2 li a.on").length);
+
+		var KY_STR = '';
+				switch ($(".submenu2 li a.on").attr("data-num")){
+				case "84":
+
+						KY_STR += '<li>4인이상</li>';
+						KY_STR += '<li>5인이상</li>';
+						KY_STR += '<li>동아리</li>';
+						KY_STR += '<li>회식</li>';
+					break;
+				case "86":
+
+						KY_STR += '<li>미용실</li>';
+						KY_STR += '<li>염색</li>';
+						KY_STR += '<li>악세사리</li>';
+					break;
+				case "85":
+
+						KY_STR += '<li>오락실</li>';
+						KY_STR += '<li>당구</li>';
+					break;
+				case "218":
+
+						KY_STR += '<li>사진관</li>';
+						KY_STR += '<li>악기</li>';
+					break;
+				}
+
+		if(KY_STR != ''){
+			$("#sgn_search_form_keywords").show().css({"position":"absolute", "left":XY.left, "top":XY.top+H+12, "width":W+8}).html(KY_STR);
+		}
+			});
+
+	$("body").on("click", "#sgn_search_form_keywords li", function (){
+		$("#sgn_search_form #key").val($(this).text());
+		$("#sgn_search_form").submit();
+		$("#sgn_search_form_keywords").empty().hide();
+	});
+
+	$("body").on("blur", "#sgn_search_form #key", function (event){
+		try{
+			var toElement = event.relatedTarget || event.toElement;
+			if(toElement.id == 'container' || toElement.id == 'sgn_search_form' || toElement.className == 'info' || toElement.className == 'product_list' || toElement.className == 'submenu1' || toElement.tagName == 'DIV'){
+				$("#sgn_search_form_keywords").empty().hide();
+			}
+		}
+		catch(e){}
+	});
+	$("body").on("click", ".submenu1, .submenu2", function (event){
+		$("#sgn_search_form_keywords").empty().hide();
+	});
+});
+//]]>
+</script>
+
+
+<form method="get" action="" id="sgn_search_form" name="sgn_search_form" style="position:fixed; box-sizing:border-box; left:0; top:160px; width:100%; z-index:110;"><input type="hidden" id="mapx" name="mapx" value="0" /><input type="hidden" id="mapy" name="mapy" value="0" /><input type="search" id="key" name="key" value=""  /><button type="submit">🔍</button></form>
+
+<div style="height:80px;"></div>
+
+<div id="container">
+	<!-- 위치 -->
+	<div class="position" data-radius="" data-region="0" data-keyword="">
+		<img src="https://sgn.busanweb.kr/data/arch/skin/icon_pos.gif"> 주변업소		<span class="region_btn">위치설정</span>
+
+		
+				<input type="hidden" id="product_category" name="product_category" data-sub="0" value="84" />
+	</div>
+
+	<div class="line5"></div>
+
+	<!-- 해시태그 -->
+	
+	<div class="space20"></div>
+
+	<!-- product_list -->
+	<div class="product_list">
+		<dl>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A003j"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A003j/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="해운마루" /></a><span class="chu">추천</span></dt>
+		<dd>
+						<a  name="p0" id="p0"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A003j">해운마루</a></h3>
+			<div class="info"><small>대표상품</small> <dfn></dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A003j"><button type="button" class="info_btn">더보기</button></a></div>
+						<div class="info">
+				<small>위치안내</small>
+				<address>부산 해운대구 달맞이길62번길 65 (중동, 해운마루) <button type="button" class="map_btn" data-x="129.1736330000" data-y="35.1570035000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1113c"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A1113c/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="니뽕내뽕" /></a><span class="chu">추천</span></dt>
+		<dd>
+						<a  name="p1" id="p1"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1113c">니뽕내뽕</a></h3>
+			<div class="info"><small>대표상품</small> <dfn>짬뽕</dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1113c"><button type="button" class="info_btn">더보기</button></a></div>
+			<div class="info"><small>문의전화</small> <a href="tel:051-515-2848" class="phone">051-515-2848</a></div>			<div class="info">
+				<small>위치안내</small>
+				<address>부산 금정구 금강로 248-8 (장전동) <button type="button" class="map_btn" data-x="129.0852565000" data-y="35.2300666000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1012c"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A1012c/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="마마도마" /></a><span class="chu">추천</span></dt>
+		<dd>
+						<a  name="p2" id="p2"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1012c">마마도마</a></h3>
+			<div class="info"><small>대표상품</small> <dfn></dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1012c"><button type="button" class="info_btn">더보기</button></a></div>
+			<div class="info"><small>문의전화</small> <a href="tel:050-7141-1974" class="phone">050-7141-1974</a></div>			<div class="info">
+				<small>위치안내</small>
+				<address>부산 금정구 금강로 248-5 (장전동) <button type="button" class="map_btn" data-x="129.0851757000" data-y="35.2302674000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1009c"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A1009c/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="라멘정" /></a><span class="chu">추천</span></dt>
+		<dd>
+						<a  name="p3" id="p3"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1009c">라멘정</a></h3>
+			<div class="info"><small>대표상품</small> <dfn></dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1009c"><button type="button" class="info_btn">더보기</button></a></div>
+			<div class="info"><small>문의전화</small> <a href="tel:051-517-9192" class="phone">051-517-9192</a></div>			<div class="info">
+				<small>위치안내</small>
+				<address>부산 금정구 부산대학로49번길 16 (장전동) <button type="button" class="map_btn" data-x="129.0855971000" data-y="35.2306467000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1005j"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A1005j/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="별난국수" /></a></dt>
+		<dd>
+						<a  name="p4" id="p4"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1005j">별난국수</a></h3>
+			<div class="info"><small>대표상품</small> <dfn></dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A1005j"><button type="button" class="info_btn">더보기</button></a></div>
+						<div class="info">
+				<small>위치안내</small>
+				<address>경북 포항시 북구 해안로 57-2 (항구동) <button type="button" class="map_btn" data-x="129.3738974000" data-y="36.0527589000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4024k"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A4024k/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="개미와 베짱이" /></a></dt>
+		<dd>
+						<a  name="p5" id="p5"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4024k">개미와 베짱이</a></h3>
+			<div class="info"><small>대표상품</small> <dfn></dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4024k"><button type="button" class="info_btn">더보기</button></a></div>
+			<div class="info"><small>문의전화</small> <a href="tel:010-5519-6679" class="phone">010-5519-6679</a></div>			<div class="info">
+				<small>위치안내</small>
+				<address>부산 부산진구 중앙대로928번길 20 (양정동) <button type="button" class="map_btn" data-x="129.0719268000" data-y="35.1720671000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4022k"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A4022k/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="원조왕돈까스" /></a></dt>
+		<dd>
+						<a  name="p6" id="p6"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4022k">원조왕돈까스</a></h3>
+			<div class="info"><small>대표상품</small> <dfn></dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4022k"><button type="button" class="info_btn">더보기</button></a></div>
+			<div class="info"><small>문의전화</small> <a href="tel:051-253-1008" class="phone">051-253-1008</a></div>			<div class="info">
+				<small>위치안내</small>
+				<address>부산 부산진구 중앙대로 906 (양정동) <button type="button" class="map_btn" data-x="129.0700353000" data-y="35.1710635000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4020k"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A4020k/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="왕짜장" /></a></dt>
+		<dd>
+						<a  name="p7" id="p7"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4020k">왕짜장</a></h3>
+			<div class="info"><small>대표상품</small> <dfn></dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4020k"><button type="button" class="info_btn">더보기</button></a></div>
+			<div class="info"><small>문의전화</small> <a href="tel:051-862-2332" class="phone">051-862-2332</a></div>			<div class="info">
+				<small>위치안내</small>
+				<address>부산 부산진구 진남로 505 (양정동) <button type="button" class="map_btn" data-x="129.0709455000" data-y="35.1692311000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4019k"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A4019k/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="버거베어 부산점" /></a></dt>
+		<dd>
+						<a  name="p8" id="p8"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4019k">버거베어 부산점</a></h3>
+			<div class="info"><small>대표상품</small> <dfn></dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4019k"><button type="button" class="info_btn">더보기</button></a></div>
+			<div class="info"><small>문의전화</small> <a href="tel:051-868-2101" class="phone">051-868-2101</a></div>			<div class="info">
+				<small>위치안내</small>
+				<address>부산 부산진구 양지로 22-1 (양정동) <button type="button" class="map_btn" data-x="129.0700865000" data-y="35.1684310000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+				<dt><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4018k"><img src="https://sgn.busanweb.kr/data/arch/skin/blank.gif" style="background:#CCC url('https://sgn.busanweb.kr/data/member/attachment/A4018k/0.t?thumb=1') no-repeat center center; background-size:auto 100%;" alt="야접중화포차 양정점" /></a></dt>
+		<dd>
+						<a  name="p9" id="p9"></a>
+
+			<h3><a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4018k">야접중화포차 양정점</a></h3>
+			<div class="info"><small>대표상품</small> <dfn></dfn> <a href="https://sgn.busanweb.kr/board/?id=menu&memid=A4018k"><button type="button" class="info_btn">더보기</button></a></div>
+			<div class="info"><small>문의전화</small> <a href="tel:051-868-4722" class="phone">051-868-4722</a></div>			<div class="info">
+				<small>위치안내</small>
+				<address>부산 부산진구 양지로5번길 86 (양정동) <button type="button" class="map_btn" data-x="129.0723883000" data-y="35.1726859000">위치보기</button></address>
+
+							</div>
+		</dd>
+		<div class="clear"></div>
+		
+		<!-- 더보기 -->
+				<div class="more"><a href="#" data-page="1" data-lastpage="144">+ 더보기</a></div>
+						</dl>
+	</div>
+
+	<!-- 하단배너 -->
+	<div class="banner"><div class="txc">
+					</div></div>
+</div>
+
+<script type="text/javascript" charset="UTF-8">
+//<![CDATA[
+$(function(){
+		// 처음 들어왔을 때 GPS 좌표를 가져올 수 있다면
+	var MAPX = localStorage.getItem('bw_GPS_mapX');
+	var MAPY = localStorage.getItem('bw_GPS_mapY');
+
+	//console.log(MAPX+" "+MAPY);
+
+	if(MAPX != '' && MAPY != ''){
+		//loading_start();
+		var MCA = $("#product_category").val();
+		//var MCA2 = $("#product_category").attr("data-sub");
+
+		$.post("https://sgn.busanweb.kr/member/mypage.customitem.php",{"type":8, "p":0, "c":"10", "key":"", "dist":"0", "memcate":MCA, "mapx":MAPX, "mapy":MAPY, "cate0":"0", "cate1":"0"}, function(d){
+			$(".product_list dl").html(d);
+			//loading_end();
+		});
+
+		$("#sgn_search_form #mapx").val(MAPX);
+		$("#sgn_search_form #mapy").val(MAPY);
+	}
+	
+	$("#sgn_search_form").submit(function () {
+		var KY = $.trim($("#sgn_search_form #key").val());
+		var MCA = $("#product_category").val();
+				var MAPX = localStorage.getItem('bw_GPS_mapX');
+		var MAPY = localStorage.getItem('bw_GPS_mapY');
+		
+		location.href = '?main=0&key='+encodeURIComponent(KY)+"&mapx="+MAPX+"&mapy="+MAPY;
+
+		//loading_start();
+
+		/*$.post("https://sgn.busanweb.kr/member/mypage.customitem.php",{"type":8, "p":0, "c":"10", "key":KY, "mapx":MAPX, "mapy":MAPY}, function(d){
+			$(".product_list dl").html(d);
+			//loading_end();
+		});
+
+		$("#sgn_search_form_keywords").empty().hide();*/
+
+		return false;
+	});
+
+	$("body").on("click", "#container .hashtags a", function () {
+		var KY = $(this).attr("data-keyword");
+		var MCA = $("#product_category").val();
+				var MAPX = localStorage.getItem('bw_GPS_mapX');
+		var MAPY = localStorage.getItem('bw_GPS_mapY');
+		
+		//loading_start();
+
+		$.post("https://sgn.busanweb.kr/member/mypage.customitem.php",{"type":8, "p":0, "c":"10", "key":KY, "memcate":MCA, "mapx":MAPX, "mapy":MAPY}, function(d){
+			$(".product_list dl").html(d);
+			$("#sgn_search_form #key").val(KY);
+			//loading_end();
+
+			location.href = '#';
+		});
+
+		return false;
+	});
+
+		$(window).scroll(function(){
+		var P = parseInt($(".product_list .more a").attr("data-page")) - 1;
+		var H = $(window).scrollTop();
+
+		window.history.replaceState("scroll", "어데고", "?main=0&ca=0&ca2=0&mca=0&mca2=0&dist=0&mapx=0&mapy=0&key=&p="+P+"&h="+H);
+		/* 20200824 뒤로가기 시 자리 유지 */
+	});
+
+	$("body").on("click", ".product_list .more a", function () {
+		var P = parseInt($(this).attr("data-page"));
+		var LP = parseInt($(this).attr("data-lastpage"));
+		var MCA = $("#product_category").val();
+		var MCA2 = $("#product_category").attr("data-sub");
+		var KY = $.trim($("#sgn_search_form #key").val());
+		var H = $(window).scrollTop();
+
+				var MAPX = localStorage.getItem('bw_GPS_mapX');
+		var MAPY = localStorage.getItem('bw_GPS_mapY');
+		
+		//loading_start();
+
+		$.post("https://sgn.busanweb.kr/member/mypage.customitem.php",{"type":8, "p":P, "c":"10", "memcate":MCA, "memcate2":MCA2, "cate0":"0", "cate1":"0", "key":KY, "dist":"0", "mapx":MAPX, "mapy":MAPY}, function(d){
+			$(".product_list .more").before(d);
+
+			if (P + 1 >= LP) {
+				$(".product_list .more a").parent(".more").remove();
+			}
+			else{
+				$(".product_list .more a").attr({"data-page":P + 1});
+			}
+
+			$(window).scrollTop(H);	/* 20200722 더보기 클릭시 자리 유지 */
+			window.history.replaceState("scroll", "어데고", "?main=0&ca=0&ca2=0&mca=0&mca2=0&dist=0&mapx=0&mapy=0&key=&p="+P+"&h="+H);
+			/* 20200824 뒤로가기 시 자리 유지 */
+
+			//location.href = '#';	/* 20200721 더보기 클릭시 자리 유지 */
+			//loading_end();
+		});
+
+		return false;
+	});
+
+	$("body").on("click", ".product_list dl .map_btn", function () {
+		var X = $(this).attr("data-x");
+		var Y = $(this).attr("data-y");
+		var LBL = $(this).parent("address").parent("div").parent("dd").children("h3").children("a").html();
+
+		if ($("#product_list_locate_div").length == 0) {
+			$("body").append('<div id="product_list_locate_div"></div>');
+		}
+
+		$("#product_list_locate_div").show().css({"position":"fixed", "left":0, "top":0, "width":$(window).width(), "height":$(window).height(), "display":"table", "background":"rgba(0,0,0,0.67)", "z-index":99999}).html(
+			'<div>'+
+				'<div>'+
+					'<p><button type="button">닫기</button></p>'+
+					'<div id="map-canvas"></div>'+
+					'<p><button type="button">닫기</button></p>'+
+				'</div>'+
+			'</div>'
+		);
+
+		// 지도 띄우기
+		googlemap(X, Y, LBL);
+	});
+
+	$("body").on("click", "#product_list_locate_div > div > div > p button", function () {
+		$("#product_list_locate_div").empty().hide();
+	});
+
+	// 위치설정
+	$("#container .position .region_btn").click(function () {
+		$("body").append('<div id="product_list_locate_search"></div>');
+
+		var MEMCA = ($("#product_category").length > 0) ? $("#product_category").val() : 0;
+		var MEMCA2 = ($("#product_category").length > 0) ? $("#product_category").attr("data-sub") : 0;
+		var MEMCA_STR = $("#product_category option:selected").html();
+
+		$("#product_list_locate_search").show().css({"position":"fixed", "left":0, "top":0, "width":$(window).width(), "height":$(window).height(), "display":"table", "background":"rgba(0,0,0,0.67)", "z-index":99999}).html(
+			'<div>'+
+				'<div>'+
+					'<p class="txl" style="padding:0 0 8px 0; border-bottom:1px solid #464646;"><b class="font20">지역검색</b> <button type="button" class="fright">닫기</button></p>'+
+					'<form method="post" action="" id="product_list_locate_search_form1" name="product_list_locate_search_form1">'+
+						//'<input type="hidden" id="product_list_locate_search_form1_memcate0" name="product_list_locate_search_form1_memcate0" value="'+$("#product_category").val()+'" />'+
+						'<p>'+
+							'<select id="product_list_locate_search_form1_cate0" name="product_list_locate_search_form1_cate0">'+
+																'<option value="">-- 전체 --</option>'+
+																'<option value="1" >부산</option>'+
+																'<option value="19" >경북</option>'+
+															'</select> '+
+							'<select id="product_list_locate_search_form1_cate1" name="product_list_locate_search_form1_cate1">'+
+								'<option value="">-- 전체 --</option>'+
+																'<option value="7" >부산대학교</option>'+
+																'<option value="21" >부산진시장</option>'+
+																'<option value="22" >기장시장</option>'+
+																'<option value="8" >경성대학교(대연동)</option>'+
+																'<option value="9" >서면</option>'+
+																'<option value="10" >양정</option>'+
+																'<option value="11" >해운대/기장</option>'+
+																'<option value="12" >동래/온천장</option>'+
+																'<option value="13" >남포동</option>'+
+																'<option value="14" >영도</option>'+
+																'<option value="15" >사상</option>'+
+																'<option value="16" >다대포</option>'+
+																'<option value="17" >하단</option>'+
+																'<option value="18" >광안리</option>'+
+															'</select>'+
+						'</p>'+
+						/*'<p class="mg16">'+
+							'<select id="product_list_locate_search_form1_memcate1" name="product_list_locate_search_form1_memcate1" class="w100p">'+
+								'<option value="">-- 전체 --</option>'+
+																//'<option value="218" >기타</option>'+
+															'</select>'+
+						'</p>'+*/
+						'<p class="mg16">'+
+							'<input type="search" id="product_list_locate_search_form1_keyword" name="product_list_locate_search_form1_keyword" class="w100p" value="" placeholder="키워드 ex) 김치찌개" />'+
+						'</p>'+
+						'<p class="mg16"><button type="submit" class="w100p">🔍 검색하기</button></p>'+
+					'</form>'+
+				'</div>'+
+			'</div>'
+		);
+		/*if(MEMCA > 0){
+		$.post("https://sgn.busanweb.kr/member/category.php",{"parent":MEMCA},function(d){
+			$("#product_list_locate_search_form1_memcate1").html('<option value="" selected="selected">'+((MEMCA_STR != undefined) ? MEMCA_STR : '')+' 전체</option>'+d).val(MEMCA2);
+		});
+		}*/
+		$("#product_list_locate_search_form1_keyword").focus();
+	});
+
+	/*$("body").on("change", "#product_list_locate_search_form1_cate0", function () {	// 현재는 부산 1개밖에 없음
+
+	});*/
+
+	$("body").on("click", "#product_list_locate_search > div > div > p button", function () {
+		$("#product_list_locate_search").empty().hide();
+	});
+
+	$("body").on("submit", "#product_list_locate_search_form1", function () {
+		var KY = $.trim($("#product_list_locate_search_form1_keyword").val());
+		var CA1 = $("#product_list_locate_search_form1_cate0").val();
+		var CA2 = $("#product_list_locate_search_form1_cate1").val();
+		var MCA1 = $("#product_list_locate_search_form1_memcate1").val();
+		//var MCA2 = $("#product_list_locate_search_form1_memcate1").val();
+
+		// 지역선택 유지
+		document.cookie = "rgnca1="+CA1+"; path=/;";
+		document.cookie = "rgnca2="+CA2+"; path=/;";
+
+		location.href = "?main=0&key="+encodeURIComponent(KY)+"&ca="+CA1+"&ca2="+CA2+"&mca="+MCA1;
+
+		return false;
+	});
+
+	// 	$(".submenu2 li a.on, header > .submenu2 li a").removeClass("on");
+	// $(".submenu2 li a.on, header > .submenu2 li a[data-num='84']").addClass("on");
+	
+	$(".submenu2 li a.on, header > .submenu2 li a").click(function () {
+		var MCA = $(this).attr("data-num");
+				var MAPX = localStorage.getItem('bw_GPS_mapX');
+		var MAPY = localStorage.getItem('bw_GPS_mapY');
+		
+		location.href = "./?main=0&mca="+MCA+"&mapx="+MAPX+"&mapy="+MAPY+"&ca=0&ca2=0";
+
+		/*var KY = "";
+		var MCA = $(this).attr("data-num");
+
+				var MAPX = localStorage.getItem('bw_GPS_mapX');
+		var MAPY = localStorage.getItem('bw_GPS_mapY');
+		
+		//loading_start();
+
+		$.post("https://sgn.busanweb.kr/member/mypage.customitem.php",{"type":8, "p":0, "c":"10", "memcate":MCA, "cate0":"0", "cate1":"0", "key":KY, "dist":"0", "mapx":MAPX, "mapy":MAPY}, function(d){
+			$(".product_list dl").html(d);
+			$("#product_category").attr({"data-sub":""});
+
+			//loading_end();
+
+			location.href = '#';
+		});
+
+		$(".submenu2 li a.on, header > .submenu2 li a").removeClass("on");
+		$(this).addClass("on");
+		$("#product_category").val(MCA);
+
+		$("#sgn_search_form_keywords").empty().hide();
+
+		$("#sgn_search_form #key").val("");
+		*/
+
+		return false;
+	});
+
+	/*$("#product_category").change(function () {
+		var MCA = $(this).val();
+
+		loading_start();
+
+		$.post("https://sgn.busanweb.kr/member/mypage.customitem.php",{"type":8, "p":0, "c":"10", "memcate":MCA, "cate0":"1", "cate1":"7", "key":"", "dist":"0", "mapx":"0", "mapy":"0"}, function(d){
+			$(".product_list dl").html(d);
+			$("#product_category").attr({"data-sub":""});
+
+			//$(".product_list .more a").attr({"data-page":1});
+
+			loading_end();
+		});
+
+		return false;
+	});*/
+
+	// 내주변검색
+	$("#container .position .radius_btn").click(function () {
+		//alert(localStorage.getItem('bw_GPS_mapX')+" "+localStorage.getItem('bw_GPS_mapY')+" "+localStorage.getItem('bw_GPS_mapZ'));
+		var KY = $.trim($("#sgn_search_form #key").val());
+
+		if (localStorage.getItem('bw_GPS_mapX') != null && localStorage.getItem('bw_GPS_mapY') != null) {
+			$("body").append('<div id="product_list_locate_search"></div>');
+
+			$("#product_list_locate_search").show().css({"position":"fixed", "left":0, "top":0, "width":$(window).width(), "height":$(window).height(), "display":"table", "background":"rgba(0,0,0,0.67)", "z-index":99999}).html(
+				'<div>'+
+					'<div>'+
+						'<p class="txl" style="padding:0 0 8px 0; border-bottom:1px solid #464646;"><b class="font20">내주변 검색</b> <button type="button" class="fright">닫기</button></p>'+
+						'<form method="post" action="" id="product_list_locate_search_form2" name="product_list_locate_search_form2" class="txl">'+
+														'<p class="mg8b">'+
+								'<label>'+
+									'<input type="radio" class="product_list_locate_search_form2_dist" name="product_list_locate_search_form2_dist" value="1"  /> 반경 1km 이내'+
+								'</label>'+
+							'</p>'+
+														'<p class="mg8b">'+
+								'<label>'+
+									'<input type="radio" class="product_list_locate_search_form2_dist" name="product_list_locate_search_form2_dist" value="2"  /> 반경 2km 이내'+
+								'</label>'+
+							'</p>'+
+														'<p class="mg8b">'+
+								'<label>'+
+									'<input type="radio" class="product_list_locate_search_form2_dist" name="product_list_locate_search_form2_dist" value="3"  /> 반경 3km 이내'+
+								'</label>'+
+							'</p>'+
+														'<p class="mg8b">'+
+								'<label>'+
+									'<input type="radio" class="product_list_locate_search_form2_dist" name="product_list_locate_search_form2_dist" value="4"  /> 반경 4km 이내'+
+								'</label>'+
+							'</p>'+
+														'<p class="mg8b">'+
+								'<label>'+
+									'<input type="radio" class="product_list_locate_search_form2_dist" name="product_list_locate_search_form2_dist" value="5"  /> 반경 5km 이내'+
+								'</label>'+
+							'</p>'+
+														'<p>'+
+								'<label>'+
+									'<input type="radio" class="product_list_locate_search_form2_dist" name="product_list_locate_search_form2_dist" value="0" checked="checked" /> 반경 제한 없음'+
+								'</label>'+
+							'</p>'+
+							'<p class="mg8">'+
+								'<input type="search" id="product_list_locate_search_form2_keyword" name="product_list_locate_search_form2_keyword" class="w100p" value="'+KY+'" placeholder="키워드 ex) 김치찌개" />'+
+							'</p>'+
+							'<p class="mg16"><button type="submit" class="w100p">🔍 검색하기</button></p>'+
+						'</form>'+
+					'</div>'+
+				'</div>'
+			);
+		}
+		else {
+			alert("위치가 꺼져 있습니다. 상단 알림 바에서 활성화시켜 주세요.");
+		}
+	});
+
+	$("body").on("submit", "#product_list_locate_search_form2", function () {
+		if (localStorage.getItem('bw_GPS_mapX') != null && localStorage.getItem('bw_GPS_mapY') != null) {
+			var KY = $.trim($("#product_list_locate_search_form2_keyword").val());
+			var DST = $(".product_list_locate_search_form2_dist:checked").val();
+			var MAPX = localStorage.getItem('bw_GPS_mapX');
+			var MAPY = localStorage.getItem('bw_GPS_mapY');
+
+			location.href = "?main=0&key="+encodeURIComponent(KY)+"&dist="+DST+"&mapx="+MAPX+"&mapy="+MAPY;
+		}
+		else {
+			alert("위치가 꺼져 있습니다. 상단 알림 바에서 활성화시켜 주세요.");
+		}
+
+		return false;
+	});
+
+	// 반짝세일 이동
+	$("body").on("click", "#container .product_list dl dd .blinksale", function () {
+		location.href = 'https://sgn.busanweb.kr/board/?id=menu&memid='+$(this).attr("data-id")+'#sub_tab_anchor';
+	});
+});
+//]]>
+</script> 
+
+		<!-- 하단 카피라이트 -->
+		<div class="copyright">
+			<h1>사업자정보 &nbsp;<img src="https://sgn.busanweb.kr/data/arch/skin//arrow_v.gif"></h1>
+			<div class="space20"></div>
+
+			<ul>
+				<li><a href="https://sgn.busanweb.kr/board/?id=vender">입점문의</a>
+				</li><li><a href="#" class="bw_rule_clause">이용약관</a>
+				</li><li><a href="#" class="bw_rule_privacy">개인정보보호정책</a>
+				</li><li><a href="https://sgn.busanweb.kr/board/?id=info">사업자정보확인</a>
+				</li>
+			</ul>
+
+			<div class="space20"></div>
+
+			<div class="txt">어데고은 통신판매중개자로서 상품/거래정보 및 거래와 관련하여 통신 판매 당사자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 책임을 지지 않습니다. 상품 및 거래에 대한 정확한 정보는 해당 판매자 에게 직접 확인바랍니다.
+			</div>
+
+		</div>
+		<div class="clear"></div>
+
+
+</main>
+
+
+<footer>
+		<!-- 하단링크 -->
+		<div class="foot_bnr_link">
+			<ul>
+
+				<li><a href="https://sgn.busanweb.kr/mypage.php?type=1"><img src="https://sgn.busanweb.kr/data/arch/skin//bottom2.gif"><p>내 반짝세일</p></a>
+				</li><li><a href="https://sgn.busanweb.kr/mypage.php?type=2"><img src="https://sgn.busanweb.kr/data/arch/skin//bottom3.gif"><p>내 역경매</p></a>
+				</li><li><a href="https://sgn.busanweb.kr/mypage.php?type=2&uniq=1"><img src="https://sgn.busanweb.kr/data/arch/skin//bottom4.gif"><p>내 흥정(딜)</p></a>
+
+				</li><li><a href="https://sgn.busanweb.kr/mypage.php?type=3"><img src="https://sgn.busanweb.kr/data/arch/skin//bottom1.gif" /><p>단골가게</p></a>
+				</li><li><a href="https://sgn.busanweb.kr/mypage.php?type=0"><img src="https://sgn.busanweb.kr/data/arch/skin//bottom6.png" alt="" style="margin:5px 0;" /><p>알림</p></a>
+
+
+				</li>
+
+
+			</ul>
+		</div>
+</footer></body>
+</html>

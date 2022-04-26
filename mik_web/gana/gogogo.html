@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="Author" content="부산웹" />
+<title>미크</title>
+
+<meta name="Keywords" content="" />
+<meta name="Description" content="미크::client &gt; notice" />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#FFFFFF" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="미크" />
+<meta property="og:description" content="미크::client &gt; notice" />
+<meta property="og:image" content="" />
+<meta property="og:url" content="http://www.meetinkorea.kr" />
+<meta name="twitter:card" content="" />
+<meta name="twitter:title" content="미크" />
+<meta name="twitter:description" content="미크::client &gt; notice" />
+<meta name="twitter:image" content="" />
+<meta name="twitter:domain" content="http://www.meetinkorea.kr" />
+<link rel="canonical" href="http://www.meetinkorea.kr" />
+<link rel="stylesheet" type="text/css" href="tt.css">
+<!--[if gte IE 9]><!-->
+<script src="http://meetinkorea.kr/.js/jquery.js"  charset="UTF-8"> </script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script type="text/javascript" charset="UTF-8">
+	document.execCommand("BackgroundImageCache", false, true);
+	document.createElement("menuitem");
+</script>
+<script src="http://meetinkorea.kr/.js/jquery-old.js"  charset="UTF-8"> </script>
+<script src="http://meetinkorea.kr/.js/html5shiv.js" charset="UTF-8" async="async"> </script>
+<script src="http://meetinkorea.kr/.js/respond.min.js" charset="UTF-8" async="async"> </script>
+<![endif]-->
+<link rel="stylesheet" href="http://meetinkorea.kr/.js/jquery-ui.min.css"  />
+<link rel="stylesheet" href="http://meetinkorea.kr/.js/jquery-multiform.css"  />
+<script src="http://meetinkorea.kr/.js/jquery-ui.js"  charset="UTF-8"> </script>
+<script src="http://meetinkorea.kr/.js/jquery-form.js"  charset="UTF-8"> </script>
+<script src="http://meetinkorea.kr/.js/jquery-multiform.js"  charset="UTF-8"> </script>
+<script src="http://meetinkorea.kr/.js/jquery-custom.js"  charset="UTF-8"> </script>
+<style media="screen">
+	input[data-bw-colorpicker] {width:72px !important; text-align:center;}
+	#bw_colorpicker_palette{border-collapse:separate;}
+	#bw_colorpicker_palette td{width:16px; height:16px; cursor:pointer; border:1px solid white;}
+	#bw_colorpicker_palette td:hover{border:1px solid #CCC;}
+	#bw_colorpicker_palette td.on, #bw_colorpicker_palette td.on:hover{border:1px solid red;}
+	.bw_colorpicker_btn{font-size:11px; padding:2px 4px; border-radius:4px; vertical-align:middle;}
+</style>
+<script src="http://meetinkorea.kr/.js/bw_palette.js"  charset="utf-8" async="async"> </script>
+<script type="text/javascript" charset="UTF-8">
+			//<![CDATA[
+			$(function(){
+				$(".bw_rule_clause").unbind("click").click(function(event){		// 이용약관
+					if($("#bw_rule_clause_div").length == 0){ $("body").append("<div id='bw_rule_clause_div'></div>"); }
+
+					$("#bw_rule_clause_div").show().css({"position":"absolute", "left":event.pageX-128, "top":event.pageY-160, "padding":16, "background":"white", "borderRadius":16, "boxShadow":"0 0 8px rgba(0,0,0,0.5)", "zIndex":9999}).load("http://www.meetinkorea.kr/member/rule_clause.php", {"dmy":$.now()});
+					return false;
+				});
+				$(".bw_rule_privacy").unbind("click").click(function(event){	// 개인정보취급방침
+					if($("#bw_rule_clause_div").length == 0){ $("body").append("<div id='bw_rule_clause_div'></div>"); }
+					$("#bw_rule_clause_div").show().css({"position":"absolute", "left":event.pageX-128, "top":event.pageY-160, "padding":16, "background":"white", "borderRadius":16, "boxShadow":"0 0 8px rgba(0,0,0,0.5)", "zIndex":9999}).load("http://www.meetinkorea.kr/member/rule_privacy.php", {"dmy":$.now()});
+					return false;
+				});
+				$(".bw_rule_email").unbind("click").click(function(event){		// 이메일무단수집거부
+					if($("#bw_rule_clause_div").length == 0){ $("body").append("<div id='bw_rule_clause_div'></div>"); }
+					$("#bw_rule_clause_div").show().css({"position":"absolute", "left":event.pageX-128, "top":event.pageY-160, "padding":16, "background":"white", "borderRadius":16, "boxShadow":"0 0 8px rgba(0,0,0,0.5)", "zIndex":9999}).load("http://www.meetinkorea.kr/member/rule_email.php", {"dmy":$.now()});
+					return false;
+				});
+				$("body").on("click", "#bw_rule_clause_div button", function(){
+					$("#bw_rule_clause_div").empty().hide();
+				});
+			});
+			//]]>
+			</script><style type="text/css" charset="UTF-8">
+				#bw_rule_clause_div > div{width:320px;}
+				#bw_rule_clause_div > div > div{height:160px; overflow-y:scroll; padding:8px; border:1px solid #e0e0e0; font-size:0.85em; line-height:1.5em;}
+				#bw_rule_clause_div > div > div h1{font-size:1.2em; margin:8px 0; font-weight:600;}
+				#bw_rule_clause_div > div > div h2{font-size:1.1em; margin:8px 0; font-weight:600;}
+			</style><link rel="stylesheet" type="text/css" href="http://meetinkorea.kr/.css/init.css" media="all"  />
+<!--[if gte IE 9]><!-->
+<link rel="stylesheet" type="text/css" href="http://meetinkorea.kr/.css/font.css" media="all"  />
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="http://meetinkorea.kr/.css/font.ie8.css" media="all"  />
+<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<link rel="stylesheet" type="text/css" href="http://waas.kr/.css/busanweb.css"  />
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="http://waas.kr/.css/busanweb.ie8.css" />
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="tt.css"  />
+<script type="text/javascript" charset="UTF-8">
+//<![CDATA[
+$(function(){
+	
+	$("body").on("click", ".fav", function(){
+					alert('브라우저 상단의 ☆을 클릭해서 즐겨찾기 추가가 가능합니다.');
+		
+		return false;
+	});
+
+	$("body").on("click", "a[href$='logout.php'], area[href$='logout.php']", function(){
+		if (confirm('로그아웃하시겠습니까?')) {
+			$.post($(this).attr("href"), null, function(d){
+				if(d != "ok"){
+					alert(d);
+					return false;
+				}
+				else{
+											//location.reload();
+						location.href = 'http://meetinkorea.kr/?main=0';
+									}
+			});
+		}
+		return false;
+	});
+
+	// ID 찾기
+	$("body").on("click", ".bw_login_form_forgotid", function(event){
+		if ($("#bw_login_form_forgotid_div").length == 0) {
+			$("body").append('<div id="bw_login_form_forgotid"></div>');
+		}
+
+		$("#bw_login_form_forgotid").show().css({"position":"absolute","left":event.pageX-128,"top":event.pageY-32,"width":256,"padding":16,"background":"white","border":"4px solid #454b5c","borderRadius":16}).html(
+			'<form id="bw_login_form_forgotid_form" name="bw_login_form_forgotid_form" action="http://meetinkorea.kr/member/forgot.php" method="post">'+
+				'<div>'+
+					'<label><input type="radio" name="bw_login_form_forgotid_form_mode" class="bw_login_form_forgotid_form_mode" value="M" checked="checked" /> 휴대폰으로 찾기</label> '+
+					'<label><input type="radio" name="bw_login_form_forgotid_form_mode" class="bw_login_form_forgotid_form_mode" value="E" /> E-mail로 찾기</label>'+
+				'</div>'+
+				'<p><label for="bw_login_form_forgotid_form_name">이름</label> <input type="text" name="bw_login_form_forgotid_form_name" id="bw_login_form_forgotid_form_name" /></p>'+
+				'<p data-p-hidden="mobile"><label for="bw_login_form_forgotid_form_mobile">휴대폰</label> <input type="tel" name="bw_login_form_forgotid_form_mobile" id="bw_login_form_forgotid_form_mobile" /><span>※ - 없이 입력해 주세요.</span></p>'+
+				'<p data-p-hidden="email"><label for="bw_login_form_forgotid_form_email">E-mail</label> <input type="email" name="bw_login_form_forgotid_form_email" id="bw_login_form_forgotid_form_email" /></p>'+
+				'<p><button type="submit">아이디 찾기</button> <button type="button" id="bw_login_form_forgotid_form_close">닫기</button></p>'+
+
+				'<input type="hidden" id="bw_login_form_forgotid_form_type" name="bw_login_form_forgotid_form_type" value="id" />'+
+			'</form>'
+		);
+
+		$("#bw_login_form_forgotid_form p:nth-of-type(1) input").focus();
+	});
+
+	// 비밀번호 찾기
+	$("body").on("click", ".bw_login_form_forgotpw", function(){
+		if ($("#bw_login_form_forgotid_div").length == 0) {
+			$("body").append('<div id="bw_login_form_forgotid"></div>');
+		}
+
+		$("#bw_login_form_forgotid").show().css({"position":"absolute","left":event.pageX-128,"top":event.pageY-32,"width":256,"padding":16,"background":"white","border":"4px solid #454b5c","borderRadius":16}).html(
+			'<form id="bw_login_form_forgotid_form" name="bw_login_form_forgotid_form" action="http://meetinkorea.kr/member/forgot.php" method="post">'+
+				'<div>'+
+					'<label><input type="radio" name="bw_login_form_forgotid_form_mode" class="bw_login_form_forgotid_form_mode" value="M" checked="checked" /> 휴대폰으로 찾기</label> '+
+					'<label><input type="radio" name="bw_login_form_forgotid_form_mode" class="bw_login_form_forgotid_form_mode" value="E" /> E-mail로 찾기</label>'+
+					''+
+				'</div>'+
+				'<p><label for="bw_login_form_forgotid_form_id">아이디</label> <input type="text" name="bw_login_form_forgotid_form_id" id="bw_login_form_forgotid_form_id" /></p>'+
+				'<p data-p-hidden="mobile"><label for="bw_login_form_forgotid_form_mobile">휴대폰</label> <input type="tel" name="bw_login_form_forgotid_form_mobile" id="bw_login_form_forgotid_form_mobile" /><span>※ - 없이 입력해 주세요.</span></p>'+
+				'<p data-p-hidden="email"><label for="bw_login_form_forgotid_form_email">E-mail</label> <input type="email" name="bw_login_form_forgotid_form_email" id="bw_login_form_forgotid_form_email" /></p>'+
+				'<p><button type="submit">비밀번호 찾기</button> <button type="button" id="bw_login_form_forgotid_form_close">닫기</button></p>'+
+
+				'<input type="hidden" id="bw_login_form_forgotid_form_type" name="bw_login_form_forgotid_form_type" value="pw" />'+
+			'</form>'
+		);
+
+		$("#bw_login_form_forgotid_form p:nth-of-type(1) input").focus();
+	});
+
+});
+//]]>
+</script>
+</head>
+<body>
+<div class="wrap222">
+
+<div class="table_wrap" id="mik_sub" data-board-id="notice">
+
+<link rel="stylesheet" href="http://waas.kr/.skin/board/bw_basic/css/skin.css?dmy=1615593972" />
+
+<style charset="UTF-8">
+	button[data-bw-iskin='1']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.1') no-repeat; width:67px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='2']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.2') no-repeat; width:67px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='3']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.3') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='4']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.4') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='5']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.5') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='6']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.6') no-repeat; width:67px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='7']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.7') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='8']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.8') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='9']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.9') no-repeat; width:40px; height:24px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='10']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.10') no-repeat; width:64px; height:64px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='11']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.11') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='12']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.12') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='13']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.13') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='14']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.14') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='15']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.15') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='16']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.16') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='17']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.17') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='37']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.37') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='38']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.38') no-repeat; width:40px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='39']{background:url('http://waas.kr/home/data/arch/skin/O/3/f0.39') no-repeat; width:67px; height:28px; border:none; font-size:0; text-indent:-999999px; cursor:pointer;}
+					button[data-bw-iskin='41']{display:none;}
+
+
+
+/* 게시물 이동 및 복사 */
+#bw_board_list_div_entry{padding:8px !important; background:white !important; border:1px solid #CCC !important; border-radius:12px !important;}
+#bw_board_list_div_entry dl{margin:0 !important; padding:0 8px 4px 8px !important; width:320px !important; max-height:400px !important; overflow-y:auto !important;}
+#bw_board_list_div_entry dl dt{margin:8px 0 4px 0 !important; padding:4px 8px !important; background:#464646; border-radius:4px !important; color:white !important; font-weight:600 !important; font-size:1.1em !important;}
+#bw_board_list_div_entry dl dd{margin:0 0 4px 0 !important; padding:0 !important; font-size:12px !important; color:#464646 !important;}
+
+#bw_board_list_move_category_area select{box-sizing:border-box; width:100%; border:1px solid #e0e0e0; border-radius:2px; margin:8px 0 0 0; padding:2px;}
+</style>
+<script src="http://waas.kr/.skin/board/bw_basic/jquery/script.js"  charset="utf-8"> </script>
+<script type="text/javascript" charset="UTF-8">
+//<![CDATA[
+$(function(){
+  
+	$("body").on("click", "#bw_board_list_chkall", function(){
+		$(".bw_board_list_chk").prop({"checked":$(this).prop("checked")});
+	});
+
+	$("body").on("click", "#bw_board_list_chknuke", function(){
+		var ENT = [];
+		$(".bw_board_list_chk:checked").each(function(){
+			ENT.push($(this).val());
+		});
+
+		if(ENT.length > 0){
+			if (confirm("선택한 글을 삭제하시겠습니까?")) {
+				// 삭제 전송
+				$.post("nuke.php", {"type":"board", "ent":ENT.toString(), "id":"notice"}, function(d){
+					if(d != "ok"){
+						alert(d);
+						return false;
+					}
+					else{
+						location.reload();
+					}
+				});
+			}
+		}
+		else{
+			alert('선택한 글이 없습니다.');
+		}
+
+		return false;
+	});
+
+	$("body").on("click", "#bw_board_list_chkcopy, #bw_board_list_chkmove", function(event){
+		var M = ($(this).attr("id") == "bw_board_list_chkmove") ? "move" : "copy";
+		var ENT = [];
+		$(".bw_board_list_chk:checked").each(function(){
+			ENT.push($(this).val());
+		});
+
+		if(ENT.length > 0){
+			if($("#bw_board_list_div_entry").length == 0){
+				$("body").append('<div id="bw_board_list_div_entry" data-list-chkmode="'+M+'"></div>');
+			}
+			$("#bw_board_list_div_entry").show().css({"position":"absolute","left":event.pageX - 32, "top":event.pageY - 32, "zIndex":9999}).load("entry.php", {"uniq":"18","ent":ENT.toString(),"type":M});
+		}
+		else{
+			alert('선택한 글이 없습니다.');
+		}
+		return false;
+	});
+
+	$("body").on("click", "#bw_board_list_move_cancel", function(){
+		$("#bw_board_list_div_entry").empty().hide();
+	});
+
+	$("body").on("click", ".bw_board_list_move_entry", function () {
+		var UQ = $(this).val();
+
+		$("#bw_board_list_move_category_area").load("entry_category.php", {"uniq":UQ}, function () {
+			if ($("#bw_board_list_move_category_c1").length > 0) {
+				$("#bw_board_list_move_category_c1").focus();
+			}
+		});
+	});
+
+	$("body").on("change", "#bw_board_list_move_category_area select", function () {
+		var UQ = $(".bw_board_list_move_entry:checked").val();
+		var C1 = ($("#bw_board_list_move_category_c1").length > 0) ? $("#bw_board_list_move_category_c1").val() : 0;
+		var C2 = ($("#bw_board_list_move_category_c2").length > 0) ? $("#bw_board_list_move_category_c2").val() : 0;
+		var C3 = ($("#bw_board_list_move_category_c3").length > 0) ? $("#bw_board_list_move_category_c3").val() : 0;
+		var C4 = ($("#bw_board_list_move_category_c4").length > 0) ? $("#bw_board_list_move_category_c4").val() : 0;
+		var C5 = ($("#bw_board_list_move_category_c5").length > 0) ? $("#bw_board_list_move_category_c5").val() : 0;
+
+		$("#bw_board_list_move_category_area").load("entry_category.php", {"uniq":UQ, "c1":C1, "c2":C2, "c3":C3, "c4":C4, "c5":C5}, function () {
+			if ($("#bw_board_list_move_category_c1").length > 0) {
+				$("#bw_board_list_move_category_c1").focus();
+			}
+		});
+	});
+
+	$("body").on("click", "#bw_board_list_move_ok", function(){
+		var M = $("#bw_board_list_div_entry").attr("data-list-chkmode");
+		var V = $(".bw_board_list_move_entry:checked").val();
+		var C1 = ($("#bw_board_list_move_category_c1").length > 0) ? $("#bw_board_list_move_category_c1").val() : 0;
+		var C2 = ($("#bw_board_list_move_category_c2").length > 0) ? $("#bw_board_list_move_category_c2").val() : 0;
+		var C3 = ($("#bw_board_list_move_category_c3").length > 0) ? $("#bw_board_list_move_category_c3").val() : 0;
+		var C4 = ($("#bw_board_list_move_category_c4").length > 0) ? $("#bw_board_list_move_category_c4").val() : 0;
+		var C5 = ($("#bw_board_list_move_category_c5").length > 0) ? $("#bw_board_list_move_category_c5").val() : 0;
+		var ENT = [];
+		$(".bw_board_list_chk:checked").each(function(){
+			ENT.push($(this).val());
+		});
+
+		if(ENT.length > 0 && V != undefined){
+			if ($("#bw_board_list_move_category_c1").length > 0 && $("#bw_board_list_move_category_c1").val() == '') {
+				alert("분류를 선택해 주세요.");
+				$("#bw_board_list_move_category_c1").focus();
+				return false;
+			}
+			else if ($("#bw_board_list_move_category_c2").length > 0 && $("#bw_board_list_move_category_c2").val() == '') {
+				alert("분류를 선택해 주세요.");
+				$("#bw_board_list_move_category_c2").focus();
+				return false;
+			}
+			else if ($("#bw_board_list_move_category_c3").length > 0 && $("#bw_board_list_move_category_c3").val() == '') {
+				alert("분류를 선택해 주세요.");
+				$("#bw_board_list_move_category_c3").focus();
+				return false;
+			}
+			else if ($("#bw_board_list_move_category_c4").length > 0 && $("#bw_board_list_move_category_c4").val() == '') {
+				alert("분류를 선택해 주세요.");
+				$("#bw_board_list_move_category_c4").focus();
+				return false;
+			}
+			else if ($("#bw_board_list_move_category_c5").length > 0 && $("#bw_board_list_move_category_c5").val() == '') {
+				alert("분류를 선택해 주세요.");
+				$("#bw_board_list_move_category_c5").focus();
+				return false;
+			}
+			else{
+				if(confirm("선택한 게시물을 "+((M == "move") ? "이동" : "복사")+"하시겠습니까?")){
+					// 이동/복사 전송
+					$.post("entry_done.php", {"type":M, "ent":ENT.toString(), "from":"18", "to":V, "c1":C1, "c2":C2, "c3":C3, "c4":C4, "c5":C5}, function(d){
+						if(d != "ok"){
+							alert(d);
+							return false;
+						}
+						else{
+							location.reload();
+						}
+					});
+				}
+			}
+		}
+		else if(V == undefined){
+			alert('선택한 게시판이 없습니다.');
+		}
+		else{
+			alert('선택한 글이 없습니다.');
+		}
+	});
+
+	$("body").on("click", "#bw_board_list_goarch", function(){
+		top.location.href = 'http://meetinkorea.kr/arch/menu/edit.php?uniq=18';
+	});
+
+	// 순서 변경
+	$("body").on("keyup change input cut paste", ".bw_board_order_changer", function () {
+		var IPT = $(this);
+		var ODR = $(this).attr("data-odr");
+
+		$.post("order.php",{"odr":$(this).val(), "id":"notice", "uniq":$(this).attr("data-uniq")},function(d){
+			if (d != 'ok') {
+				alert(d);
+				IPT.val(ODR);
+				return false;
+			}
+		});
+	});
+
+
+$("body").on("click", ".bw_board_view_nuke_sub", function(){
+	var UQ = $(this).attr("data-uniq");
+
+		if(confirm("이 글을 삭제하시겠습니까?")){
+		$.post("nuke.php", {"id":"notice", "ent":UQ}, function(d){
+			if(d != "ok"){
+				alert(d);
+				return false;
+			}
+			else{
+				location.reload();
+			}
+		});
+	}
+	
+	return false;
+});
+
+
+});
+//]]>
+</script>
+
+
+
+<table id="bw_board_list" data-colspan="5" data-colspan-m="3">
+	<div class="sub_sect_tit">공지사항</div>
+	<div class="sub_sect_tit_line"></div>
+<caption>
+	<button type="button" id="bw_board_list_goarch" data-bw-iskin="17">기능설정</button>	총 2건
+	<form id="bw_board_list_search" name="bw_board_list_search" action="" method="get">
+		
+	
+
+		<select name="opt" id="opt">
+			<option value="" selected="selected">제목+내용</option>
+			<option value="T" >제목</option>
+			<option value="C" >내용</option>
+			<option value="W" >작성자</option>			
+			<option value="I" >작성자 ID</option>		
+		</select>
+
+		<input type="search" name="key" id="key" value="" />
+		<button type="submit" data-bw-iskin="9">검색</button>
+
+		<input type="hidden" id="id" name="id" value="notice" />
+		<input type="hidden" id="c1" name="c1" value="0" />
+		<input type="hidden" id="c2" name="c2" value="0" />
+		<input type="hidden" id="c3" name="c3" value="0" />
+		<input type="hidden" id="c4" name="c4" value="0" />
+		<input type="hidden" id="c5" name="c5" value="0" />
+			</form>
+</caption>
+
+	<colgroup>
+	
+		<col style="width: 80%;"/>
+		<col style="width: 20%;"/>			</colgroup>
+
+	<thead>
+		<tr>
+			<th style="width: 80%;">제목</th>
+			<th style="width: 20%;">작성자</th>					
+		</tr>
+	</thead>
+
+	<tbody>
+	<tr >
+
+  <td>
+        <a href="http://meetinkorea.kr/board/view.php?id=notice&uniq=2&p=0&c1=0&c2=0&c3=0&c4=0&c5=0&opt=&key=">테스트 게시글2</a>
+    
+		  </td>
+  <td>관리자</td>  </tr>
+<tr >
+
+  <td>
+        <a href="http://meetinkorea.kr/board/view.php?id=notice&uniq=1&p=0&c1=0&c2=0&c3=0&c4=0&c5=0&opt=&key=">테스트 게시글</a>
+    
+		  </td>
+  <td>관리자</td>  </tr>
+	</tbody>
+
+	<tfoot>
+		<td colspan="2">
+			<span>
+							<button type="button" id="bw_board_list_chknuke" data-bw-iskin="14">선택삭제</button>
+
+							<button type="button" id="bw_board_list_chkcopy" data-bw-iskin="15">선택복사</button>
+				<button type="button" id="bw_board_list_chkmove" data-bw-iskin="16">선택이동</button>
+						</span>
+
+							<a href="./write.php?id=notice&p=0&c1=0&c2=0&c3=0&c4=0&c5=0&opt=&key="><button type="button" data-bw-iskin="2">글쓰기</button></a>
+					</td>
+	</tfoot>
+</table>
+
+<ul class='bw_page'><li><a href='./?id=notice&opt=&key=&c1=0&c2=0&c3=0&c4=0&c5=0&p=0' target='_self' class='on'>1</a></li></ul>
+</div>
+
+
+
+
+
+</div></body>
+</html>
