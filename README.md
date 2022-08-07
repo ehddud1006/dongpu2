@@ -66,6 +66,6 @@ https://ehddud100677.tistory.com/308
 
 ![ezgif com-gif-maker (14)](https://user-images.githubusercontent.com/62373865/152651747-51f0e771-1be1-4cf1-85e7-0451dfb06ed0.gif)
 
-#### 22.02.06 레시피 작성 폼
+#### 22.02.06 레시피 작성 폼.
 
 ![ezgif com-gif-maker (19)](https://user-images.githubusercontent.com/62373865/152695523-54f4670a-abad-45eb-8b02-3163fa3c1352.gif)
